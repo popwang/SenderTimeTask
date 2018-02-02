@@ -1,0 +1,22 @@
+[INFO ] [23:44:38] org.springframework.context.support.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@7a4076: startup date [Sat Jul 01 23:44:38 CST 2017]; root of context hierarchy
+[INFO ] [23:44:38] org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [applicationContext.xml]
+[INFO ] [23:44:39] org.springframework.context.support.PropertySourcesPlaceholderConfigurer - Loading properties file from URL [file:/E:/Workspaces/MyEclipse%2010/SenderTimeTask/bin/application.properties]
+[INFO ] [23:44:40] org.springframework.beans.factory.config.PropertiesFactoryBean - Loading properties file from class path resource [application.properties]
+[INFO ] [23:44:45] com.http.aysm.AysmQuartz - 安阳平顶山数据发送开始...
+[INFO ] [23:44:45] com.http.aysm.AysmService - 00000088
+[INFO ] [23:44:45] com.http.aysm.AysmQuartz - 安阳平顶山本轮数据发送完成！
+[INFO ] [23:44:50] com.http.aysm.AysmQuartz - 安阳平顶山数据发送开始...
+[INFO ] [23:44:50] com.http.aysm.AysmService - 00000088
+[INFO ] [23:44:50] com.http.aysm.AysmQuartz - 安阳平顶山本轮数据发送完成！
+[INFO ] [23:44:55] com.http.aysm.AysmQuartz - 安阳平顶山数据发送开始...
+[INFO ] [23:44:55] com.http.aysm.AysmService - 00000088
+[INFO ] [23:44:55] com.http.aysm.AysmQuartz - 安阳平顶山本轮数据发送完成！
+[INFO ] [23:45:00] com.http.aysm.AysmQuartz - 安阳平顶山数据发送开始...
+[INFO ] [23:45:00] com.http.aysm.AysmService - 00000088
+[INFO ] [23:45:00] com.http.aysm.AysmQuartz - 安阳平顶山本轮数据发送完成！
+[INFO ] [23:45:05] com.http.aysm.AysmQuartz - 安阳平顶山数据发送开始...
+[INFO ] [23:45:05] com.http.aysm.AysmService - 00000088
+[INFO ] [23:45:05] com.http.aysm.AysmQuartz - 安阳平顶山本轮数据发送完成！
+[INFO ] [23:45:10] com.http.aysm.AysmQuartz - 安阳平顶山数据发送开始...
+[INFO ] [23:45:10] com.http.aysm.AysmService - 00000088
+[INFO ] [23:45:10] com.http.aysm.AysmQuartz - 安阳平顶山本轮数据发送完成！

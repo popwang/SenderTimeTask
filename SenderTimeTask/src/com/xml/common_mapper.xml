@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 系统数据库查询所需SQL文件 -->
+<mapper namespace="com.mapper.CommonMapper">
+	<!-- 通用方法：根据设备名称查询设备最新一条数据 -->
+	<select id="selectDataByName" resultType="com.vo.EquipmentData" parameterType="string">
+		 select t.* from t_equipment_data t  where t.v_equipment_name=#{v_equipment_name} 
+		 order by t.dtm_create desc limit 0,1
+	</select>
+	
+	<!-- 查询各系统所需发送的设备列表 -->
+	<select id="selectEquipmentListBySystemId" resultType="com.vo.EquipmentProjectVo" parameterType="int">
+		 select * from t_equipment_project where i_system_id=#{i_system_id}
+	</select>
+	
+	<insert id="insertWeatherInfoIntoBuffer" parameterType="com.vo.OrderBufferVo">
+		insert into t_order_buffer(v_equipment_name,v_order_content,i_send_flag)
+		values(#{v_equipment_name},#{v_order_content},#{i_send_flag})
+	</insert>
+</mapper>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 系统数据库查询所需SQL文件 -->
+<mapper namespace="com.mapper.BusinessMapper">
+	<!-- 查询各系统所需发送的设备列表 -->
+	<select id="selectEquipmentInfo" resultType="com.vo.EquipmentInfo">
+		 select i_equipment_id,v_equipment_name,v_company,v_address,v_phone 
+		 from t_equipment_info2
+	</select>
+	
+	<update id="updateEquipmentInfo"  parameterType="com.vo.EquipmentInfo">
+		 update t_equipment_info2 set v_company=#{v_company},v_address=#{v_address},
+		 n_longitude=#{n_longitude},n_latitude=#{n_latitude},
+		 n_longitude_bd=#{n_longitude_bd},n_latitude_bd=#{n_latitude_bd}
+		 where i_equipment_id=#{i_equipment_id}
+	</update>
+	
+	<!-- 根据设备名称查询设备数据,data2中理论最多只有一条 -->
+	<select id="selectDataByNameFromData2" resultType="com.vo.EquipmentData" parameterType="string">
+		 select t.* from t_equipment_data2 t  where t.v_equipment_name=#{v_equipment_name} 
+	</select>
+</mapper>
