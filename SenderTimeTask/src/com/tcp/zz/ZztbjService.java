@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 import com.mapper.CommonMapper;
 import com.utils.CommonUtil;
 import com.utils.ConfigReader;
+import com.utils.SocketUtil;
 import com.utils.SystemEnum;
 import com.utils.TBJUtil;
 import com.vo.EquipmentData;
@@ -31,37 +32,39 @@ public class ZztbjService {
 		List<EquipmentProjectVo> list = mapper.selectEquipmentListBySystemId(SystemEnum.ZZ_TBJ_SYSTEM.getId());
 		log.info("本轮待发送设备数为：" + list.size());
 		for (EquipmentProjectVo vo : list) {
-			EquipmentData v = mapper.selectDataByName(vo.getV_equipment_name().substring(2));
+			EquipmentData v = mapper.selectDataByName(vo.getV_real_equipment_name());
 			if(v==null){
 				log.info(vo.getV_equipment_name()+"当前无数据。");
 				continue;
 			}
 			v.setV_equipment_name(vo.getV_equipment_name());
 			String info = TBJUtil.getDataString(v);
-			log.info("发送内容:" + info);
-			CommonUtil.sendDataToRemote(ConfigReader.getZZtbjIP(), ConfigReader.getZZtbjPORT(),info,log);
+//			log.info("发送内容:" + info);
+//			CommonUtil.sendDataToRemote(ConfigReader.getZZtbjIP(), ConfigReader.getZZtbjPORT(),info,log);
+			SocketUtil.init(SystemEnum.ZZ_TBJ_SYSTEM.toString(), ConfigReader.getZZtbjIP(), ConfigReader.getZZtbjPORT());
+			SocketUtil.sendDataBySocket(SystemEnum.ZZ_TBJ_SYSTEM.toString(), 1,info, log);
 		}
 	}
 	
 	public static void main(String[] args){
 		EquipmentData e = new EquipmentData();
-		e.setV_equipment_name("AZ00000168");
+		e.setV_equipment_name("ZB00000537");
 		e.setP001(0);
 		e.setP002(68);
 		e.setP003(83);
 		e.setP004(0.5);
 		e.setP005(3);
-		e.setP006(32.0);
+		e.setP006(25.0);
 		e.setP007(45.3);
 		e.setP008(52.1);
 		e.setP009(0);
 		e.setP010(0);
 		String info = TBJUtil.getDataString(e);
-		log.info("发送内容:" + info);
-//		CommonUtil.sendDataToRemote("61.185.220.176", 8068,info,log);
+//		log.info("发送内容:" + info);
+//		CommonUtil.sendDataToRemote(ConfigReader.getZZtbjIP(), ConfigReader.getZZtbjPORT(),info,log);
 		
-//		SocketUtil.init(SystemEnum.SD_JINAN_SYSTEM.toString(), "123.15.58.210", 9123);
-//		SocketUtil.sendDataBySocket(SystemEnum.SD_JINAN_SYSTEM.toString(), 1,info, log);	
+		SocketUtil.init(SystemEnum.ZZ_TBJ_SYSTEM.toString(), "123.15.58.210", 9123);
+		SocketUtil.sendDataBySocket(SystemEnum.ZZ_TBJ_SYSTEM.toString(), 1,info, log);	
 		
 	}
 }
