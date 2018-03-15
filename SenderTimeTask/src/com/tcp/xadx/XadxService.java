@@ -15,11 +15,11 @@ import com.utils.SystemEnum;
 import com.vo.EquipmentData;
 import com.vo.EquipmentProjectVo;
 /**
- * 西安大兴区对接接口
+ * 西安大兴区对接接口;莲湖区对接接口，与大兴区一致
  * 安正出货，294 SIM:18490437284
- * 对接人：齐工：13519194981  
- * 设备添加：石工，刘元有微信
- * 技术对接：131 9333 4306 邮箱： fca756@126.com
+ * 对接人：齐工：13519194981  联系不上，无效
+ * 设备添加：石工，刘元有微信，添加设备
+ * 技术对接：樊工：131 9333 4306 邮箱： fca756@126.com，估计是后台厂家
  * @author Administrator
  */
 @Component
