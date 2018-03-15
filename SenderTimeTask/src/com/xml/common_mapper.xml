@@ -7,7 +7,7 @@
 <mapper namespace="com.mapper.CommonMapper">
 	<!-- 通用方法：根据设备名称查询设备最新一条数据 -->
 	<select id="selectDataByName" resultType="com.vo.EquipmentData" parameterType="string">
-		 select t.* from t_equipment_data t  where t.v_equipment_name=#{v_equipment_name} 
+		 select t.* from t_equipment_data2 t  where t.v_equipment_name=#{v_equipment_name} 
 		 order by t.dtm_create desc limit 0,1
 	</select>
 	

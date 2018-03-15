@@ -5,7 +5,6 @@
 
 <!-- 系统数据库查询所需SQL文件 -->
 <mapper namespace="com.mapper.BusinessMapper">
-	<!-- 查询各系统所需发送的设备列表 -->
 	<select id="selectEquipmentInfo" resultType="com.vo.EquipmentInfo">
 		 select i_equipment_id,v_equipment_name,v_company,v_address,v_phone 
 		 from t_equipment_info2
