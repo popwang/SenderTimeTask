@@ -7,6 +7,14 @@ public class EquipmentProjectVo {
 	private String v_system;
 	private String dtm_add;
 	private Integer i_system_id;
+	private String v_real_equipment_name;
+	
+	public String getV_real_equipment_name() {
+		return v_real_equipment_name;
+	}
+	public void setV_real_equipment_name(String v_real_equipment_name) {
+		this.v_real_equipment_name = v_real_equipment_name;
+	}
 	/**
 	 * @return the v_equipment_name
 	 */
