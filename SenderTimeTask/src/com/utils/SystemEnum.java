@@ -26,6 +26,7 @@ public enum SystemEnum {
 	SD_HZ_SYSTEM(20,"山东菏泽"),
 	XA_BQ_SYSTEM(21,"陕西西安灞桥区"),
 	LY_YC_SYSTEM(22,"洛阳伊川"),
+	XA_LH_SYSTEM(23,"陕西西安莲湖区"),
 	WEATHER_SYSTEM(99,"天气预报");
 	
 	private int id;
