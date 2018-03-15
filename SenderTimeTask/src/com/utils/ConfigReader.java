@@ -24,6 +24,24 @@ public class ConfigReader {
 		}
 		return p;
 	}
+	
+	/**
+	 * 根据系统标识获取主机ip
+	 * @param systemId
+	 * @return
+	 */
+	public static String getHost(String systemId) {
+		return p.getProperty(systemId+"_HOST").toString();
+	}
+	/**
+	 * 根据系统标识获取主机端口
+	 * @param systemId
+	 * @return
+	 */
+	public static int getPort(String systemId){
+		return Integer.parseInt(p.getProperty(systemId+"_PORT").toString());
+	}
+	
 	/**
 	 * 读取郑州特比佳服务ip
 	 * @return
