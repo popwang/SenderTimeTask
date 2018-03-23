@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.mapper.CommonMapper;
-import com.utils.CommonUtil;
 import com.utils.ConfigReader;
 import com.utils.SocketUtil;
 import com.utils.SystemEnum;
@@ -39,8 +38,6 @@ public class ZztbjService {
 			}
 			v.setV_equipment_name(vo.getV_equipment_name());
 			String info = TBJUtil.getDataString(v);
-//			log.info("·¢ËÍÄÚÈÝ:" + info);
-//			CommonUtil.sendDataToRemote(ConfigReader.getZZtbjIP(), ConfigReader.getZZtbjPORT(),info,log);
 			SocketUtil.init(SystemEnum.ZZ_TBJ_SYSTEM.toString(), ConfigReader.getZZtbjIP(), ConfigReader.getZZtbjPORT());
 			SocketUtil.sendDataBySocket(SystemEnum.ZZ_TBJ_SYSTEM.toString(), 1,info, log);
 		}
