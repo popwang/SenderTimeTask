@@ -31,20 +31,20 @@ public class ZkServer implements ServerInterface {
 	@Override
 	public void handler() {
 		List<EquipmentProjectVo> list = mapper.selectEquipmentListBySystemId(SystemEnum.HA_ZK_SYSTEM.getId());
-		log.info("本轮待发送设备数为："+list.size());
+		log.info(SystemEnum.HA_ZK_SYSTEM.getName()+"本轮待发送设备数为："+list.size());
 		//001600212
 		for(EquipmentProjectVo vo : list){
-			EquipmentData e = mapper.selectDataByName("000"+vo.getV_equipment_name().substring(4));
+			EquipmentData e = mapper.selectDataByName(vo.getV_real_equipment_name());
 			if(e==null){
 				log.info(vo.getV_equipment_name()+"当前无数据。");
 				continue;
 			}
 			e.setV_equipment_name(vo.getV_equipment_name());
 			String info = CRC.getDataString3(e);
-			log.info("发送内容:" + info);
+			log.info(SystemEnum.HA_ZK_SYSTEM.getName()+"发送内容:" + info);
 			
-			CommonUtil.sendDataToRemote(ConfigReader.getZkIP(),
-					ConfigReader.getZkPORT(),info,log);
+			CommonUtil.sendDataToRemote(ConfigReader.getHost(SystemEnum.HA_ZK_SYSTEM.toString()),
+					ConfigReader.getPort(SystemEnum.HA_ZK_SYSTEM.toString()),info,log);
 		}
 		log.info("本轮待数据发送完成！");
 	}
