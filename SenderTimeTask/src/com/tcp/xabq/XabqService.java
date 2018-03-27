@@ -17,7 +17,12 @@ import com.utils.SocketUtil;
 import com.utils.SystemEnum;
 import com.vo.EquipmentData;
 import com.vo.EquipmentProjectVo;
-
+/**
+ * 西安灞桥区，来工：QQ:380787270
+ * 发送自定义编号，后台添加
+ * @author pactera
+ *
+ */
 @Component
 public class XabqService implements ServerInterface {
 
