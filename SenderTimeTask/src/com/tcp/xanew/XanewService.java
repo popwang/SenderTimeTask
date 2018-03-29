@@ -17,7 +17,7 @@ import com.vo.EquipmentData;
 import com.vo.EquipmentProjectVo;
 /**
  * 西安高新区对接接口，协议使用郑州特必佳协议
- * 联系人微信：蓝天
+ * 联系人微信：蓝天，添加设备需要设备号和工地名称
  * ip:61.185.220.176:8068
  * @author pactera
  */

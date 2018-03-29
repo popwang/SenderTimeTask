@@ -19,7 +19,7 @@ import com.vo.EquipmentData;
 import com.vo.EquipmentProjectVo;
 /**
  * 周口数据发送接口
- * 联系电话：张18638065672
+ * 联系电话：张18638065672，微信提供工地信息进行添加。
  * 安正厂家代码为：16
  * @author pactera
  */
@@ -55,22 +55,22 @@ public class ZkServer implements ServerInterface {
 			@Override
 			public void run() {
 				EquipmentData e = new EquipmentData();
-				e.setV_equipment_name("001600212");
+				e.setV_equipment_name("000400069");
 				e.setP001(0);
 				e.setP002(68);
 				e.setP003(85);
 				e.setP004(0.5);
 				e.setP005(3);
-				e.setP006(32.0);
+				e.setP006(28.0);
 				e.setP007(45.3);
 				e.setP008(52.1);
 				e.setP009(0);
 				e.setP010(0);
 				String info = CRC.getDataString3(e);
 				log.info("发送内容:" + info);
-				CommonUtil.sendDataToRemote(ConfigReader.getZkIP(),
-						ConfigReader.getZkPORT(),info,log);
+				CommonUtil.sendDataToRemote(ConfigReader.getHost(SystemEnum.HA_ZK_SYSTEM.toString()),
+						ConfigReader.getPort(SystemEnum.HA_ZK_SYSTEM.toString()),info,log);
 			}
-		}, 1000, 1*30*1000);
+		}, 1000, 1*120*1000);
 	}
 }
