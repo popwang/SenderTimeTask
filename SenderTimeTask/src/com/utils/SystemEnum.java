@@ -27,6 +27,7 @@ public enum SystemEnum {
 	XA_BQ_SYSTEM(21,"陕西西安灞桥区"),
 	LY_YC_SYSTEM(22,"洛阳伊川"),
 	XA_LH_SYSTEM(23,"陕西西安莲湖区"),
+	SX_YC_SYSTEM(24,"山西运城"),
 	WEATHER_SYSTEM(99,"天气预报");
 	
 	private int id;
@@ -53,7 +54,7 @@ public enum SystemEnum {
 	}
 	
 	public static void main(String[] args){
-		System.out.println(SystemEnum.AY_HX_SYSTEM.toString());
+		System.out.println(SystemEnum.AY_HX_SYSTEM);
 	}
 	
 }
