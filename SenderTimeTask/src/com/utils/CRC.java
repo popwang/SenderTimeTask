@@ -13,6 +13,15 @@ import com.vo.EquipmentData;
  * @author Administrator
  */
 public class CRC {
+	
+	/**
+	 * 当前时间字符串yyyyMMddHHmmss
+	 * @return
+	 */
+	public static String currentTimeString(String format) {
+		return new SimpleDateFormat(format).format(new Date());
+	}
+	
 	/**
 	 * 当前时间字符串yyyyMMddHHmmss
 	 * @return
