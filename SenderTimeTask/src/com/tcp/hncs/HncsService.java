@@ -39,7 +39,7 @@ public class HncsService implements BaseService {
 				continue;
 			}
 			v.setV_equipment_name(vo.getV_equipment_name());
-			String info = this.getDataString(v);
+			String info = getDataString(v);
 			SocketUtil.init(SystemEnum.HN_CS_SYSTEM.toString(), ConfigReader.getHnChangshaIP(),
 					ConfigReader.getHnChangshaPORT());
 			SocketUtil.sendDataBySocket(SystemEnum.HN_CS_SYSTEM.toString(), 1,info, log);
@@ -48,35 +48,7 @@ public class HncsService implements BaseService {
 	
 	@Override
 	public String getDataString(EquipmentData v) {
-		StringBuilder sb = new StringBuilder();
-		sb.append("MD,");
-		sb.append(v.getV_equipment_name());
-		sb.append(",");
-		sb.append("AZ,");
-		sb.append("0,");
-		sb.append(v.getP002());
-		sb.append(",");
-		sb.append(v.getP003());
-		sb.append(",");
-		sb.append(v.getP009());
-		sb.append(",");
-		sb.append(v.getP008());
-		sb.append(",");
-		sb.append(v.getP006());
-		sb.append(",");
-		sb.append(v.getP007());
-		sb.append(",");
-		sb.append(v.getP004());
-		sb.append(",");
-		sb.append(v.getP005());
-		sb.append(",");
-		sb.append(v.getP010());
-		sb.append(",,,,,,");
-		sb.append(v.getP015());
-		sb.append(",");
-		sb.append(v.getP014());
-		sb.append("#");
-		return sb.toString();
+		return HnUtil.getDataString(v);
 	}
 	
 	public static void main(String[] args){
