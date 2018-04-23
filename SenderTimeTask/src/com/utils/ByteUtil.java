@@ -50,6 +50,25 @@ public class ByteUtil {
 	
 	public static byte[] HEADERS = new byte[]{HEAD,CMD_R,ID,CID,CID,TID,TID};
 	
+	public static void main(String[] args) {
+		byte[] factory = "ZBLWYCJC".getBytes();
+		System.out.println(factory.length);
+		System.out.println("675".getBytes().length);
+		System.out.println(bytesToHexString(getEpcCode("676")));
+	}
+	
+	/**
+	 * 生成深圳EPC设备编号
+	 * @param equipmentcode
+	 * @return
+	 */
+	public static byte[] getEpcCode(String equipmentcode){
+		byte[] bytes = new byte[12];
+		bytes[0] = 0x0E;
+		System.arraycopy("ZBLWYCJC".getBytes(), 0, bytes, 1, 8);
+		System.arraycopy(equipmentcode.getBytes(), 0, bytes, 9, 3);
+		return bytes;
+	}
 	
 	/**
 	 * 将short类型转为长度为2的byte数组
@@ -64,7 +83,7 @@ public class ByteUtil {
 	}
 	
 	/**
-	 * int转byte数组
+	 * int转byte数组，大端序
 	 * @param a
 	 * @return
 	 */
@@ -103,10 +122,18 @@ public class ByteUtil {
      * @param bytes
      * @return
      */
-    public static String byteToBinaryString(byte[] bytes){
+	public static String byteToBinaryString(byte[] bytes){
+		String str = "";
+		for(byte b : bytes){
+			str +=Integer.toBinaryString((b & 0xFF) + 0x100).substring(1);
+		}
+		return str;
+	}
+	
+    public static String byteToBinaryString2(byte[] bytes){
     	String str = "";
     	for(byte b : bytes){
-    		str +=Integer.toBinaryString((b & 0xFF) + 0x100).substring(1);
+    		str +=Integer.toBinaryString(b);
     	}
     	return str;
     }
