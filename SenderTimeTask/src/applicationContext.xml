@@ -53,6 +53,7 @@
 	</bean>
     <tx:annotation-driven transaction-manager="transactionManager"/>
     <task:scheduled-tasks>
+		
 		<!-- 开封定时器 -->
 		<task:scheduled ref="kfQuartz" method="startTimeTask" cron="0 0/5 * * * ?"/>
 		<!-- 河北石家庄定时器 -->
@@ -97,6 +98,13 @@
 		<task:scheduled ref="sdhzQuartz" method="startTimeTask" cron="0 0/3 * * * ?"/>
 		<!-- 开封2定时器 -->
 		<task:scheduled ref="kf2Quartz" method="startTimeTask" cron="0 0/5 * * * ?"/>
+		<!-- 南阳定时器 
+		<task:scheduled ref="nyQuartz" method="startTimeTask" cron="0 0/5 * * * ?"/>
+		-->
+		<!-- 陕西渭南定时器 -->
+		<task:scheduled ref="sxwnQuartz" method="startTimeTask" cron="0 0/10 * * * ?"/>
+		<!-- 广东深圳定时器 -->
+		<task:scheduled ref="gdszQuartz" method="startTimeTask" cron="0 0/10 * * * ?"/>
 	</task:scheduled-tasks>
 	
 </beans>

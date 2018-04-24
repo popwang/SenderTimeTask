@@ -9,7 +9,7 @@ import com.utils.SystemEnum;
 public abstract class AbstactBaseQuartz implements QuartzInterface {
 	
 	public static Log log = LogFactory.getLog(AbstactBaseQuartz.class);
-
+	
 	@Override
 	public void startTimeTask() {
 		AbstractBaseService service = getAbstractBaseService();

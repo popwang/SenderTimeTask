@@ -28,6 +28,9 @@ public enum SystemEnum {
 	LY_YC_SYSTEM(22,"洛阳伊川"),
 	XA_LH_SYSTEM(23,"陕西西安莲湖区"),
 	SX_YC_SYSTEM(24,"山西运城"),
+	HA_NY_SYSTEM(25,"河南南阳"),
+	SX_WN_SYSTEM(26,"陕西渭南"),
+	GD_SZ_SYSTEM(27,"广东深圳"),
 	WEATHER_SYSTEM(99,"天气预报");
 	
 	private int id;

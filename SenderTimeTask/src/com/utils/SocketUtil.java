@@ -43,6 +43,12 @@ public class SocketUtil {
 		getSocket(key,ip,port);
 	}
 	
+	public static void init2(String key){
+		String ip = ConfigReader.getHost(key);
+		int port = ConfigReader.getPort(key);
+		getSocket(key,ip,port);
+	}
+	
 	/**
 	 * 根据key获取socket连接
 	 * 如果存在则复用，如果不存在则重新创建
@@ -168,7 +174,7 @@ public class SocketUtil {
 				log.info("发送内容："+ByteUtil.bytesToHexString(info));
 				out.write(info);
 				out.flush();
-				byte[] buf = new byte[2];
+				byte[] buf = new byte[22];
 //				int len = 0;
 				try{
 					while(is.read(buf)!=-1){
