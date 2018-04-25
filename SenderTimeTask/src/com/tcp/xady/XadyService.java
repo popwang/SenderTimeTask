@@ -9,10 +9,9 @@ import com.utils.SocketUtil;
 import com.utils.SystemEnum;
 import com.vo.EquipmentData;
 /**
- * 西安雁塔区对接协议，内容同大兴区，地址不同
+ * 西安雁塔区对接协议，内容同大兴区，地址不同，404
  * 将基本信息EXCEL填写完成，请发送至邮箱325802777@qq.com或微信发送基本信息表。
  * @author pactera
- * 632
  */
 @Component
 public class XadyService extends AbstractBaseService {
