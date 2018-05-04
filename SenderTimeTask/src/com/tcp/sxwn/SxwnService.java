@@ -1,10 +1,12 @@
 package com.tcp.sxwn;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import org.springframework.stereotype.Component;
 
 import com.common.service.AbstractBaseService;
 import com.tcp.hncs.HnUtil;
-import com.tcp.xabq.XabqUtil;
 import com.utils.CommonUtil;
 import com.utils.SocketUtil;
 import com.utils.SystemEnum;
@@ -16,24 +18,27 @@ import com.vo.EquipmentData;
  */
 @Component
 public class SxwnService extends AbstractBaseService{
-
+	
 	@Override
 	public void sendEquipmentData(EquipmentData v) {
-//		String info = XabqUtil.getAirString(v);
 		String info = HnUtil.getDataString(v);
-		info = info.replaceAll("AZ", "ZB");
-		info = "MD,ZB000552,ZB,0,103.0,83.0,,52.1,32.0,45.3,0.5,3.0,,,,,,,34.23424,113.43594#";
-		info = "MD,17050001,WZ,0,65.5,100.5,,40.3,35.5,16.6,12.4,90,,,,,,,34.726462,113.639278#";
+		if(v.getV_equipment_name().contains("ZB")){
+			info = info.replaceAll("AZ", "ZB");
+		}
 		SocketUtil.init2(SystemEnum.SX_WN_SYSTEM.toString());
-		SocketUtil.sendDataBySocket(SystemEnum.SX_WN_SYSTEM.toString(), 1,info, log);
-//		SocketUtil.init2(SystemEnum.HN_CS_SYSTEM.toString());
-//		SocketUtil.sendDataBySocket(SystemEnum.HN_CS_SYSTEM.toString(), 1,info, log);
+		SocketUtil.sendDataBySocket(SystemEnum.SX_WN_SYSTEM.toString(), 3,info, log);
 	}
 
 	public static void main(String[] args) {
 		SxwnService sxwn = new SxwnService();
 		EquipmentData v = CommonUtil.getEquipmentDataInstance();
 		v.setV_equipment_name("ZB000552");
-		sxwn.sendEquipmentData(v);
+		Timer timer = new Timer();
+		timer.scheduleAtFixedRate(new TimerTask() {
+			@Override
+			public void run() {
+				sxwn.sendEquipmentData(v);
+			}
+		}, 1000, 1*10*1000);
 	}
 }

@@ -1,13 +1,11 @@
 package com.tcp.gdsz;
 
-import java.util.Timer;
-import java.util.TimerTask;
-
 import org.springframework.stereotype.Component;
 
 import com.common.service.AbstractBaseService;
 import com.tcp.xabq.XabqUtil;
 import com.utils.CommonUtil;
+import com.utils.ConfigReader;
 import com.utils.SocketUtil;
 import com.utils.SystemEnum;
 import com.vo.EquipmentData;
@@ -22,8 +20,10 @@ public class GdszService extends AbstractBaseService {
 	@Override
 	public void sendEquipmentData(EquipmentData v) {
 		String info = XabqUtil.getAirString2(v);
-		SocketUtil.init2(SystemEnum.GD_SZ_SYSTEM.toString());
-		SocketUtil.sendDataBySocket(SystemEnum.GD_SZ_SYSTEM.toString(), 1, info, log);
+//		SocketUtil.init2(SystemEnum.GD_SZ_SYSTEM.toString());
+//		SocketUtil.sendDataBySocket(SystemEnum.GD_SZ_SYSTEM.toString(), 1, info, log);
+		CommonUtil.sendDataToRemote(ConfigReader.getHost(SystemEnum.GD_SZ_SYSTEM.toString()),
+		ConfigReader.getPort(SystemEnum.GD_SZ_SYSTEM.toString()), info, log);
 	}
 	
 	public static void main(String[] args) {

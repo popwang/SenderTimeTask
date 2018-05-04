@@ -67,7 +67,7 @@ public class XabqUtil {
 		StringBuffer sb = new StringBuffer("");
 		sb.append("QN=");
 		sb.append(CRC.currentTimeStampString());//yyyyMMddHHmmssSSS
-		sb.append(";ST=22;CN=2011;PW=123456;MN=");
+		sb.append(";ST=39;CN=2011;PW=123456;MN=");
 		sb.append(e.getV_equipment_name());
 		sb.append(";Flag=5;CP=&&DataTime=");
 		sb.append(CRC.currentTimeString());//yyyyMMddHHmmss
