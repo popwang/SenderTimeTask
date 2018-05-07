@@ -30,6 +30,7 @@ public abstract class AbstractBaseService implements ServerInterface2 {
 				continue;
 			}
 			v.setV_equipment_name(vo.getV_equipment_name());
+			v.setV_project_name(vo.getV_project_name());
 			sendEquipmentData(v);
 		}
 		log.info(systemEnum.getName()+"本轮发送完成。");

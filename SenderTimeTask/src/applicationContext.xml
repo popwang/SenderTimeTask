@@ -104,7 +104,11 @@
 		<!-- 陕西渭南定时器 -->
 		<task:scheduled ref="sxwnQuartz" method="startTimeTask" cron="0 0/10 * * * ?"/>
 		<!-- 广东深圳定时器 -->
-		<task:scheduled ref="gdszQuartz" method="startTimeTask" cron="0 0/10 * * * ?"/>
+		<task:scheduled ref="gdszQuartz" method="startTimeTask" cron="0 0/1 * * * ?"/>
+		<!-- 西安雁塔区定时器 -->
+		<task:scheduled ref="xadyQuartz" method="startTimeTask" cron="0 0/5 * * * ?"/>
+		<!-- 安阳滑县2定时器 -->
+		<task:scheduled ref="ayhx2Quartz" method="startTimeTask" cron="0 0/5 * * * ?"/>
 	</task:scheduled-tasks>
 	
 </beans>

@@ -2,6 +2,7 @@ package com.vo;
 
 public class EquipmentData {
 	private String v_equipment_name;
+	private String v_project_name;
 	private Integer i_equipment_id;
 	//´«¸ÐÆ÷×´Ì¬
 	private double p001;
@@ -50,6 +51,14 @@ public class EquipmentData {
 				"£»ÆøÑ¹£º"+ this.getP010();
 	}
 	
+	public String getV_project_name() {
+		return v_project_name;
+	}
+
+	public void setV_project_name(String v_project_name) {
+		this.v_project_name = v_project_name;
+	}
+
 	public Integer getI_equipment_id() {
 		return i_equipment_id;
 	}
