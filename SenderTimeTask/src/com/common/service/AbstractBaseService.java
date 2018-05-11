@@ -17,7 +17,7 @@ public abstract class AbstractBaseService implements ServerInterface2 {
 	public static Log log = LogFactory.getLog(AbstractBaseService.class);
 	
 	@Autowired
-	private CommonMapper mapper;
+	protected CommonMapper mapper;
 	
 	@Override
 	public void handler(SystemEnum systemEnum) {

@@ -316,7 +316,7 @@ public class CRC {
 //      int crc = CRC.GetCRC4(new byte[] { 0x01,0x00,0x01,0x00,(byte)0xC9,0x12,0x00,0x32,0x02,0x09,0x00,0x03,0x10,0x17,0x05,0x05,0x09,0x54,0x42,0x01,0x01,0x03,0x01,0x04,0x02,0x01,0x03,0x00,(byte)0xD2,0x03,0x01,0x03,0x27,0x1F,0x69,0x01,0x03,0x04,0x38,0x70,0x01,0x03,0x03,0x16,0x71,0x01,0x03,0x01,(byte)0xB3,(byte)0x82,0x01,0x03,0x00,0x00,(byte)0x83,0x01,0x03,0x00,(byte)0xA6,0x03});  
 //      System.out.println(ByteUtil.bytesToHexString(ByteUtil.intToByteArray(crc)));
 //      System.out.println(String.format("0x%04x", crc));  
-		String s = "QN=20160801085857223;ST=32;CN=1062;PW=100000;MN=010000A8900016F000169DC0;Flag=5;CP=&&RtdInterval=30&&";
+		String s = "QN=20180424105612214;ST=22;CN=2011;PW=123456;MN=0E5A424C5759434A43363735;Flag=5;CP=&&DataTime=20180424105612;a34004-Rtd=103.0,a34004-Flag=N;a34002-Rtd=83.0,a34002-Flag=N;a34001-Rtd=0.0,a34001-Flag=N;LA-Rtd=52.1,LA-Flag=N;a01007-Rtd=0.5,a01007-Flag=N;a01008-Rtd=90,a01008-Flag=N;a01001-Rtd=32.0,a01001-Flag=N;a01002-Rtd=45.3,a01002-Flag=N&&";
 		System.out.println(CRC.GetCRC2(s));
   }
 	
@@ -371,6 +371,29 @@ public class CRC {
 	 * @return
 	 */
 	public static String GetCRC2(String data212) {
+		int CRC = 0xFFFF;
+		int Num = 0xA001;
+		int inum = 0;
+		for (int j = 0; j < data212.length(); j++) {
+			inum = data212.toCharArray()[j];
+			CRC = (CRC >> 8)^inum;
+			for (int k = 0; k < 8; k++) {
+				int flag = CRC & 0x0001;
+				CRC = CRC >> 1;
+				if (flag == 0x0001) {
+					CRC = CRC ^ Num;
+				}
+			}
+		}
+		return Integer.toHexString(CRC).toUpperCase();
+	}
+	
+	/**
+	 * 广东深圳CRC校验算法
+	 * @param data212
+	 * @return
+	 */
+	public static String GetCRC3(String data212) {
 		int CRC = 0xFFFF;
 		int Num = 0xA001;
 		int inum = 0;

@@ -45,23 +45,28 @@ public class BinaryTest {
 //		short b = (short)((byte)129);
 //		System.out.println(b);
 		
-		String tmp = "01000100C91200320209000310170505095442010103010402010300D2030103271F6901030438700103031671010301B3820103000083010300A603D42804";
-		System.out.println(tmp.length()/2);
-		StringBuffer sb = new StringBuffer("");
-		for(int i=0;i<tmp.length();i++){
-			sb.append(tmp.charAt(i));
-			if(i%2==1){
-				sb.append(",");
-			}
-		}
-		System.out.println(sb.toString());
-		String[] strs = sb.toString().split(",");
-		for(int i=0;i<strs.length;i++){
-			strs[i]="0x"+strs[i];
-		}
-		for(String s : strs){
-			System.out.print(s+",");
-		}
+//		String tmp = "01000100C91200320209000310170505095442010103010402010300D2030103271F6901030438700103031671010301B3820103000083010300A603D42804";
+//		System.out.println(tmp.length()/2);
+//		StringBuffer sb = new StringBuffer("");
+//		for(int i=0;i<tmp.length();i++){
+//			sb.append(tmp.charAt(i));
+//			if(i%2==1){
+//				sb.append(",");
+//			}
+//		}
+//		System.out.println(sb.toString());
+//		String[] strs = sb.toString().split(",");
+//		for(int i=0;i<strs.length;i++){
+//			strs[i]="0x"+strs[i];
+//		}
+//		for(String s : strs){
+//			System.out.print(s+",");
+//		}
+		
+		int i = 23938293;
+		System.out.println(i&0x1F);
+		System.out.println();
+		System.out.println(i%32);
 	}
 	
 	public static String byteToBinaryString(byte b){

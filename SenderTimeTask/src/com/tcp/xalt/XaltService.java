@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 import com.common.ServerInterface;
 import com.mapper.CommonMapper;
 import com.tcp.xadx.DxUtil;
+import com.utils.CommonUtil;
 import com.utils.ConfigReader;
 import com.utils.SocketUtil;
 import com.utils.SystemEnum;
@@ -55,24 +56,15 @@ public class XaltService implements ServerInterface {
 	}
 	
 	public static void main(String[] args){
-		SocketUtil.init(SystemEnum.XA_LT_SYSTEM.toString(), "localhost",
-				9999);
+		SocketUtil.init(SystemEnum.XA_LT_SYSTEM.toString(), ConfigReader.getXaLintongIP(),
+				ConfigReader.getXaLintongPORT());
 		Timer timer = new Timer();
 		timer.scheduleAtFixedRate(new TimerTask() {
 			@Override
 			public void run() {
-				EquipmentData e = new EquipmentData();
+				EquipmentData e = CommonUtil.getEquipmentDataInstance();
 				e.setV_equipment_name("18484756014");
-				e.setP001(0);
-				e.setP002(150);
-				e.setP003(50);
-				e.setP004(0.5);
-				e.setP005(3);
-				e.setP006(39.0);
-				e.setP007(50.3);
-				e.setP008(33.1);
-				e.setP009(0);
-				e.setP010(0);
+				
 				DxUtil dx = new DxUtil(e);
 				
 				SocketUtil.sendByteDataBySocket(SystemEnum.XA_LT_SYSTEM.toString(), 3,dx.getSequenceBytes(), log);

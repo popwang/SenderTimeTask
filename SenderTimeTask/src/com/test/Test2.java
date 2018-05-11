@@ -12,6 +12,9 @@ import java.util.TimerTask;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import com.utils.CommonUtil;
+import com.utils.ConfigReader;
+
 
 public class Test2 {
 	public static Log logger = LogFactory.getLog(Test2.class);
@@ -19,15 +22,10 @@ public class Test2 {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		Timer timer = new Timer();
-		timer.scheduleAtFixedRate(new TimerTask() {
-			@Override
-			public void run() {
-				sendDataToRemote("121.42.182.8",9445,getByteData(),logger);
-			}
-		}, 1000, 1*30*1000);
 		
-//		System.out.println(getByteData());
+		String info = "{\"appId\":\"datacollect\",\"appKey\":\"123456789\",\"datatype\":\"RAISEDUST\",\"datakind\":\"MinData\",\"data\":[{\"SO2\":\"18\",\"NO2\":\"17\",\"PM10\":\"141\",\"PM2_5\":\"65\",\"CO\":\"1.0890\",\"O3\":\"97\",\"WS\":null,\"WD\":null,\"PRESSURE\":null,\"TEMP\":null,\"HUM\":null,\"SITECODE\":\"41010603\",\"SITENAME\":\"上街区政府\",\"MONITORTIME\":\"2018-05-07 10:20:00\",\"SITEID\":\"41010603\"},{\"SO2\":\"22\",\"NO2\":\"23\",\"PM10\":\"124\",\"PM2_5\":\"60\",\"CO\":\"0.9040\",\"O3\":\"96\",\"WS\":null,\"WD\":null,\"PRESSURE\":null,\"TEMP\":null,\"HUM\":null,\"SITECODE\":\"41011101\",\"SITENAME\":\"北区建设指挥部\",\"MONITORTIME\":\"2018-05-07 10:20:00\",\"SITEID\":\"41011101\"}]}";
+		CommonUtil.sendDataToRemote("218.28.94.157",
+				60009, info, logger);
 		
 	}
 	

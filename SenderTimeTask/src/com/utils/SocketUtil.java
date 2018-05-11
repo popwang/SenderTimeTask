@@ -1,6 +1,7 @@
 package com.utils;
 
 import java.io.BufferedReader;
+import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -8,6 +9,7 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.net.SocketException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Timer;
@@ -16,6 +18,7 @@ import java.util.TimerTask;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import com.sun.xml.internal.ws.util.ByteArrayBuffer;
 import com.vo.EquipmentData;
 
 /**
@@ -43,6 +46,10 @@ public class SocketUtil {
 		getSocket(key,ip,port);
 	}
 	
+	/**
+	 * 参数简化版初始化连接
+	 * @param key
+	 */
 	public static void init2(String key){
 		String ip = ConfigReader.getHost(key);
 		int port = ConfigReader.getPort(key);
@@ -78,17 +85,17 @@ public class SocketUtil {
 			}
 		}else{
 			if(!isSocketAvailble(socket)){
-				cacheMap.remove(key);
-				cacheWriter.remove(key);
-				cacheReader.remove(key);
-				cacheInput.remove(key);
-				cacheOutput.remove(key);
+				deleteCacheByKey(key);
 				socket = getSocket(key,ip,port);
 			}
 		}
 		return socket;
 	}
 	
+	/**
+	 * 清理缓存内容
+	 * @param key
+	 */
 	public static void deleteCacheByKey(String key){
 		cacheMap.remove(key);
 		cacheWriter.remove(key);
@@ -175,7 +182,6 @@ public class SocketUtil {
 				out.write(info);
 				out.flush();
 				byte[] buf = new byte[22];
-//				int len = 0;
 				try{
 					while(is.read(buf)!=-1){
 						log.info(ByteUtil.bytesToHexString(buf));
@@ -183,6 +189,49 @@ public class SocketUtil {
 				}catch(Exception e){
 					log.info("返回内容接收完毕。");
 				}
+				log.info("发送完成。");
+			}else{
+				log.info("连接不存在，请先初始化连接。");
+			}
+		} catch (IOException e) {
+			log.info(e.getMessage(),e);
+		} 
+	}
+	
+	/**
+	 * 用于安阳滑县2平台数据接收
+	 * 特殊之处在于返回的字节需要转成字符
+	 * @param key
+	 * @param timeout
+	 * @param info
+	 * @param log
+	 */
+	public static void sendByteDataBySocket2(String key,int timeout,byte[] info,Log log){
+		try {
+			if(cacheMap.containsKey(key)){
+				Socket socket = cacheMap.get(key);
+				socket.setSoTimeout(timeout*1000);
+				OutputStream out = cacheOutput.get(key);
+				InputStream is = cacheInput.get(key);
+				log.info("发送内容："+ByteUtil.bytesToHexString(info));
+				out.write(info);
+				out.flush();
+	            DataInputStream dis = new DataInputStream(is);
+	            String result =  "无返回结果";
+	            int resultLen = dis.readInt();
+	            if(0 != resultLen) {
+	                ByteArrayBuffer bb = new ByteArrayBuffer();
+	                while(true){
+	                    bb.write(dis.readByte());
+	                    if(bb.size() >= resultLen){
+	                        break;
+	                    }
+	                }
+	                result = new String(bb.getRawData(),"utf-8");
+	                log.info("返回字节：" + ByteUtil.bytesToHexString(bb.getRawData()));
+	                log.info("返回字符串： " + result);
+	                bb.close();
+	            }
 				log.info("发送完成。");
 			}else{
 				log.info("连接不存在，请先初始化连接。");

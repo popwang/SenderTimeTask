@@ -14,7 +14,6 @@ public class HnUtil {
 		sb.append(",");
 		sb.append(v.getP003());
 		sb.append(",");
-		sb.append(v.getP009());
 		sb.append(",");
 		sb.append(v.getP008());
 		sb.append(",");
@@ -26,7 +25,6 @@ public class HnUtil {
 		sb.append(",");
 		sb.append(v.getP005());
 		sb.append(",");
-		sb.append(v.getP010());
 		sb.append(",,,,,,");
 		sb.append(v.getP014());
 		sb.append(",");

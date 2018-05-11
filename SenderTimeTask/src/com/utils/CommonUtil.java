@@ -25,6 +25,7 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 
+import com.sun.xml.internal.ws.util.ByteArrayBuffer;
 import com.vo.EquipmentData;
 /**
  * 通用方法工具类
@@ -110,6 +111,12 @@ public class CommonUtil {
 		return str;
 	}
 	
+	public static void sendDataToRemote2(String key,String info,Log log) {
+		String ip = ConfigReader.getHost(key);
+		int port = ConfigReader.getPort(key);
+		sendDataToRemote(ip, port, info, log);
+	}
+	
 	/**
 	 * 调用socket发送数据
 	 * @param info
@@ -143,6 +150,18 @@ public class CommonUtil {
 			log.info(e.getMessage(),e);
 		} 
 	}
+	
+	/**
+	 * 包装sendByteDataToRemote，减少参数列表，方便调用
+	 * @param key
+	 * @param bytes
+	 * @param log
+	 */
+	public static void sendByteDataToRemote2(String key,byte[] bytes,Log log){
+		String ip = ConfigReader.getHost(key);
+		int port = ConfigReader.getPort(key);
+		sendByteDataToRemote(ip,port,bytes,log);
+	}
 	/**
 	 * 调用socket发送字节数据
 	 * @param ip
@@ -161,21 +180,39 @@ public class CommonUtil {
 			os.flush();
 			log.info("send over");
 			
-			byte[] data = new byte[13];
-			int totalBytesRcvd = 0;
-            int bytesRcvd;
-            while (totalBytesRcvd < data.length) {
-                bytesRcvd = is.read(data, totalBytesRcvd, data.length - totalBytesRcvd);
-//                if (bytesRcvd == -1) {
-//                    throw new SocketException("Connection closed prematurely");  
-//                }
-                totalBytesRcvd += bytesRcvd;
-            }  
-            log.info("Received-hex:" + ByteUtil.bytesToHexString(data));
-            socket.shutdownOutput();
-			is.close();
+//			byte[] data = new byte[22];
+//			int totalBytesRcvd = 0;
+//            int bytesRcvd;
+//            while (totalBytesRcvd < data.length) {
+//                bytesRcvd = is.read(data, totalBytesRcvd, data.length - totalBytesRcvd);
+//                totalBytesRcvd += bytesRcvd;
+//            }
+//            log.info(new String(data,"UTF-8"));
+//            log.info("Received-hex:" + ByteUtil.bytesToHexString(data));
+//            socket.shutdownOutput();
+//			is.close();
+//			os.close();
+//			socket.close();
+			
+			DataInputStream dis = new DataInputStream(is);
+            String result =  "无返回结果";
+            int resultLen = dis.readInt();
+            if(0 != resultLen) {
+                ByteArrayBuffer bb = new ByteArrayBuffer();
+                while(true){
+                    bb.write(dis.readByte());
+                    if(bb.size() >= resultLen){
+                        break;
+                    }
+                }
+                result = new String(bb.getRawData(),"utf-8");
+                log.info("返回字节：" + ByteUtil.bytesToHexString(bb.getRawData()));
+                log.info("返回字符串： " + result);
+                bb.close();
+            }
+            is.close();
 			os.close();
-			socket.close();
+            socket.close();
 		} catch (UnknownHostException e) {
 			log.info(e.getMessage(),e);
 		} catch (IOException e) {
@@ -282,7 +319,7 @@ public class CommonUtil {
     
     public static EquipmentData getEquipmentDataInstance(){
     	EquipmentData e = new EquipmentData();
-		e.setV_equipment_name("188000235");
+		e.setV_equipment_name("811170374");
 		e.setP001(0);
 		e.setP002(103);
 		e.setP003(83);

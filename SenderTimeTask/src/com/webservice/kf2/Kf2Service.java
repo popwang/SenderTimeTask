@@ -25,8 +25,10 @@ import com.webservice.kf2.ws.DataAccessException_Exception;
 import com.webservice.kf2.ws.SaveYCJCService;
 import com.webservice.kf2.ws.SaveYCJCServicePortType;
 /**
+ * 18903780430
  * 开封2对接接口，统一编号：621
  * 设备编号：235，中邦出货
+ * 添加设备需要工地信息，微信开封扬尘2添加
  * @author pactera
  */
 @Component
@@ -44,9 +46,8 @@ public class Kf2Service implements ServerInterface {
 	    if(port==null){
 	    	log.info("获取webservice服务超时，本次发送异常退出！");
 	    }
-	    for (EquipmentProjectVo name : list)
-	    {
-	      String e = "00" + name.getV_equipment_name().substring(3);
+	    for (EquipmentProjectVo name : list){
+	      String e = name.getV_real_equipment_name();
 	      EquipmentData v = mapper.selectDataByName(e);
 	      if(v==null){
 	    	  log.info(name.getV_equipment_name()+"当前无数据。");
@@ -103,7 +104,7 @@ public class Kf2Service implements ServerInterface {
 	    }
 	    
 	    EquipmentData e = CommonUtil.getEquipmentDataInstance();
-	    e.setV_equipment_name("199000235");
+	    e.setV_equipment_name("621000235");
 	    String dataStr = WebserviceUtil.getDataString(e);
 		try{
 	        String result = port.saveYCJC(dataStr);

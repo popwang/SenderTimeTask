@@ -56,26 +56,12 @@ public class XabqService implements ServerInterface {
 		timer.scheduleAtFixedRate(new TimerTask() {
 			@Override
 			public void run() {
-				EquipmentData e = new EquipmentData();
+				EquipmentData e = CommonUtil.getEquipmentDataInstance();
 				e.setV_equipment_name("SDYKAZ00000087");
-				e.setP001(0);
-				e.setP002(68);
-				e.setP003(85);
-				e.setP004(0.5);
-				e.setP005(3);
-				e.setP006(32.0);
-				e.setP007(45.3);
-				e.setP008(52.1);
-				e.setP009(0);
-				e.setP010(0);
 				String info = XabqUtil.getAirString(e);
 				log.info("·¢ËÍÄÚÈÝ:" + info);
 				CommonUtil.sendDataToRemote(ConfigReader.getXaBaQiaoIP(),
 						ConfigReader.getXaBaQiaoPORT(),info,log);
-				
-//				SocketUtil.init(SystemEnum.XA_BQ_SYSTEM.toString(), ConfigReader.getXaBaQiaoIP(),
-//						ConfigReader.getXaBaQiaoPORT());
-//				SocketUtil.sendDataBySocket(SystemEnum.XA_BQ_SYSTEM.toString(), 4,info, log);
 			}
 		}, 1000, 1*30*1000);
 	}

@@ -51,10 +51,8 @@ public class ByteUtil {
 	public static byte[] HEADERS = new byte[]{HEAD,CMD_R,ID,CID,CID,TID,TID};
 	
 	public static void main(String[] args) {
-		byte[] factory = "ZBLWYCJC".getBytes();
-		System.out.println(factory.length);
-		System.out.println("675".getBytes().length);
-		System.out.println(bytesToHexString(getEpcCode("676")));
+		System.out.println(getEpcCode("720"));
+		System.out.println(getEpcCode("760"));
 	}
 	
 	/**
@@ -62,12 +60,12 @@ public class ByteUtil {
 	 * @param equipmentcode
 	 * @return
 	 */
-	public static byte[] getEpcCode(String equipmentcode){
+	public static String getEpcCode(String equipmentcode){
 		byte[] bytes = new byte[12];
 		bytes[0] = 0x0E;
 		System.arraycopy("ZBLWYCJC".getBytes(), 0, bytes, 1, 8);
 		System.arraycopy(equipmentcode.getBytes(), 0, bytes, 9, 3);
-		return bytes;
+		return bytesToHexString(bytes).toUpperCase();
 	}
 	
 	/**

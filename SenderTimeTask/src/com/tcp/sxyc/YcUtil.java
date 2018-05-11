@@ -14,7 +14,8 @@ public class YcUtil {
 	public static byte SEND_TYPE = 0x00;
 	public static byte HEART_TYPE = 0x01;
 	public static byte CHECK_TYPE = 0x02;
-	public static int TOKEN = 588800012;
+	public static String TOKEN = "58880012";
+	
 	
 	
 	private EquipmentData e;
@@ -42,6 +43,7 @@ public class YcUtil {
 	public static byte[] intStringToHexString(String s,int len){
 		byte[] b = new byte[len/2];
 		
+		//处理经纬度信息
 		if(s.indexOf(".")>0){
 			String tmp[] = s.split("\\.");
 			while(tmp[0].length()<3){
@@ -74,7 +76,17 @@ public class YcUtil {
 	}
 	
 	public static void main(String[] args) {
-		System.out.println(ByteUtil.bytesToHexString(intToHexString(26.8)));
+//		System.out.println(ByteUtil.bytesToHexString(intToHexString(26.8)));
+		byte[] b = {0x01,0x02,0x03,0x04,0x05};
+		//00000001
+		//00000010
+		
+		//00000011
+		//00000011
+		
+		//00000000
+		System.out.println(ByteUtil.bytesToHexString(new byte[]{xorByteArray(b)}));
+		
 	}
 	
 	/**
@@ -92,7 +104,7 @@ public class YcUtil {
 		byte[] equipment = intStringToHexString(e.getV_equipment_name(),16);
 		System.arraycopy(equipment, 0, datas, 6, 8);
 		//token 4
-		byte[] token = ByteUtil.intToByteArray(TOKEN);
+		byte[] token = intStringToHexString(TOKEN,8);
 		System.arraycopy(token, 0, datas, 14, 4);
 		//数据类型 1
 		byte[] type = {SEND_TYPE};
@@ -162,7 +174,7 @@ public class YcUtil {
 		byte[] equipment = intStringToHexString(e.getV_equipment_name(),16);
 		System.arraycopy(equipment, 0, datas, 6, 8);
 		//token 4
-		byte[] token = ByteUtil.intToByteArray(TOKEN);
+		byte[] token = intStringToHexString(TOKEN,8);
 		System.arraycopy(token, 0, datas, 14, 4);
 		//数据类型 1
 		byte[] type = {HEART_TYPE};
@@ -188,7 +200,7 @@ public class YcUtil {
 		byte[] equipment = intStringToHexString(e.getV_equipment_name(),16);
 		System.arraycopy(equipment, 0, datas, 6, 8);
 		//token 4
-		byte[] token = ByteUtil.intToByteArray(TOKEN);
+		byte[] token = intStringToHexString(TOKEN,8);
 		System.arraycopy(token, 0, datas, 14, 4);
 		//数据类型 1
 		byte[] type = {CHECK_TYPE};
@@ -200,7 +212,12 @@ public class YcUtil {
 		return datas;
 	}
 	
-	public byte xorByteArray(byte[] datas){
+	/**
+	 * 字节数组逐字节进行异或运算
+	 * @param datas
+	 * @return
+	 */
+	public static byte xorByteArray(byte[] datas){
 		byte tmp = datas[0];
 		for(int i=1;i<datas.length-3;i++){
 			tmp ^= datas[i];
