@@ -32,7 +32,7 @@ public class XanewService implements ServerInterface {
 		List<EquipmentProjectVo> list = mapper.selectEquipmentListBySystemId(SystemEnum.XA_GXQ_SYSTEM.getId());
 		log.info(SystemEnum.XA_GXQ_SYSTEM.getName()+"本轮待发送设备数为：" + list.size());
 		for (EquipmentProjectVo vo : list) {
-			EquipmentData v = mapper.selectDataByName(vo.getV_equipment_name().substring(2));
+			EquipmentData v = mapper.selectDataByName(vo.getV_real_equipment_name());
 			if(v==null){
 				log.info(vo.getV_equipment_name()+"当前无数据。");
 				continue;

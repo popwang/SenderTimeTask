@@ -53,13 +53,23 @@
 	</bean>
     <tx:annotation-driven transaction-manager="transactionManager"/>
     <task:scheduled-tasks>
+    	<!-- 周口定时器 -->
+		<task:scheduled ref="zkQuartz" method="startTimeTask" cron="0 0/1 * * * ?"/>
+		<!-- 西安定时器 -->
+		<task:scheduled ref="xaQuartz" method="startTimeTask" cron="0 0/1 * * * ?"/>
+		<!-- 西安临潼区定时器 -->
+		<task:scheduled ref="xaltQuartz" method="startTimeTask" cron="0 0/1 * * * ?"/>
+		<!-- 西安灞桥区定时器 -->
+		<task:scheduled ref="xabqQuartz" method="startTimeTask" cron="0 0/1 * * * ?"/>
+		<!-- 广东深圳定时器 -->
+		<task:scheduled ref="gdszQuartz" method="startTimeTask" cron="0 0/1 * * * ?"/>
+		<!-- 郑州巩义定时器 -->
+		<task:scheduled ref="gyQuartz" method="startTimeTask" cron="0 0/1 * * * ?"/>
 		
 		<!-- 开封定时器 -->
 		<task:scheduled ref="kfQuartz" method="startTimeTask" cron="0 0/5 * * * ?"/>
 		<!-- 河北石家庄定时器 -->
 		<task:scheduled ref="hbQuartz" method="startTimeTask" cron="0 0/10 * * * ?"/>
-		<!-- 周口定时器 -->
-		<task:scheduled ref="zkQuartz" method="startTimeTask" cron="0 0/5 * * * ?"/>
 		<!-- 安阳、三门峡定时器 -->
 		<task:scheduled ref="aysmQuartz" method="startAysmTimeTask" cron="0 0/10 * * * ?"/>
 		<!-- 安阳滑县定时器 -->
@@ -80,16 +90,10 @@
 		<task:scheduled ref="weatherQuartz2" method="startTimeTask" cron="0 10 7,9,11,13,15,17 * * ?"/>
 		<!-- 更新经纬度定时器 -->
 		<task:scheduled ref="updateGPSQuartz" method="startTimeTask" cron="0 0 7-19 * * ?"/>
-		<!-- 西安定时器 -->
-		<task:scheduled ref="xaQuartz" method="startTimeTask" cron="0 0/1 * * * ?"/>
 		<!-- 西安高新区定时器 -->
 		<task:scheduled ref="xanewQuartz" method="startTimeTask" cron="0 0/5 * * * ?"/>
 		<!-- 西安大兴区定时器 -->
 		<task:scheduled ref="xadxQuartz" method="startTimeTask" cron="0 0/3 * * * ?"/>
-		<!-- 西安临潼区定时器 -->
-		<task:scheduled ref="xaltQuartz" method="startTimeTask" cron="0 0/1 * * * ?"/>
-		<!-- 西安灞桥区定时器 -->
-		<task:scheduled ref="xabqQuartz" method="startTimeTask" cron="0 0/1 * * * ?"/>
 		<!-- 湖南长沙定时器 -->
 		<task:scheduled ref="hncsQuartz" method="startTimeTask" cron="0 0/5 * * * ?"/>
 		<!-- 洛阳伊川定时器 -->
@@ -98,17 +102,14 @@
 		<task:scheduled ref="sdhzQuartz" method="startTimeTask" cron="0 0/3 * * * ?"/>
 		<!-- 开封2定时器 -->
 		<task:scheduled ref="kf2Quartz" method="startTimeTask" cron="0 0/5 * * * ?"/>
-		<!-- 南阳定时器 
-		<task:scheduled ref="nyQuartz" method="startTimeTask" cron="0 0/5 * * * ?"/>
-		-->
 		<!-- 陕西渭南定时器 -->
 		<task:scheduled ref="sxwnQuartz" method="startTimeTask" cron="0 0/10 * * * ?"/>
-		<!-- 广东深圳定时器 -->
-		<task:scheduled ref="gdszQuartz" method="startTimeTask" cron="0 0/1 * * * ?"/>
 		<!-- 西安雁塔区定时器 -->
 		<task:scheduled ref="xadyQuartz" method="startTimeTask" cron="0 0/5 * * * ?"/>
 		<!-- 安阳滑县2定时器 -->
 		<task:scheduled ref="ayhx2Quartz" method="startTimeTask" cron="0 0/5 * * * ?"/>
+		<!-- 周口项城定时器 -->
+		<task:scheduled ref="zkxcQuartz" method="startTimeTask" cron="0 0/5 * * * ?"/>
 	</task:scheduled-tasks>
 	
 </beans>

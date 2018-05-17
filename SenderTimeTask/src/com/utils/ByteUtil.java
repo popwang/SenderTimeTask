@@ -161,7 +161,7 @@ public class ByteUtil {
 		System.arraycopy(einfo.getBytes(), 0, data, 9, esize);
 		data[datasize-2] = getCheckCode(data);
 		data[datasize-1] = TAIL;
-		log.info(bytesToHexString(data));
+//		log.info(bytesToHexString(data));
 		return data;
     }
     

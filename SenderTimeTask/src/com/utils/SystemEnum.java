@@ -33,6 +33,8 @@ public enum SystemEnum {
 	GD_SZ_SYSTEM(27,"广东深圳"),
 	XA_DY_SYSTEM(28,"陕西西安雁塔区"),
 	AY_HX2_SYSTEM(29,"安阳滑县2"),
+	ZZ_GY_SYSTEM(30,"郑州巩义"),
+	ZK_XC_SYSTEM(31,"周口项城"),
 	WEATHER_SYSTEM(99,"天气预报");
 	
 	private int id;

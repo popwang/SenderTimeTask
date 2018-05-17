@@ -6,7 +6,6 @@ import com.common.service.AbstractBaseService;
 import com.tcp.xabq.XabqUtil;
 import com.utils.CommonUtil;
 import com.utils.ConfigReader;
-import com.utils.SocketUtil;
 import com.utils.SystemEnum;
 import com.vo.EquipmentData;
 /**

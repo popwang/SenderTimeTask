@@ -19,6 +19,8 @@ public abstract class AbstractBaseService implements ServerInterface2 {
 	@Autowired
 	protected CommonMapper mapper;
 	
+	protected SystemEnum systemEnum;
+	
 	@Override
 	public void handler(SystemEnum systemEnum) {
 		List<EquipmentProjectVo> list = mapper.selectEquipmentListBySystemId(systemEnum.getId());
@@ -40,5 +42,8 @@ public abstract class AbstractBaseService implements ServerInterface2 {
 	 * @param v
 	 */
 	public abstract void sendEquipmentData(EquipmentData v);
-
+	
+	public void setSystemEnum(SystemEnum systemEnum) {
+		this.systemEnum = systemEnum;
+	}
 }

@@ -4,7 +4,6 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import com.common.QuartzInterface;
-import com.common.ServerInterface2;
 import com.utils.SystemEnum;
 
 public abstract class AbstactBaseQuartz implements QuartzInterface {
@@ -13,7 +12,7 @@ public abstract class AbstactBaseQuartz implements QuartzInterface {
 	
 	@Override
 	public void startTimeTask() {
-		ServerInterface2 service = getAbstractBaseService();
+		AbstractBaseService service = getAbstractBaseService();
 		SystemEnum systemEnum = getSystemEnum();
 		log.info(systemEnum.getName()+"数据开始发送...");
 		service.handler(systemEnum);
@@ -23,7 +22,7 @@ public abstract class AbstactBaseQuartz implements QuartzInterface {
 	 * 定时器的实现类决定注入那个service的业务调用
 	 * @return
 	 */
-	public abstract ServerInterface2 getAbstractBaseService();
+	public abstract AbstractBaseService getAbstractBaseService();
 	/**
 	 * 设定接口的枚举类型
 	 * @return
