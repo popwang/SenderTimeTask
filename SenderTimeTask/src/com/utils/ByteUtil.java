@@ -52,7 +52,7 @@ public class ByteUtil {
 	
 	public static void main(String[] args) {
 		System.out.println(getEpcCode("720"));
-		System.out.println(getEpcCode("760"));
+		System.out.println(getEpcCode("722"));
 	}
 	
 	/**

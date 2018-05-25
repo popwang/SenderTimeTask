@@ -65,6 +65,16 @@
 		<task:scheduled ref="gdszQuartz" method="startTimeTask" cron="0 0/1 * * * ?"/>
 		<!-- 郑州巩义定时器 -->
 		<task:scheduled ref="gyQuartz" method="startTimeTask" cron="0 0/1 * * * ?"/>
+		<!-- 山东日照定时器 -->
+		<task:scheduled ref="sdrzQuartz" method="startTimeTask" cron="30 0/2 * * * ?"/>
+		<!-- 洛阳汝阳定时器 -->
+		<task:scheduled ref="ryQuartz" method="startTimeTask" cron="35 0/2 * * * ?"/>
+    	<!-- 山东菏泽定时器 -->
+		<task:scheduled ref="sdhzQuartz" method="startTimeTask" cron="0 0/3 * * * ?"/>
+		<!-- 西安大兴区定时器 -->
+		<task:scheduled ref="xadxQuartz" method="startTimeTask" cron="0 0/2 * * * ?"/>
+		<!-- 西安雁塔区定时器 -->
+		<task:scheduled ref="xadyQuartz" method="startTimeTask" cron="0 0/2 * * * ?"/>
 	</task:scheduled-tasks>
 	
 </beans>

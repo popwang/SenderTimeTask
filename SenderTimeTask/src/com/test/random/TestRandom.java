@@ -44,7 +44,11 @@ public class TestRandom {
         }  
         return val;  
     }
-    
+    /**
+     * 获取一个包含大小写字母，数字和特殊符号的密码，并且每种元素至少有一个
+     * @param len
+     * @return
+     */
     public static String getThreeRandom(int len){
     	String code = "";
     	Random random = new Random();
@@ -74,14 +78,14 @@ public class TestRandom {
     		for(int i=0;i<splen;i++){
     			sb.append(spchars[random.nextInt(9)]);
     		}
-//    		System.out.println(sb.toString());
+    		System.out.println(sb.toString());
     		//将字符序列打乱
     		char[] codechars = sb.toString().toCharArray();
     		for(int i=len;i>1;i--){
-    			int index = random.nextInt(len);
+    			int index = random.nextInt(i);
     			char codechar = codechars[index];
-    			codechars[index] = codechars[len-1];
-    			codechars[len-1] = codechar;
+    			codechars[index] = codechars[i-1];
+    			codechars[i-1] = codechar;
     		}
     		code = new String(codechars);
     	}else{
