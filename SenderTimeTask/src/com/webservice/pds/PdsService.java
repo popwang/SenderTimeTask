@@ -38,7 +38,7 @@ public class PdsService {
 	
 	public static void main(String[] args){
 		PdsService ps = new PdsService();
-		SaveYCJCServicePortType port = ps.getPortTimeOut(10);
+		SaveYCJCServicePortType port = ps.getPortTimeOut(WebserviceUtil.WEBSERVICE_TIMEOUT);
 	    if(port==null){
 	    	log.info("获取webservice服务超时，本次发送异常退出！");
 	    }else{

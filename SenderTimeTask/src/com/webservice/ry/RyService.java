@@ -42,7 +42,7 @@ public class RyService {
 	public String hanlder() {
 		List<EquipmentProjectVo> list = mapper.selectEquipmentListBySystemId(SystemEnum.LY_RY_SYSTEM.getId());
 	    log.info("本轮待发送设备数为："+list.size());
-	    SaveYCJCServicePortType port = this.getPortTimeOut(10);
+	    SaveYCJCServicePortType port = this.getPortTimeOut(WebserviceUtil.WEBSERVICE_TIMEOUT);
 	    if(port==null){
 	    	log.info("获取webservice服务超时，本次发送异常退出！");
 	    	return "ERROR";

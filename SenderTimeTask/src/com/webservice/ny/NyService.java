@@ -33,7 +33,7 @@ public class NyService extends AbstractBaseService {
 	@Override
 	public void sendEquipmentData(EquipmentData v) {
 		if(port==null){
-			port = this.getPortTimeOut(10);
+			port = this.getPortTimeOut(WebserviceUtil.WEBSERVICE_TIMEOUT);
 			if(port!=null){
 		    	log.info("获取webservice服务超时，本次发送异常退出！");
 		    }else{

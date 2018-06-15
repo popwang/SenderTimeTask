@@ -51,8 +51,9 @@ public class ByteUtil {
 	public static byte[] HEADERS = new byte[]{HEAD,CMD_R,ID,CID,CID,TID,TID};
 	
 	public static void main(String[] args) {
-		System.out.println(getEpcCode("720"));
-		System.out.println(getEpcCode("722"));
+		System.out.println(getEpcCode("0766"));
+		System.out.println(getEpcCode("1766"));
+//		System.out.println(getMacCode("1766"));
 	}
 	
 	/**
@@ -63,13 +64,19 @@ public class ByteUtil {
 	public static String getEpcCode(String equipmentcode){
 		byte[] bytes = new byte[12];
 		bytes[0] = 0x0E;
-		System.arraycopy("ZBLWYCJC".getBytes(), 0, bytes, 1, 8);
-		System.arraycopy(equipmentcode.getBytes(), 0, bytes, 9, 3);
-		return bytesToHexString(bytes).toUpperCase();
+		System.arraycopy("ZBLWYCJC".getBytes(), 0, bytes, 1, 7);
+		System.arraycopy(equipmentcode.getBytes(), 0, bytes, 8, 4);
+		String epc = bytesToHexString(bytes).toUpperCase();
+		if(epc.substring(16, 18).equals("31")){
+			epc = epc.replaceFirst("31", "F0");
+		}else{
+			epc = epc.replaceFirst("30", "D1");
+		}
+		return epc;
 	}
 	
 	/**
-	 * 将short类型转为长度为2的byte数组
+	 * 将short类型转为长度为2的byte数组，大端序
 	 * @param a
 	 * @return
 	 */
@@ -77,6 +84,18 @@ public class ByteUtil {
 	    return new byte[] {
 	        (byte) ((a >> 8) & 0xFF),
 	        (byte) (a & 0xFF)  
+	    };
+	}
+	
+	/**
+	 * 将short类型转为长度为2的byte数组，小端序
+	 * @param a
+	 * @return
+	 */
+	public static byte[] shortToByteArray2(short a) {  
+	    return new byte[] {
+	    	(byte) (a & 0xFF),
+	        (byte) ((a >> 8) & 0xFF)
 	    };
 	}
 	

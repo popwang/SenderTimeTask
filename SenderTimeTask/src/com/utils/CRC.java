@@ -196,6 +196,7 @@ public class CRC {
 		return CRC.pre+CRC.patternNumber(crc.length())+crc+CRC.GetCRC(crc)+"\r\n";
 	}
 	
+	
 	/**
 	 * 用于根据对象生成西安CRC校验字符串
 	 * @param e
@@ -291,6 +292,108 @@ public class CRC {
 		
 		String crc = sb.toString();
 		return CRC.pre+CRC.patternNumber(crc.length())+crc+CRC.GetCRC2(crc)+"\r\n";
+	}
+	
+	/**
+	 * 用于根据对象生成韩城CRC校验字符串
+	 * @param e
+	 * @return
+	 */
+	public static String getDataString6(EquipmentData e) {
+		StringBuffer sb = new StringBuffer("");
+		sb.append("ST=52;CN=2011;PW=123456;MN=");
+		sb.append(e.getV_equipment_name());
+		sb.append(";CP=&&DataTime=");
+		sb.append(CRC.currentTimeString());
+		sb.append(";");
+		
+		sb.append("PM10-Avg=");
+		sb.append(e.getP003());
+		sb.append(",PM10-Flag=N;");
+		
+		sb.append("PM25-Avg=");
+		sb.append(e.getP002());
+		sb.append(",PM25-Flag=N;");
+		
+		sb.append("T01-Rtd=");
+		sb.append(e.getP006());
+		sb.append(",T01-Flag=N;");
+		
+		sb.append("B03-Rtd=");
+		sb.append(e.getP008());
+		sb.append(",B03-Flag=N;");
+		
+		sb.append("H01-Rtd=");
+		sb.append(e.getP007());
+		sb.append(",H01-Flag=N;");
+		
+		sb.append("W01-Rtd=");
+		sb.append(e.getP005());
+		sb.append(",W01-Flag=N;");
+		
+		sb.append("W02-Rtd=");
+		sb.append(e.getP004());
+		sb.append(",W02-Flag=N;");
+		
+		sb.append("R01-Rtd=0");
+		sb.append(",R01-Flag=N;");
+		
+		sb.append("P01-Rtd=");
+		sb.append(e.getP010());
+		sb.append(",P01-Flag=N;&&");
+		String crc = sb.toString();
+		return CRC.pre+CRC.patternNumber(crc.length())+crc+CRC.GetCRC(crc)+"\r\n";
+	}
+	
+	/**
+	 * 用于根据对象生成西安秦都区CRC校验字符串
+	 * @param e
+	 * @return
+	 */
+	public static String getDataString7(EquipmentData e) {
+		StringBuffer sb = new StringBuffer("");
+		sb.append("ST=52;CN=2011;PW=123456;MN=");
+		sb.append(e.getV_equipment_name());
+		sb.append(";CP=&&DataTime=");
+		sb.append(CRC.currentTimeString());
+		sb.append(";");
+		
+		sb.append("PM10-Avg=");
+		sb.append(e.getP003());
+		sb.append(",PM10-Flag=N;");
+		
+		sb.append("PM25-Avg=");
+		sb.append(e.getP002());
+		sb.append(",PM25-Flag=N;");
+		
+		sb.append("T01-Rtd=");
+		sb.append(e.getP006());
+		sb.append(",T01-Flag=N;");
+		
+		sb.append("B03-Rtd=");
+		sb.append(e.getP008());
+		sb.append(",B03-Flag=N;");
+		
+		sb.append("H01-Rtd=");
+		sb.append(e.getP007());
+		sb.append(",H01-Flag=N;");
+		
+		sb.append("W01-Rtd=");
+		sb.append(e.getP005());
+		sb.append(",W01-Flag=N;");
+		
+		sb.append("W02-Rtd=");
+		sb.append(e.getP004());
+		sb.append(",W02-Flag=N;");
+		
+		sb.append("R01-Rtd=0");
+		sb.append(",R01-Flag=N;");
+		
+		sb.append("P01-Rtd=");
+		sb.append(e.getP010());
+		sb.append(",P01-Flag=N;&&");
+		String crc = sb.toString();
+		return CRC.pre+CRC.patternNumber(crc.length())+crc+CRC.GetCRC(crc)+"\r\n";
 	}
 	
 	/**

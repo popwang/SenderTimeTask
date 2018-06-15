@@ -9,6 +9,7 @@ import com.vo.EquipmentData;
  * @author pactera
  */
 public class WebserviceUtil {
+	public static final int WEBSERVICE_TIMEOUT = 3;
 	public static String getDataString(EquipmentData v){
 		StringBuffer sb = new StringBuffer("DevID:|:");
 	      sb.append(v.getV_equipment_name());

@@ -18,7 +18,7 @@ public class GdszService extends AbstractBaseService {
 
 	@Override
 	public void sendEquipmentData(EquipmentData v) {
-		String info = XabqUtil.getAirString2(v);
+		String info = SzUtil.getAirString2(v);
 //		SocketUtil.init2(SystemEnum.GD_SZ_SYSTEM.toString());
 //		SocketUtil.sendDataBySocket(SystemEnum.GD_SZ_SYSTEM.toString(), 1, info, log);
 		CommonUtil.sendDataToRemote(ConfigReader.getHost(SystemEnum.GD_SZ_SYSTEM.toString()),
@@ -26,15 +26,12 @@ public class GdszService extends AbstractBaseService {
 	}
 	
 	public static void main(String[] args) {
-//		GdszService service = new GdszService();
-//		EquipmentData e = CommonUtil.getEquipmentDataInstance();
-//		e.setV_equipment_name("0E5A424C5759434A43363735");
-//		Timer timer = new Timer();
-//		timer.scheduleAtFixedRate(new TimerTask() {
-//			@Override
-//			public void run() {
-//				service.sendEquipmentData(e);
-//			}
-//		}, 1000, 1*60*1000);
+		GdszService service = new GdszService();
+		EquipmentData e = CommonUtil.getEquipmentDataInstance();
+		e.setP002(1000);
+		e.setP003(1000);
+		e.setP009(1000);
+		e.setV_equipment_name("0E5A424C5759434A43363735");
+		service.sendEquipmentData(e);
 	}
 }

@@ -55,7 +55,7 @@ public class AysmService {
     
     public static void main(String[] args){
     	for(int i=0;i<5;i++){
-    		String s = "http://47.92.98.194:802/pub?userkey=ZBLW00000436&data=124,157,9.0,44,41.5,0.0,180,0&date=201711271810";
+    		String s = "http://pub.171hb.com/pub?userkey=ZBLW00000436&data=124,157,9.0,44,41.5,0.0,180,0&date=201711271810";
 	          //http://123.56.159.82:802/pub?userkey=ZBLW00000436&data=124,157,9.0,44,41.5,0.0,180,0&date=201711271810
     		CommonUtil.doHttpGet(s,log);
     	}

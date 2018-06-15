@@ -36,7 +36,7 @@ public class GyService extends AbstractBaseService {
 	public void handler(SystemEnum systemEnum) {
 		List<EquipmentProjectVo> list = mapper.selectEquipmentListBySystemId(systemEnum.getId());
 		log.info(systemEnum.getName() + "本轮待发送设备数为：" + list.size());
-		SaveYCJCServicePortType port = this.getPortTimeOut(10);
+		SaveYCJCServicePortType port = this.getPortTimeOut(WebserviceUtil.WEBSERVICE_TIMEOUT);
 		if (port == null) {
 			log.info("获取webservice服务超时，本次发送异常退出！");
 		}

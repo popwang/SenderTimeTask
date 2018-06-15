@@ -60,7 +60,7 @@
 		<!-- 安阳、三门峡定时器 -->
 		<task:scheduled ref="aysmQuartz" method="startAysmTimeTask" cron="0 0/10 * * * ?"/>
 		<!-- 安阳滑县定时器 -->
-		<task:scheduled ref="ayhxQuartz" method="startAyhxTimeTask" cron="5 0/10 * * * ?"/>
+		<!-- <task:scheduled ref="ayhxQuartz" method="startAyhxTimeTask" cron="5 0/10 * * * ?"/> -->
 		<!-- 山东济宁定时器 -->
 		<task:scheduled ref="sdQuartz" method="startSdjnTimeTask" cron="15 0/10 * * * ?"/>
 		<!-- 郑州交委定时器 -->
