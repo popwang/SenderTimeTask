@@ -79,6 +79,8 @@
 		<task:scheduled ref="ryQuartz" method="startTimeTask" cron="35 0/2 * * * ?"/>
 		<!-- 安阳新平台定时器 -->
 		<task:scheduled ref="aynewQuartz" method="startTimeTask" cron="10 0/3 * * * ?"/>
+		<!-- 西安秦都区定时器 -->
+		<task:scheduled ref="xaqdQuartz" method="startTimeTask" cron="5 0/1 * * * ?"/>
 	</task:scheduled-tasks>
 	
 </beans>

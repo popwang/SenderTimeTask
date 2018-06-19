@@ -36,7 +36,7 @@ public enum SystemEnum {
 	ZZ_GY_SYSTEM(30,"郑州巩义"),
 	ZK_XC_SYSTEM(31,"周口项城"),
 	WN_HC_SYSTEM(32,"渭南韩城"),
-	XA_QD_SYSTEM(33,"西安秦都区"),
+	XA_QD_SYSTEM(33,"咸阳秦都区"),
 	AY_NEW_SYSTEM(34,"安阳新平台"),
 	WEATHER_SYSTEM(99,"天气预报");
 	

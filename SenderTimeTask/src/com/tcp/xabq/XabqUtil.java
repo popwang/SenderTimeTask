@@ -57,20 +57,4 @@ public class XabqUtil {
 		return CRC.pre+CRC.patternNumber(crc.length())+crc+CRC.GetCRC2(crc)+"\r\n";
 	}
 	
-	public static String getVoiceString(EquipmentData e) {
-		StringBuffer sb = new StringBuffer("");
-		sb.append("QN=");
-		sb.append(CRC.currentTimeStampString());//yyyyMMddHHmmssSSS
-		sb.append(";ST=22;CN=2011;PW=123456;MN=");
-		sb.append(e.getV_equipment_name());
-		sb.append(";Flag=5;CP=&&DataTime=");
-		sb.append(CRC.currentTimeString());//yyyyMMddHHmmss
-		sb.append(";");
-		sb.append("LA-Rtd=");
-		sb.append(e.getP008());
-		sb.append(",LA-Flag=N;&&");
-		String crc = sb.toString();
-		return CRC.pre+CRC.patternNumber(crc.length())+crc+CRC.GetCRC2(crc)+"\r\n";
-	}
-	
 }

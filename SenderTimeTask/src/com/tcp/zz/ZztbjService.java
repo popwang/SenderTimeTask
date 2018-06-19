@@ -45,13 +45,13 @@ public class ZztbjService {
 	
 	public static void main(String[] args){
 		EquipmentData e = new EquipmentData();
-		e.setV_equipment_name("ZB00000537");
+		e.setV_equipment_name("ZZ01000604");
 		e.setP001(0);
 		e.setP002(68);
 		e.setP003(83);
 		e.setP004(0.5);
 		e.setP005(3);
-		e.setP006(25.0);
+		e.setP006(34.0);
 		e.setP007(45.3);
 		e.setP008(52.1);
 		e.setP009(0);
