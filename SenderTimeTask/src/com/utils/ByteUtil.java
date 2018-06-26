@@ -67,11 +67,11 @@ public class ByteUtil {
 		System.arraycopy("ZBLWYCJC".getBytes(), 0, bytes, 1, 7);
 		System.arraycopy(equipmentcode.getBytes(), 0, bytes, 8, 4);
 		String epc = bytesToHexString(bytes).toUpperCase();
-		if(epc.substring(16, 18).equals("31")){
-			epc = epc.replaceFirst("31", "F0");
-		}else{
-			epc = epc.replaceFirst("30", "D1");
-		}
+//		if(epc.substring(16, 18).equals("31")){
+//			epc = epc.replaceFirst("31", "F0");
+//		}else{
+//			epc = epc.replaceFirst("30", "D1");
+//		}
 		return epc;
 	}
 	

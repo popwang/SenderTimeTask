@@ -87,5 +87,7 @@
 		<task:scheduled ref="ayhx2Quartz" method="startTimeTask" cron="0 0/5 * * * ?"/>
 		<!-- 周口项城定时器 -->
 		<task:scheduled ref="zkxcQuartz" method="startTimeTask" cron="0 0/5 * * * ?"/>
+		<!-- 郑许线监控定时器 -->
+		<task:scheduled ref="zxlineQuartz" method="startTimeTask" cron="0 0/8 * * * ?"/>
 	</task:scheduled-tasks>
 </beans>

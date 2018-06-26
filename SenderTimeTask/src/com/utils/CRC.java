@@ -15,7 +15,7 @@ import com.vo.EquipmentData;
 public class CRC {
 	
 	/**
-	 * 当前时间字符串yyyyMMddHHmmss
+	 * 当前时间字符串format
 	 * @return
 	 */
 	public static String currentTimeString(String format) {

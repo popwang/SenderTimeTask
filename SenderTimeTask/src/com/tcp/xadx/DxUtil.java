@@ -28,12 +28,28 @@ public class DxUtil {
 	public byte[] createSimCardBytes(){
 		byte[] b = new byte[5];
 		long phone = Long.parseLong(e.getV_equipment_name());
-		b[4] = (byte)(phone%256);
-		b[3] = (byte)(phone/256%256);
-		b[2] = (byte)(phone/65536%256);
-		b[1] = (byte)(phone/65536/256%256);
 		b[0] = (byte)(phone/65536/65536%256);
+		b[1] = (byte)(phone/65536/256%256);
+		b[2] = (byte)(phone/65536%256);
+		b[3] = (byte)(phone/256%256);
+		b[4] = (byte)(phone%256);
 		return b;
+	}
+	
+	public static void main(String[] args) {
+		//f7eebc0465
+		long a = 247+65536L*65536*256;
+		long b = 238+65536L*65536;
+		int c = 188+65536*256;
+		int d = 4+65536;
+		int e = 101+256;
+		System.out.println(65536*65536*256);
+		System.out.println(a);
+		System.out.println(b);
+		System.out.println(c);
+		System.out.println(d);
+		System.out.println(e);
+		System.out.println(a+b+c+d+e);
 	}
 	
 	public byte[] gpsToBytes(){
@@ -191,31 +207,4 @@ public class DxUtil {
 		
 		return b;
 	}
-	
-	public static void main(String[] args) {
-		EquipmentData e = new EquipmentData();
-		e.setV_equipment_name("12935430915");
-		e.setP001(0);
-		e.setP002(103);
-		e.setP003(83);
-		e.setP004(0.5);
-		e.setP005(3);
-		e.setP006(32.0);
-		e.setP007(45.3);
-		e.setP008(52.1);
-		e.setP009(0);
-		e.setP010(0);
-		e.setP014(118.2);
-		e.setP015(34.3);
-		DxUtil dx = new DxUtil(e);
-		System.out.println(ByteUtil.bytesToHexString(dx.createSimCardBytes()));
-		System.out.println(ByteUtil.bytesToHexString(dx.getGPSBytes()));
-		int a = 78;
-		
-		System.out.println(a%256);
-		System.out.println(a/256);
-		Math.abs(2.4);
-		
-	}
-
 }

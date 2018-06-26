@@ -15,6 +15,7 @@ import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.collections.set.SynchronizedSet;
@@ -30,6 +31,7 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -118,6 +120,46 @@ public class CommonUtil {
 			break;
 		default:
 			str = "ESWN";
+		}
+		return str;
+	}
+	
+	/**
+	 * 风向编号转换成字母
+	 * 
+	 * @param d
+	 * @return
+	 */
+	public static String getWindString3(double d) {
+		String str = "";
+		int i = (int) d;
+		switch (i) {
+		case 1:
+			str = "北";
+			break;
+		case 2:
+			str = "东北";
+			break;
+		case 3:
+			str = "东";
+			break;
+		case 4:
+			str = "东南";
+			break;
+		case 5:
+			str = "南";
+			break;
+		case 6:
+			str = "西南";
+			break;
+		case 7:
+			str = "西";
+			break;
+		case 8:
+			str = "西北";
+			break;
+		default:
+			str = "东南";
 		}
 		return str;
 	}
@@ -331,11 +373,12 @@ public class CommonUtil {
 		}
 	}
 	public static void main(String[] args) {
-			String url = "http://wechat-api.huaguisystems.com/homePage/environment/create";
+//		String url = "http://wechat-api.huaguisystems.com/homePage/environment/create";
+		String url = "http://wechat-api.huaguisystems.com/homePage/environment/create";
 			Map<String,String> map = new HashMap<>();
-			map.put("proname", "测试名称");
-			map.put("position", "测试位置");
-			map.put("equcode", "00000888");
+			map.put("proname", "许昌东站监测点");
+			map.put("position", "许昌东站监测点");
+			map.put("equcode", "00000789");
 			map.put("pmtwo", "55");
 			map.put("pmten", "65");
 			map.put("noise", "45");
@@ -344,12 +387,6 @@ public class CommonUtil {
 			map.put("temperature", "28");
 			map.put("depth", "46");
 			map.put("time", "2018-06-08 15:07:23");
-			
-			try {
-				doHttpPost(url,map);
-			} catch (JSONException | IOException e) {
-				e.printStackTrace();
-			}
 	}
 	/**
 	 * 模拟http post请求
@@ -360,26 +397,26 @@ public class CommonUtil {
 	 * @throws ClientProtocolException
 	 * @throws IOException
 	 */
-	public static void doHttpPost(String url, Map<String, String> map)
+	public static void doHttpPost(String url, String params, Log log)
 			throws JSONException, ClientProtocolException, IOException {
 		String respContent = null;
 		CloseableHttpClient client = HttpClients.createDefault();
 		HttpPost httpPost = new HttpPost(url);
-		JSONObject jsonParam = new JSONObject();
-		for (Map.Entry<String, String> entry : map.entrySet()) {
-			jsonParam.put(entry.getKey(), entry.getValue());
-		}
-		System.out.println(jsonParam.toString());
-		StringEntity entity = new StringEntity("["+jsonParam.toString()+"]", "utf-8");// 解决中文乱码问题
-		entity.setContentEncoding("UTF-8");
+//		JSONObject jsonParam = new JSONObject();
+//		JSONArray jsonarry = new JSONArray();
+//		for (Map.Entry<String, String> entry : map.entrySet()) {
+//			jsonParam.put(entry.getKey(), entry.getValue());
+//		}
+		
+		StringEntity entity = new StringEntity(params, "utf-8");// 解决中文乱码问题
+//		entity.setContentEncoding("UTF-8");
 		entity.setContentType("application/json");
 		httpPost.setEntity(entity);
-//		System.out.println(entity.toString());
 		HttpResponse resp = client.execute(httpPost);
 		if (resp.getStatusLine().getStatusCode() == 200) {
 			HttpEntity he = resp.getEntity();
 			respContent = EntityUtils.toString(he, "UTF-8");
-			System.out.println("result:"+respContent);
+			log.info("result:"+respContent);
 		}
 	}
 

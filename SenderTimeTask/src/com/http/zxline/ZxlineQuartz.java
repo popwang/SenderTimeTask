@@ -1,4 +1,4 @@
-package com.tcp.xa;
+package com.http.zxline;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -8,17 +8,19 @@ import com.common.service.AbstractBaseService;
 import com.utils.SystemEnum;
 
 @Component
-public class XaQuartz extends AbstactBaseQuartz{
+public class ZxlineQuartz extends AbstactBaseQuartz{
+	
 	@Autowired
-	private XaService xaService;
+	private ZxlineService zxlineService;
 	
 	@Override
 	public AbstractBaseService getAbstractBaseService() {
-		return xaService;
+		return zxlineService;
 	}
 
 	@Override
 	public SystemEnum getSystemEnum() {
-		return SystemEnum.SX_XA_SYSTEM;
+		return SystemEnum.ZZ_XC_SYSTEM;
 	}
+
 }
