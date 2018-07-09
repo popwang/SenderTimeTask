@@ -39,6 +39,7 @@ public enum SystemEnum {
 	XA_QD_SYSTEM(33,"咸阳秦都区"),
 	AY_NEW_SYSTEM(34,"安阳新平台"),
 	ZZ_XC_SYSTEM(35,"郑许线监控平台"),
+	SC_CQ_SYSTEM(36,"重庆建委平台"),
 	WEATHER_SYSTEM(99,"天气预报");
 	
 	private int id;

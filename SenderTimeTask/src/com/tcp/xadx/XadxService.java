@@ -46,8 +46,8 @@ public class XadxService implements ServerInterface {
 			SocketUtil.sendByteDataBySocket(SystemEnum.XA_DXQ_SYSTEM.toString(), 1,dx.getNoiseBytes(), log);
 			SocketUtil.sendByteDataBySocket(SystemEnum.XA_DXQ_SYSTEM.toString(), 1,dx.getPM25Bytes(), log);
 			SocketUtil.sendByteDataBySocket(SystemEnum.XA_DXQ_SYSTEM.toString(), 1,dx.getPM10Bytes(), log);
-			SocketUtil.sendByteDataBySocket(SystemEnum.XA_DXQ_SYSTEM.toString(), 1,dx.getGPSBytes(), log);
-			SocketUtil.sendByteDataBySocket(SystemEnum.XA_DXQ_SYSTEM.toString(), 1,dx.getDropRateBytes(), log);
+//			SocketUtil.sendByteDataBySocket(SystemEnum.XA_DXQ_SYSTEM.toString(), 1,dx.getGPSBytes(), log);
+//			SocketUtil.sendByteDataBySocket(SystemEnum.XA_DXQ_SYSTEM.toString(), 1,dx.getDropRateBytes(), log);
 		}
 	}
 	

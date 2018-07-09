@@ -26,7 +26,7 @@ public class SxwnService extends AbstractBaseService{
 			info = info.replaceAll("AZ", "ZB");
 		}
 		SocketUtil.init2(SystemEnum.SX_WN_SYSTEM.toString());
-		SocketUtil.sendDataBySocket(SystemEnum.SX_WN_SYSTEM.toString(), 3,info, log);
+		SocketUtil.sendDataBySocket(SystemEnum.SX_WN_SYSTEM.toString(), 1,info, log);
 	}
 
 	public static void main(String[] args) {

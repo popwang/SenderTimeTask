@@ -81,8 +81,6 @@
 		<task:scheduled ref="lyycQuartz" method="startTimeTask" cron="0 0/5 * * * ?"/>
 		<!-- 开封2定时器 -->
 		<task:scheduled ref="kf2Quartz" method="startTimeTask" cron="0 0/5 * * * ?"/>
-		<!-- 陕西渭南定时器 -->
-		<task:scheduled ref="sxwnQuartz" method="startTimeTask" cron="0 0/10 * * * ?"/>
 		<!-- 安阳滑县2定时器 -->
 		<task:scheduled ref="ayhx2Quartz" method="startTimeTask" cron="0 0/5 * * * ?"/>
 		<!-- 周口项城定时器 -->

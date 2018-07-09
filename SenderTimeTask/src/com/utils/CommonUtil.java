@@ -15,10 +15,8 @@ import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.collections.set.SynchronizedSet;
 import org.apache.commons.logging.Log;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -31,9 +29,7 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
-import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import com.sun.xml.internal.ws.util.ByteArrayBuffer;
 import com.vo.EquipmentData;
@@ -374,7 +370,7 @@ public class CommonUtil {
 	}
 	public static void main(String[] args) {
 //		String url = "http://wechat-api.huaguisystems.com/homePage/environment/create";
-		String url = "http://wechat-api.huaguisystems.com/homePage/environment/create";
+//		String url = "http://wechat-api.huaguisystems.com/homePage/environment/create";
 			Map<String,String> map = new HashMap<>();
 			map.put("proname", "许昌东站监测点");
 			map.put("position", "许昌东站监测点");
@@ -402,14 +398,8 @@ public class CommonUtil {
 		String respContent = null;
 		CloseableHttpClient client = HttpClients.createDefault();
 		HttpPost httpPost = new HttpPost(url);
-//		JSONObject jsonParam = new JSONObject();
-//		JSONArray jsonarry = new JSONArray();
-//		for (Map.Entry<String, String> entry : map.entrySet()) {
-//			jsonParam.put(entry.getKey(), entry.getValue());
-//		}
 		
 		StringEntity entity = new StringEntity(params, "utf-8");// 解决中文乱码问题
-//		entity.setContentEncoding("UTF-8");
 		entity.setContentType("application/json");
 		httpPost.setEntity(entity);
 		HttpResponse resp = client.execute(httpPost);
@@ -418,6 +408,33 @@ public class CommonUtil {
 			respContent = EntityUtils.toString(he, "UTF-8");
 			log.info("result:"+respContent);
 		}
+	}
+	
+	/**
+	 * 重庆接口对接http post方法
+	 * @param url
+	 * @param params
+	 * @param header
+	 * @param log
+	 * @throws JSONException
+	 * @throws ClientProtocolException
+	 * @throws IOException
+	 */
+	public static void doHttpPost2(String url, String params,Map<String,String> header, Log log)
+			throws JSONException, ClientProtocolException, IOException {
+		String respContent = null;
+		CloseableHttpClient client = HttpClients.createDefault();
+		HttpPost httpPost = new HttpPost(url);
+		for(Map.Entry<String, String> entry : header.entrySet()){
+			httpPost.addHeader(entry.getKey(), entry.getValue());
+		}
+		StringEntity entity = new StringEntity(params, "utf-8");// 解决中文乱码问题
+		entity.setContentType("application/json");
+		httpPost.setEntity(entity);
+		HttpResponse resp = client.execute(httpPost);
+		HttpEntity he = resp.getEntity();
+		respContent = EntityUtils.toString(he, "UTF-8");
+		log.info("result:"+respContent);
 	}
 
 	public static EquipmentData getEquipmentDataInstance() {
