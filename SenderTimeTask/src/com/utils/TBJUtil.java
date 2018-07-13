@@ -47,6 +47,8 @@ public class TBJUtil {
 		}
 		return "STX" + len + str + "ETX\r\n";
 	}
+	
+	
 	/**
 	 * ÂåÑôÒÁ´¨×Ö·û´®
 	 * @param v

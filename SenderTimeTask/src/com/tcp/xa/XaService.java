@@ -30,13 +30,13 @@ public class XaService extends AbstractBaseService {
 		SocketUtil.sendByteDataBySocket(SystemEnum.SX_XA_SYSTEM.toString(), 1,dx.getNoiseBytes(), log);
 		SocketUtil.sendByteDataBySocket(SystemEnum.SX_XA_SYSTEM.toString(), 1,dx.getPM25Bytes(), log);
 		SocketUtil.sendByteDataBySocket(SystemEnum.SX_XA_SYSTEM.toString(), 1,dx.getPM10Bytes(), log);
-		SocketUtil.sendByteDataBySocket(SystemEnum.SX_XA_SYSTEM.toString(), 1,dx.getGPSBytes(), log);
-		SocketUtil.sendByteDataBySocket(SystemEnum.SX_XA_SYSTEM.toString(), 1,dx.getDropRateBytes(), log);
+//		SocketUtil.sendByteDataBySocket(SystemEnum.SX_XA_SYSTEM.toString(), 1,dx.getGPSBytes(), log);
+//		SocketUtil.sendByteDataBySocket(SystemEnum.SX_XA_SYSTEM.toString(), 1,dx.getDropRateBytes(), log);
 	}
 	
 	public static void main(String[] args){
 		EquipmentData e = new EquipmentData();
-		e.setV_equipment_name("1064862221413");
+		e.setV_equipment_name("18490437173");
 		e.setP001(0);
 		e.setP002(68);
 		e.setP003(83);

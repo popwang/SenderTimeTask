@@ -276,7 +276,6 @@ public class CommonUtil {
 
 	/**
 	 * 调用socket发送字节数据
-	 * 
 	 * @param ip
 	 * @param port
 	 * @param bytes
@@ -398,7 +397,9 @@ public class CommonUtil {
 		String respContent = null;
 		CloseableHttpClient client = HttpClients.createDefault();
 		HttpPost httpPost = new HttpPost(url);
-		
+		RequestConfig requestConfig = RequestConfig.custom().setConnectTimeout(1000).setConnectionRequestTimeout(1000)
+				.setSocketTimeout(1000).build();
+		httpPost.setConfig(requestConfig);
 		StringEntity entity = new StringEntity(params, "utf-8");// 解决中文乱码问题
 		entity.setContentType("application/json");
 		httpPost.setEntity(entity);
@@ -425,6 +426,10 @@ public class CommonUtil {
 		String respContent = null;
 		CloseableHttpClient client = HttpClients.createDefault();
 		HttpPost httpPost = new HttpPost(url);
+		RequestConfig requestConfig = RequestConfig.custom().setConnectTimeout(1000).setConnectionRequestTimeout(1000)
+				.setSocketTimeout(1000).build();
+		httpPost.setConfig(requestConfig);
+		//添加头信息
 		for(Map.Entry<String, String> entry : header.entrySet()){
 			httpPost.addHeader(entry.getKey(), entry.getValue());
 		}
@@ -477,6 +482,4 @@ public class CommonUtil {
 		e.setP010(e.getP010() + Math.round(e.getP010() * 0.1 * Math.random()));
 		return e;
 	}
-
-	
 }
