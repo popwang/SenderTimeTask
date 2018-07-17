@@ -26,7 +26,7 @@ public class XaqdService extends AbstractBaseService{
 	public static void main(String[] args) {
 		XaqdService service = new XaqdService();
 		EquipmentData v = CommonUtil.getEquipmentDataInstance();
-		v.setV_equipment_name("Y002900AZ00913");
+		v.setV_equipment_name("Y002900AZ00933");
 		service.sendEquipmentData(v);
 	}
 }

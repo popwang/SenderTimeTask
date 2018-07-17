@@ -85,6 +85,8 @@
 		<task:scheduled ref="sxwnQuartz" method="startTimeTask" cron="30 0/1 * * * ?"/>
 		<!-- 重庆建委定时器 -->
 		<task:scheduled ref="cqQuartz" method="startTimeTask" cron="30 0/5 * * * ?"/>
+		<!-- 银川定时器 -->
+		<task:scheduled ref="ycQuartz" method="startTimeTask" cron="10 0/5 * * * ?"/>
 	</task:scheduled-tasks>
 	
 </beans>

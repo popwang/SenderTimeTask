@@ -36,7 +36,43 @@ public class EquipmentData {
 	private double p015;
 	private String dtm_update;
 	private String dtm_setdate;
+	private String windSpeed;
 	
+	public String getWindSpeed() {
+		if(this.p004<0.3){
+			windSpeed="无风";
+		}else if(this.p004>=0.3 && this.p004<1.6){
+			windSpeed="软风";
+		}else if(this.p004>=1.6 && this.p004<3.4){
+			windSpeed="轻风";
+		}else if(this.p004>=3.4 && this.p004<5.5){
+			windSpeed="微风";
+		}else if(this.p004>=5.5 && this.p004<8.0){
+			windSpeed="和风";
+		}else if(this.p004>=8.0 && this.p004<10.8){
+			windSpeed="清风";
+		}else if(this.p004>=10.8 && this.p004<13.9){
+			windSpeed="强风";
+		}else if(this.p004>=13.9 && this.p004<17.2){
+			windSpeed="劲风";
+		}else if(this.p004>=17.2 && this.p004<20.8){
+			windSpeed="大风";
+		}else if(this.p004>=20.8 && this.p004<24.5){
+			windSpeed="烈风";
+		}else if(this.p004>=24.5 && this.p004<28.5){
+			windSpeed="狂风";
+		}else if(this.p004>=28.5 && this.p004<32.7){
+			windSpeed="暴风";
+		}else if(this.p004>=32.7){
+			windSpeed="台风";
+		}
+		return windSpeed;
+	}
+
+	public void setWindSpeed(String windSpeed) {
+		this.windSpeed = windSpeed;
+	}
+
 	@Override
 	public String toString(){
 		return "状态："+this.getP001()+
@@ -94,33 +130,6 @@ public class EquipmentData {
 	 * @return
 	 */
 	public double getP011() {
-		if(this.p004<0.3){
-			p011=0;
-		}else if(this.p004>=0.3 && this.p004<1.6){
-			p001=1;
-		}else if(this.p004>=1.6 && this.p004<3.4){
-			p001=2;
-		}else if(this.p004>=3.4 && this.p004<5.5){
-			p001=3;
-		}else if(this.p004>=5.5 && this.p004<8.0){
-			p001=4;
-		}else if(this.p004>=8.0 && this.p004<10.8){
-			p001=5;
-		}else if(this.p004>=10.8 && this.p004<13.9){
-			p001=6;
-		}else if(this.p004>=13.9 && this.p004<17.2){
-			p001=7;
-		}else if(this.p004>=17.2 && this.p004<20.8){
-			p001=8;
-		}else if(this.p004>=20.8 && this.p004<24.5){
-			p001=9;
-		}else if(this.p004>=24.5 && this.p004<28.5){
-			p001=10;
-		}else if(this.p004>=28.5 && this.p004<32.7){
-			p001=11;
-		}else if(this.p004>=32.7){
-			p001=12;
-		}
 		return p011;
 	}
 

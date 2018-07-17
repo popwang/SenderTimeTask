@@ -28,6 +28,7 @@ import com.webservice.ayhx.ws.SaveYCJCServicePortType;
  * 1.安阳滑县数据对接，使用webservice调用；（与平顶山应为同一厂家，协议相同）
  * 2.技术电话：18625575498
  * 3.原技术黄工已经不干，暂时联系不到相关人员。
+ * 4.已废弃
  */
 @Component
 public class AyhxService {

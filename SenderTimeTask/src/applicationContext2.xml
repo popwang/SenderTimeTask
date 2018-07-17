@@ -66,7 +66,7 @@
 		<!-- 郑州交委定时器 -->
 		<task:scheduled ref="trafficQuartz" method="startZztraTimeTask" cron="20 0/10 * * * ?"/>
 		<!-- 郑州特比佳定时器 -->
-		<task:scheduled ref="zztbjQuartz" method="startZztbjTimeTask" cron="25 0/10 * * * ?"/>
+		<task:scheduled ref="zztbjQuartz" method="startZztbjTimeTask" cron="25 0/7 * * * ?"/>
 		<!-- 平顶山宝丰县定时器 -->
 		<task:scheduled ref="pdsQuartz" method="startPdsTimeTask" cron="10 0/10 * * * ?"/>
 		<!-- 天气预报定时器 -->

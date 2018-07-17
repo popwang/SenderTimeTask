@@ -10,6 +10,11 @@ import com.vo.EquipmentData;
  */
 public class WebserviceUtil {
 	public static final int WEBSERVICE_TIMEOUT = 3;
+	/**
+	 * 河南省内某厂家webservice服务数据字符串
+	 * @param v
+	 * @return
+	 */
 	public static String getDataString(EquipmentData v){
 		StringBuffer sb = new StringBuffer("DevID:|:");
 	      sb.append(v.getV_equipment_name());
@@ -36,4 +41,5 @@ public class WebserviceUtil {
 	      
 		return sb.toString();
 	}
+	
 }

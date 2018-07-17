@@ -1,0 +1,4 @@
+--宁夏正式地址：
+wsdl2java.bat -d d:\\src -p com.webservice.yc -all http://42.63.25.70:9000/yczj/webservice/jkinfo.asmx?wsdl
+--宁夏测试地址
+wsdl2java.bat -d d:\\src -p com.webservice.yc.test -all http://www.zhxht.com:8095/ycgd_new/webservice/jkinfo.asmx?wsdl
