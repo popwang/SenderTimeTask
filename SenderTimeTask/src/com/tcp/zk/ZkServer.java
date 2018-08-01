@@ -46,7 +46,7 @@ public class ZkServer implements ServerInterface {
 			CommonUtil.sendDataToRemote(ConfigReader.getHost(SystemEnum.HA_ZK_SYSTEM.toString()),
 					ConfigReader.getPort(SystemEnum.HA_ZK_SYSTEM.toString()),info,log);
 		}
-		log.info("本轮待数据发送完成！");
+		log.info("本轮数据发送完成！");
 	}
 		
 	public static void main(String[] args) {
@@ -55,7 +55,7 @@ public class ZkServer implements ServerInterface {
 			@Override
 			public void run() {
 				EquipmentData e = new EquipmentData();
-				e.setV_equipment_name("000400069");
+				e.setV_equipment_name("Y0394001600069");
 				e.setP001(0);
 				e.setP002(68);
 				e.setP003(85);

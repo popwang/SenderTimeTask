@@ -5,7 +5,6 @@
 	<classpathentry kind="lib" path="lib/commons-beanutils-1.9.2.jar"/>
 	<classpathentry kind="lib" path="lib/commons-codec-1.7.jar"/>
 	<classpathentry kind="lib" path="lib/commons-collections-3.1.jar"/>
-	<classpathentry kind="lib" path="lib/commons-collections.jar"/>
 	<classpathentry kind="lib" path="lib/commons-dbcp-1.4.jar"/>
 	<classpathentry kind="lib" path="lib/commons-email-1.2.jar"/>
 	<classpathentry kind="lib" path="lib/commons-io-2.0.1.jar"/>
@@ -36,15 +35,10 @@
 	<classpathentry kind="lib" path="lib/json.jar"/>
 	<classpathentry kind="lib" path="lib/jsr250-api-1.0.jar"/>
 	<classpathentry kind="lib" path="lib/log4j-1.2.17.jar"/>
-	<classpathentry kind="lib" path="lib/mail-1.4.1.jar"/>
 	<classpathentry kind="lib" path="lib/mybatis-3.2.5.jar"/>
 	<classpathentry kind="lib" path="lib/mybatis-spring-1.1.1.jar"/>
 	<classpathentry kind="lib" path="lib/mysql-connector-java.jar"/>
 	<classpathentry kind="lib" path="lib/neethi-3.0.2.jar"/>
-	<classpathentry kind="lib" path="lib/ojdbc6.jar"/>
-	<classpathentry kind="lib" path="lib/poi-3.6-20091214.jar"/>
-	<classpathentry kind="lib" path="lib/poi-ooxml-3.6-20091214.jar"/>
-	<classpathentry kind="lib" path="lib/poi-ooxml-schemas-3.6-20091214.jar"/>
 	<classpathentry kind="lib" path="lib/rhino-1.6R7.jar"/>
 	<classpathentry kind="lib" path="lib/slf4j-api-1.7.6.jar"/>
 	<classpathentry kind="lib" path="lib/slf4j-log4j12-1.7.6.jar"/>
@@ -55,20 +49,13 @@
 	<classpathentry kind="lib" path="lib/spring-expression-4.0.6.RELEASE.jar"/>
 	<classpathentry kind="lib" path="lib/spring-jdbc-4.0.6.RELEASE.jar"/>
 	<classpathentry kind="lib" path="lib/spring-orm-4.0.6.RELEASE.jar"/>
-	<classpathentry kind="lib" path="lib/spring-security-config-3.2.3.RELEASE.jar"/>
-	<classpathentry kind="lib" path="lib/spring-security-core-3.2.3.RELEASE.jar"/>
-	<classpathentry kind="lib" path="lib/spring-security-crypto-3.2.3.RELEASE.jar"/>
-	<classpathentry kind="lib" path="lib/spring-security-web-3.2.3.RELEASE.jar"/>
-	<classpathentry kind="lib" path="lib/spring-tx-4.0.6.RELEASE.jar"/>
-	<classpathentry kind="lib" path="lib/spring-web-4.0.6.RELEASE.jar"/>
-	<classpathentry kind="lib" path="lib/spring-webmvc-4.0.6.RELEASE.jar"/>
 	<classpathentry kind="lib" path="lib/stax-api-1.0.1.jar"/>
 	<classpathentry kind="lib" path="lib/xmlbeans-2.3.0.jar"/>
 	<classpathentry kind="lib" path="lib/XmlSchema-1.4.7.jar"/>
-	<classpathentry kind="lib" path="lib/httpcore-4.4.6.jar"/>
+	<classpathentry kind="lib" path="lib/httpcore-4.4.6.jar" sourcepath="C:/Users/pactera/.m2/repository/org/apache/httpcomponents/httpcore/4.4.6/httpcore-4.4.6-sources.jar"/>
 	<classpathentry kind="lib" path="lib/httpmime-4.5.3.jar"/>
 	<classpathentry kind="lib" path="lib/fluent-hc-4.5.3.jar"/>
-	<classpathentry kind="lib" path="lib/netty-all-4.1.5.Final.jar"/>
+	<classpathentry kind="lib" path="lib/spring-tx-4.0.6.RELEASE.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.8.0_131"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
