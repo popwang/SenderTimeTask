@@ -42,7 +42,7 @@ public class ZxlineService extends AbstractBaseService {
 				array.put(object);
 			}
 			String json = array.toString();
-			System.out.println(json);
+			log.info(json);
 			CommonUtil.doHttpPost(list.get(0).getV_url(), json, log);
 		} catch (ClientProtocolException e) {
 			e.printStackTrace();

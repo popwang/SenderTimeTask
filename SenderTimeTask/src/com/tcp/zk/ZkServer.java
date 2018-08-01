@@ -32,7 +32,7 @@ public class ZkServer implements ServerInterface {
 	public void handler() {
 		List<EquipmentProjectVo> list = mapper.selectEquipmentListBySystemId(SystemEnum.HA_ZK_SYSTEM.getId());
 		log.info(SystemEnum.HA_ZK_SYSTEM.getName()+"本轮待发送设备数为："+list.size());
-		//001600212
+		//Y0394 001600212
 		for(EquipmentProjectVo vo : list){
 			EquipmentData e = mapper.selectDataByName(vo.getV_real_equipment_name());
 			if(e==null){

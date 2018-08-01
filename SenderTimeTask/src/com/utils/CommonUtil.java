@@ -404,11 +404,9 @@ public class CommonUtil {
 		entity.setContentType("application/json");
 		httpPost.setEntity(entity);
 		HttpResponse resp = client.execute(httpPost);
-		if (resp.getStatusLine().getStatusCode() == 200) {
-			HttpEntity he = resp.getEntity();
-			respContent = EntityUtils.toString(he, "UTF-8");
-			log.info("result:"+respContent);
-		}
+		HttpEntity he = resp.getEntity();
+		respContent = EntityUtils.toString(he, "UTF-8");
+		log.info("result:"+respContent);
 	}
 	
 	/**

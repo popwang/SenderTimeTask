@@ -1,20 +1,22 @@
 package com.tcp.lyyc;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.common.QuartzInterface;
+import com.common.service.AbstactBaseQuartz;
+import com.common.service.AbstractBaseService;
+import com.utils.SystemEnum;
+
 @Component
-public class LyycQuartz implements QuartzInterface {	
-	public static Log log = LogFactory.getLog(LyycQuartz.class);
+public class LyycQuartz extends AbstactBaseQuartz{
 	@Autowired
 	private LyycService service;
 	@Override
-	public void startTimeTask() {
-		log.info("洛阳伊川数据发送开始...");
-		service.handler();
-		log.info("洛阳伊川本轮数据发送完成！");
+	public AbstractBaseService getAbstractBaseService() {
+		return service;
+	}
+	@Override
+	public SystemEnum getSystemEnum() {
+		return SystemEnum.LY_YC_SYSTEM;
 	}
 }

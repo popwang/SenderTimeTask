@@ -152,7 +152,7 @@ public class CRC {
 	 */
 	public static String getDataString3(EquipmentData e) {
 		StringBuffer sb = new StringBuffer("");
-		sb.append("ST=52;CN=2011;PW=123456;MN=Y0394");
+		sb.append("ST=52;CN=2011;PW=123456;MN=");
 		sb.append(e.getV_equipment_name());
 		sb.append(";CP=&&DataTime=");
 		sb.append(CRC.currentTimeString());

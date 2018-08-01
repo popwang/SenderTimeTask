@@ -48,7 +48,7 @@ public class YcService {
 		  }
 	      v.setV_equipment_name(project.getV_equipment_name());
 
-	      String dataStr = WebserviceUtil.getDataString(v);
+	      String dataStr = YcUtil.switchEquipmentToData(v);
 	      log.info(dataStr);
 	      try{
 	        String result = port.xhtYCDateRec(mKeyPwd, dataStr);
