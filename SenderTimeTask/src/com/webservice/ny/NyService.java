@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 
 import com.common.service.AbstractBaseService;
 import com.utils.CommonUtil;
+import com.utils.ThreadPoolUtil;
 import com.utils.WebserviceUtil;
 import com.vo.EquipmentData;
 import com.webservice.ny.ws.DataAccessException_Exception;
@@ -55,7 +56,7 @@ public class NyService extends AbstractBaseService {
 	 * @return
 	 */
 	public SaveYCJCServicePortType getPortTimeOut(int second){
-		final ExecutorService exec = Executors.newFixedThreadPool(1);  
+		ExecutorService exec = ThreadPoolUtil.getExecutorService();
 	    Callable<SaveYCJCServicePortType> call = new Callable<SaveYCJCServicePortType>() {  
 	        public SaveYCJCServicePortType call() throws Exception {
 	        	SaveYCJCService ss = new SaveYCJCService();

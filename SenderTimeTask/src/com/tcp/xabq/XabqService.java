@@ -19,6 +19,8 @@ import com.vo.EquipmentData;
 import com.vo.EquipmentProjectVo;
 /**
  * 西安灞桥区，来工：QQ:380787270
+ * 将编号发给厂家，厂家找平台进行登记
+ * SDYKAZ00000087
  * 发送自定义编号，后台添加
  * @author pactera
  *

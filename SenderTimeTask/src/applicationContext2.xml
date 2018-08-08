@@ -53,20 +53,20 @@
 	</bean>
     <tx:annotation-driven transaction-manager="transactionManager"/>
     <task:scheduled-tasks>
+    	<!-- 安阳、三门峡定时器 -->
+		<task:scheduled ref="aysmQuartz" method="startAysmTimeTask" cron="0 0/10 * * * ?"/>
+    	<!-- 郑州特比佳定时器 -->
+		<task:scheduled ref="zztbjQuartz" method="startZztbjTimeTask" cron="25 0/9 * * * ?"/>
 		<!-- 开封定时器 -->
 		<task:scheduled ref="kfQuartz" method="startTimeTask" cron="0 0/5 * * * ?"/>
 		<!-- 河北石家庄定时器 -->
 		<task:scheduled ref="hbQuartz" method="startTimeTask" cron="0 0/10 * * * ?"/>
-		<!-- 安阳、三门峡定时器 -->
-		<task:scheduled ref="aysmQuartz" method="startAysmTimeTask" cron="0 0/10 * * * ?"/>
 		<!-- 安阳滑县定时器 -->
 		<!-- <task:scheduled ref="ayhxQuartz" method="startAyhxTimeTask" cron="5 0/10 * * * ?"/> -->
 		<!-- 山东济宁定时器 -->
 		<task:scheduled ref="sdQuartz" method="startSdjnTimeTask" cron="15 0/10 * * * ?"/>
 		<!-- 郑州交委定时器 -->
 		<task:scheduled ref="trafficQuartz" method="startZztraTimeTask" cron="20 0/10 * * * ?"/>
-		<!-- 郑州特比佳定时器 -->
-		<task:scheduled ref="zztbjQuartz" method="startZztbjTimeTask" cron="25 0/7 * * * ?"/>
 		<!-- 平顶山宝丰县定时器 -->
 		<task:scheduled ref="pdsQuartz" method="startPdsTimeTask" cron="10 0/10 * * * ?"/>
 		<!-- 天气预报定时器 -->

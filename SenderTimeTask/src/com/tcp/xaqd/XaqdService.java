@@ -9,7 +9,8 @@ import com.utils.SystemEnum;
 import com.vo.EquipmentData;
 
 /**
- * 西安秦都区,协议与灞桥区类似
+ * 咸阳市协议：秦都区，渭城区等,协议与灞桥区类似
+ * MN:Y002900AZ00933
  * 120.27.43.188:10085
  * @author pactera
  */

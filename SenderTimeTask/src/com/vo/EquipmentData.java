@@ -1,9 +1,15 @@
 package com.vo;
-
+/**
+ * 20180808增加了project中的一些属性字段，这两个表的对象逐渐融合
+ * @author pactera
+ *
+ */
 public class EquipmentData {
 	private String v_equipment_name;
 	private String v_project_name;
 	private Integer i_equipment_id;
+	private String v_real_equipment_name;
+	private String v_url;
 	//传感器状态
 	private double p001;
 	//PM2.5
@@ -273,5 +279,19 @@ public class EquipmentData {
 	}
 	public void setDtm_setdate(String dtm_setdate) {
 		this.dtm_setdate = dtm_setdate;
+	}
+
+	public String getV_real_equipment_name() {
+		return v_real_equipment_name;
+	}
+
+	public void setV_real_equipment_name(String v_real_equipment_name) {
+		this.v_real_equipment_name = v_real_equipment_name;
+	}
+	public String getV_url() {
+		return v_url;
+	}
+	public void setV_url(String v_url) {
+		this.v_url = v_url;
 	}
 }

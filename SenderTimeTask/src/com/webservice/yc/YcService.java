@@ -17,6 +17,7 @@ import org.springframework.stereotype.Component;
 import com.mapper.CommonMapper;
 import com.utils.CommonUtil;
 import com.utils.SystemEnum;
+import com.utils.ThreadPoolUtil;
 import com.utils.WebserviceUtil;
 import com.vo.EquipmentData;
 import com.vo.EquipmentProjectVo;
@@ -67,7 +68,7 @@ public class YcService {
 	 * @return
 	 */
 	public JKInfoSoap getPortTimeOut(int second){
-		final ExecutorService exec = Executors.newFixedThreadPool(1);  
+		ExecutorService exec = ThreadPoolUtil.getExecutorService();
 	    Callable<JKInfoSoap> call = new Callable<JKInfoSoap>() {  
 	        public JKInfoSoap call() throws Exception {
 	        	JKInfo ss = new JKInfo(JKInfo.WSDL_LOCATION, JKInfoSoap_JKInfoSoap_Client.SERVICE_NAME);

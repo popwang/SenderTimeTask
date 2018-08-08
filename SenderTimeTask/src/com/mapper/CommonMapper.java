@@ -21,6 +21,13 @@ public interface CommonMapper {
 	 * @return
 	 */
 	public List<EquipmentProjectVo> selectEquipmentListBySystemId(@Param("i_system_id")int id);
+	/**
+	 * 根据系统ID关联查询对应的设备数据列表，
+	 * 用于发送设备较多的接口从而降低系统查询次数
+	 * @param id
+	 * @return
+	 */
+	public List<EquipmentData> selectEquipmentDataListBySystemId(@Param("i_system_id")int id);
 	
 	/**
 	 * 将发送信息插入发送缓存表

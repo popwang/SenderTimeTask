@@ -298,9 +298,9 @@ public class CommonUtil {
 			System.out.println("server say：" + reply);
 			client.close();
 		} catch (UnknownHostException e) {
-			log.info(e.getMessage(), e);
+			log.info("异常信息："+e.getMessage());
 		} catch (IOException e) {
-			log.info(e.getMessage(), e);
+			log.info("异常信息："+e.getMessage());
 		} finally {
 
 		}
@@ -312,6 +312,7 @@ public class CommonUtil {
 	 * @param url
 	 */
 	public static void doHttpGet(String url, Log logger) {
+		logger.info(url);
 		CloseableHttpClient httpClient = HttpClients.createDefault();
 		HttpGet httpGet = new HttpGet(url);
 		RequestConfig requestConfig = RequestConfig.custom().setConnectTimeout(5000).setConnectionRequestTimeout(1000)
@@ -323,7 +324,7 @@ public class CommonUtil {
 			HttpEntity httpEntity = httpResponse.getEntity();
 			logger.info(EntityUtils.toString(httpEntity));
 		} catch (Exception e) {
-			logger.info(e.getMessage(), e);
+			logger.info("异常信息："+e.getMessage());
 		} finally {
 			try {
 				if (httpClient != null) {
@@ -333,7 +334,7 @@ public class CommonUtil {
 					httpResponse.close();
 				}
 			} catch (Exception e) {
-				logger.info(e.getMessage(), e);
+				logger.info("异常信息："+e.getMessage());
 			}
 		}
 	}

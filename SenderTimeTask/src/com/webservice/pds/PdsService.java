@@ -16,6 +16,7 @@ import org.springframework.stereotype.Component;
 
 import com.mapper.CommonMapper;
 import com.utils.SystemEnum;
+import com.utils.ThreadPoolUtil;
 import com.utils.WebserviceUtil;
 import com.vo.EquipmentData;
 import com.vo.EquipmentProjectVo;
@@ -82,7 +83,7 @@ public class PdsService {
 	 * @return
 	 */
 	public SaveYCJCServicePortType getPortTimeOut(int second){
-		final ExecutorService exec = Executors.newFixedThreadPool(1);  
+		ExecutorService exec = ThreadPoolUtil.getExecutorService();
 	    Callable<SaveYCJCServicePortType> call = new Callable<SaveYCJCServicePortType>() {  
 	        public SaveYCJCServicePortType call() throws Exception {
 	        	SaveYCJCService ss = new SaveYCJCService();

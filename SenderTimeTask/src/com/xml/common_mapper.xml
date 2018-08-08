@@ -16,6 +16,21 @@
 		 select * from t_equipment_project where i_system_id=#{i_system_id}
 	</select>
 	
+	<!-- 根据系统ID关联查询对应的设备数据列表 ，用于发送设备较多的接口从而降低系统查询次数 -->
+	<select id="selectEquipmentDataListBySystemId" resultType="com.vo.EquipmentData" parameterType="int">
+		 select t1.v_equipment_name,
+				t1.v_project_name,
+				t1.v_url,
+				t2.v_equipment_name v_real_equipment_name,
+				t2.p001,t2.p002,t2.p003,t2.p004,t2.p005,
+				t2.p006,t2.p007,t2.p008,t2.p009,t2.p010,
+				t2.p011,t2.p012,t2.p013,t2.p014,t2.p015
+				 from t_equipment_project t1
+				left join t_equipment_data2 t2
+				on t1.v_real_equipment_name=t2.v_equipment_name
+				where t1.i_system_id=#{i_system_id}
+	</select>
+	
 	<insert id="insertWeatherInfoIntoBuffer" parameterType="com.vo.OrderBufferVo">
 		insert into t_order_buffer(v_equipment_name,v_order_content,i_send_flag)
 		values(#{v_equipment_name},#{v_order_content},#{i_send_flag})
