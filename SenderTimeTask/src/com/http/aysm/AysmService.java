@@ -34,6 +34,8 @@ public class AysmService {
     public void service(){
     	List<EquipmentData> list = mapper.selectEquipmentDataListBySystemId(SystemEnum.AY_SM_SYSTEM.getId());
 		log.info("本轮待发送设备数为："+list.size());
+		
+		ThreadPoolUtil.printExecutorStatus();
 		for(EquipmentData vo : list){
 			if(vo.getV_real_equipment_name()==null){
 				log.info(vo.getV_equipment_name()+"当前无数据。");

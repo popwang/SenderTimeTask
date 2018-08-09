@@ -114,9 +114,7 @@ public class AyhxService {
 			e2.printStackTrace();
 		} catch (TimeoutException e2) {
 			e2.printStackTrace();
-		} finally {
-			exec.shutdown();
-		}
+		} 
 		return port;
 	}
 }

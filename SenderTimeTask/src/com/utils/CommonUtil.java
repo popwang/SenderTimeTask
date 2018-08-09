@@ -195,9 +195,9 @@ public class CommonUtil {
 			pw.close();
 			socket.close();
 		} catch (UnknownHostException e) {
-			log.info(e.getMessage(), e);
+			log.info(e.getMessage());
 		} catch (IOException e) {
-			log.info(e.getMessage(), e);
+			log.info(e.getMessage());
 		}
 	}
 
@@ -315,8 +315,8 @@ public class CommonUtil {
 		logger.info(url);
 		CloseableHttpClient httpClient = HttpClients.createDefault();
 		HttpGet httpGet = new HttpGet(url);
-		RequestConfig requestConfig = RequestConfig.custom().setConnectTimeout(5000).setConnectionRequestTimeout(1000)
-				.setSocketTimeout(5000).build();
+		RequestConfig requestConfig = RequestConfig.custom().setConnectTimeout(1000).setConnectionRequestTimeout(1000)
+				.setSocketTimeout(1000).build();
 		httpGet.setConfig(requestConfig);
 		CloseableHttpResponse httpResponse = null;
 		try {

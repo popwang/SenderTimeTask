@@ -34,7 +34,7 @@ public class UpdateEquipmentInfoService {
 	 */
 	public void hanlder() {
 		List<EquipmentInfo> list = business.selectEquipmentInfo();
-		log.info("本轮待发送设备数为："+list.size());
+		log.info("本轮待更新设备数为："+list.size());
 		for(EquipmentInfo e : list){
 			if(e.getV_address()!=null && !"".equals(e.getV_address())){
 				try {
