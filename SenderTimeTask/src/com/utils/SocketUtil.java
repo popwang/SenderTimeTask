@@ -22,7 +22,6 @@ import com.vo.EquipmentData;
 
 /**
  * 创建单例模式socket，实现socket长连接
- * 用于西安长安区数据连接
  * @author pactera
  *
  */

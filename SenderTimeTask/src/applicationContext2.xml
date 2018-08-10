@@ -56,7 +56,7 @@
     	<!-- 安阳、三门峡定时器 -->
 		<task:scheduled ref="aysmQuartz" method="startAysmTimeTask" cron="0 0/10 * * * ?"/>
     	<!-- 郑州特比佳定时器 -->
-		<task:scheduled ref="zztbjQuartz" method="startZztbjTimeTask" cron="25 0/9 * * * ?"/>
+		<task:scheduled ref="zztbjQuartz" method="startTimeTask" cron="25 0/9 * * * ?"/>
 		<!-- 开封定时器 -->
 		<task:scheduled ref="kfQuartz" method="startTimeTask" cron="0 0/5 * * * ?"/>
 		<!-- 河北石家庄定时器 -->

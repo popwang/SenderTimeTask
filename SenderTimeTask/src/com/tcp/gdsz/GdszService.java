@@ -3,9 +3,7 @@ package com.tcp.gdsz;
 import org.springframework.stereotype.Component;
 
 import com.common.service.AbstractBaseService;
-import com.tcp.xabq.XabqUtil;
 import com.utils.CommonUtil;
-import com.utils.ConfigReader;
 import com.utils.SystemEnum;
 import com.vo.EquipmentData;
 /**
@@ -21,8 +19,7 @@ public class GdszService extends AbstractBaseService {
 		String info = SzUtil.getAirString2(v);
 //		SocketUtil.init2(SystemEnum.GD_SZ_SYSTEM.toString());
 //		SocketUtil.sendDataBySocket(SystemEnum.GD_SZ_SYSTEM.toString(), 1, info, log);
-		CommonUtil.sendDataToRemote(ConfigReader.getHost(SystemEnum.GD_SZ_SYSTEM.toString()),
-		ConfigReader.getPort(SystemEnum.GD_SZ_SYSTEM.toString()), info, log);
+		CommonUtil.sendDataToRemote2(SystemEnum.GD_SZ_SYSTEM.toString(), info, log);
 	}
 	
 	public static void main(String[] args) {

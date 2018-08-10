@@ -6,6 +6,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.tcp.zz.ZztbjService;
+import com.utils.SystemEnum;
 /**
  * ºØ≥…≤‚ ‘¿‡ 
  * @author pactera
@@ -23,7 +24,7 @@ public class AppMainTest {
 		@SuppressWarnings("unused")
 		ApplicationContext factory = new ClassPathXmlApplicationContext("applicationContext1.xml");
 		ZztbjService zz = (ZztbjService)factory.getBean("zztbjService");
-		zz.handler();
+		zz.handler(SystemEnum.ZZ_TBJ_SYSTEM);
 		Thread.currentThread().join();
 		System.exit(0);
 	}

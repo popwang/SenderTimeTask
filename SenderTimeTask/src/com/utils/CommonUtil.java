@@ -163,6 +163,8 @@ public class CommonUtil {
 	public static void sendDataToRemote2(String key, String info, Log log) {
 		String ip = ConfigReader.getHost(key);
 		int port = ConfigReader.getPort(key);
+//		System.out.println("ip="+ip);
+//		System.out.println("port="+port);
 		sendDataToRemote(ip, port, info, log);
 	}
 
