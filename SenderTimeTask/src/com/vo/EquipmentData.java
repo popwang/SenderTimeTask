@@ -40,6 +40,23 @@ public class EquipmentData {
 	private double p014;
 	//Î³¶È
 	private double p015;
+	
+	private double p016;
+	private double p017;
+	private double p018;
+	private double p019;
+	private double p020;
+	private double p021;
+	private double p022;
+	private double p023;
+	private double p024;
+	private double p025;
+	private double p026;
+	private double p027;
+	private double p028;
+	private double p029;
+	private double p030;
+	
 	private String dtm_update;
 	private String dtm_setdate;
 	private String windSpeed;
@@ -293,5 +310,125 @@ public class EquipmentData {
 	}
 	public void setV_url(String v_url) {
 		this.v_url = v_url;
+	}
+
+	public double getP016() {
+		return p016;
+	}
+
+	public void setP016(double p016) {
+		this.p016 = p016;
+	}
+
+	public double getP017() {
+		return p017;
+	}
+
+	public void setP017(double p017) {
+		this.p017 = p017;
+	}
+
+	public double getP018() {
+		return p018;
+	}
+
+	public void setP018(double p018) {
+		this.p018 = p018;
+	}
+
+	public double getP019() {
+		return p019;
+	}
+
+	public void setP019(double p019) {
+		this.p019 = p019;
+	}
+
+	public double getP020() {
+		return p020;
+	}
+
+	public void setP020(double p020) {
+		this.p020 = p020;
+	}
+
+	public double getP021() {
+		return p021;
+	}
+
+	public void setP021(double p021) {
+		this.p021 = p021;
+	}
+
+	public double getP022() {
+		return p022;
+	}
+
+	public void setP022(double p022) {
+		this.p022 = p022;
+	}
+
+	public double getP023() {
+		return p023;
+	}
+
+	public void setP023(double p023) {
+		this.p023 = p023;
+	}
+
+	public double getP024() {
+		return p024;
+	}
+
+	public void setP024(double p024) {
+		this.p024 = p024;
+	}
+
+	public double getP025() {
+		return p025;
+	}
+
+	public void setP025(double p025) {
+		this.p025 = p025;
+	}
+
+	public double getP026() {
+		return p026;
+	}
+
+	public void setP026(double p026) {
+		this.p026 = p026;
+	}
+
+	public double getP027() {
+		return p027;
+	}
+
+	public void setP027(double p027) {
+		this.p027 = p027;
+	}
+
+	public double getP028() {
+		return p028;
+	}
+
+	public void setP028(double p028) {
+		this.p028 = p028;
+	}
+
+	public double getP029() {
+		return p029;
+	}
+
+	public void setP029(double p029) {
+		this.p029 = p029;
+	}
+
+	public double getP030() {
+		return p030;
+	}
+
+	public void setP030(double p030) {
+		this.p030 = p030;
 	}
 }

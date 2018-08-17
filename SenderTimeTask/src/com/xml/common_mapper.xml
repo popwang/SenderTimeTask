@@ -35,4 +35,29 @@
 		insert into t_order_buffer(v_equipment_name,v_order_content,i_send_flag)
 		values(#{v_equipment_name},#{v_order_content},#{i_send_flag})
 	</insert>
+	
+	<insert id="saveEquipmentData" parameterType="com.vo.EquipmentData">
+  		insert into t_equipment_data
+  		(v_equipment_name,
+		p001,p002,p003,p004,p005,p006,p007,p008,p009,p010,p011,p012,p013,p014,p015,
+		p016,p017,p018,p019,p020,p021,p022,p023,p024,p025,p026,p027,p028,p029,p030)
+  		values
+  		(#{v_equipment_name},
+  		#{p001},#{p002},#{p003},#{p004},#{p005},#{p006},#{p007},#{p008},#{p009},#{p010},#{p011},#{p012},#{p013},#{p014},#{p015},
+		#{p016},#{p017},#{p018},#{p019},#{p020},#{p021},#{p022},#{p023},#{p024},#{p025},#{p026},#{p027},#{p028},#{p029},#{p030})
+  </insert>
+   <insert id="saveEquipmentData2" parameterType="com.vo.EquipmentData">
+  		insert into t_equipment_data2
+  		(v_equipment_name,
+		p001,p002,p003,p004,p005,p006,p007,p008,p009,p010,p011,p012,p013,p014,p015,
+		p016,p017,p018,p019,p020,p021,p022,p023,p024,p025,p026,p027,p028,p029,p030)
+  		values
+  		(#{v_equipment_name},
+  		#{p001},#{p002},#{p003},#{p004},#{p005},#{p006},#{p007},#{p008},#{p009},#{p010},#{p011},#{p012},#{p013},#{p014},#{p015},
+		#{p016},#{p017},#{p018},#{p019},#{p020},#{p021},#{p022},#{p023},#{p024},#{p025},#{p026},#{p027},#{p028},#{p029},#{p030})
+  </insert>
+  <delete id="deleteEquipmentData2" parameterType="com.vo.EquipmentData">
+  		delete from t_equipment_data2
+  		where v_equipment_name=#{v_equipment_name}
+  </delete>
 </mapper>

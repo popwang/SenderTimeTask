@@ -12,6 +12,8 @@ import com.vo.EquipmentData;
  * 咸阳市协议：秦都区，渭城区等,协议与灞桥区类似
  * MN:Y002900AZ00933
  * 120.27.43.188:10085
+ * 10.58.40.112 2404
+ * 715
  * @author pactera
  */
 @Component

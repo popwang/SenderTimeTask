@@ -21,4 +21,5 @@
 	<select id="selectDataByNameFromData2" resultType="com.vo.EquipmentData" parameterType="string">
 		 select t.* from t_equipment_data2 t  where t.v_equipment_name=#{v_equipment_name} 
 	</select>
+	
 </mapper>

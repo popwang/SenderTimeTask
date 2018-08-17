@@ -23,4 +23,5 @@ public interface BusinessMapper {
 	 * @return
 	 */
 	public EquipmentData selectDataByNameFromData2(String v_equipment_name);
+	
 }

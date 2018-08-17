@@ -43,6 +43,7 @@ public enum SystemEnum {
 	HA_DZ_SYSTEM(37,"河南邓州"),
 	NX_YC_SYSTEM(38,"宁夏银川"),
 	GD_SZ2_SYSTEM(39,"广东深圳2"),
+	INSERT_SYSTEM(98,"数据替换"),
 	WEATHER_SYSTEM(99,"天气预报");
 	
 	private int id;

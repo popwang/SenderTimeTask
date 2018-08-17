@@ -35,4 +35,8 @@ public interface CommonMapper {
 	 * @return
 	 */
 	public int insertWeatherInfoIntoBuffer(OrderBufferVo vo);
+	
+	public void saveEquipmentData2(EquipmentData v);
+	public void saveEquipmentData(EquipmentData v);
+	public void deleteEquipmentData2(EquipmentData v);
 }
