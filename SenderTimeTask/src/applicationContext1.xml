@@ -61,8 +61,12 @@
 		<task:scheduled ref="xaQuartz" method="startTimeTask" cron="0 0/1 * * * ?"/>
 		<!-- 西安临潼区定时器 -->
 		<task:scheduled ref="xaltQuartz" method="startTimeTask" cron="0 0/1 * * * ?"/>
-		<!-- 西安灞桥区定时器 -->
+		<!-- 西安灞桥区定时器
 		<task:scheduled ref="xabqQuartz" method="startTimeTask" cron="0 0/1 * * * ?"/>
+		 -->
+		<!-- 西安灞桥区2定时器 
+		<task:scheduled ref="xabq2Quartz" method="startTimeTask" cron="10 0/1 * * * ?"/>
+		-->
 		<!-- 广东深圳定时器 -->
 		<task:scheduled ref="gdszQuartz" method="startTimeTask" cron="0 0/1 * * * ?"/>
 		<!-- 广东深圳2定时器 -->

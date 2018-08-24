@@ -20,35 +20,35 @@ public class XabqUtil {
 		sb.append(";Flag=5;CP=&&DataTime=");
 		sb.append(CRC.currentTimeString());//yyyyMMddHHmmss
 		sb.append(";");
-		
+		//PM2.5
 		sb.append("a34004-Rtd=");
 		sb.append(e.getP002());
 		sb.append(",a34004-Flag=N;");
-		
+		//PM10
 		sb.append("a34002-Rtd=");
 		sb.append(e.getP003());
 		sb.append(",a34002-Flag=N;");
-		
+		//PM100
 		sb.append("a34001-Rtd=");
 		sb.append(e.getP009());
 		sb.append(",a34001-Flag=N;");
-		
+		//噪音
 		sb.append("LA-Rtd=");
 		sb.append(e.getP008());
 		sb.append(",LA-Flag=N;");
-		
+		//风速
 		sb.append("a01007-Rtd=");
 		sb.append(e.getP004());
 		sb.append(",a01007-Flag=N;");
-		
+		//风向
 		sb.append("a01008-Rtd=");
 		sb.append(CommonUtil.getWindString(e.getP005()));//转换为度数
 		sb.append(",a01008-Flag=N;");
-		
+		//温度
 		sb.append("a01001-Rtd=");
 		sb.append(e.getP006());
 		sb.append(",a01001-Flag=N;");
-		
+		//湿度
 		sb.append("a01002-Rtd=");
 		sb.append(e.getP007());
 		sb.append(",a01002-Flag=N&&");

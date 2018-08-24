@@ -95,11 +95,21 @@ public class SocketUtil {
 	 * @param key
 	 */
 	public static void deleteCacheByKey(String key){
-		cacheMap.remove(key);
-		cacheWriter.remove(key);
-		cacheReader.remove(key);
-		cacheInput.remove(key);
-		cacheOutput.remove(key);
+		try {
+			Socket socket = cacheMap.get(key);
+			if(socket!=null){
+				socket.close();
+			}
+		} catch (IOException e) {
+			log.info("关闭连接异常");
+			e.printStackTrace();
+		}finally{
+			cacheMap.remove(key);
+			cacheWriter.remove(key);
+			cacheReader.remove(key);
+			cacheInput.remove(key);
+			cacheOutput.remove(key);
+		}
 	}
 	
 	/**

@@ -237,22 +237,6 @@ public class ConfigReader {
 	}
 	
 	/**
-	 * 读取西安灞桥服务ip
-	 * @return
-	 */
-	public static String getXaBaQiaoIP() {
-		return p.getProperty("XA_BAQIAO_HOST").toString();
-	}
-	
-	/**
-	 * 读取西安灞桥服务port
-	 * @return
-	 */
-	public static int getXaBaQiaoPORT() {
-		return Integer.parseInt(p.getProperty("XA_BAQIAO_PORT").toString());
-	}
-	
-	/**
 	 * 读取洛阳伊川服务ip
 	 * @return
 	 */

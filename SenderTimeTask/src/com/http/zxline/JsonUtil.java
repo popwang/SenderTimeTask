@@ -24,4 +24,5 @@ public class JsonUtil {
 		object.put("time", CRC.currentTimeString("yyyy-MM-dd HH:mm:ss"));
 		return object;
 	}
+	
 }

@@ -1,4 +1,4 @@
-package com.http.zxline;
+package com.http.zxline2;
 
 import java.io.IOException;
 import java.util.List;
@@ -10,6 +10,7 @@ import org.json.JSONObject;
 import org.springframework.stereotype.Component;
 
 import com.common.service.AbstractBaseService;
+import com.http.zxline.JsonUtil;
 import com.utils.CommonUtil;
 import com.utils.SystemEnum;
 import com.vo.EquipmentData;
@@ -21,7 +22,7 @@ import com.vo.EquipmentProjectVo;
  * @author pactera
  */
 @Component
-public class ZxlineService extends AbstractBaseService {
+public class Zxline2Service extends AbstractBaseService {
 	
 	@Override
 	public void handler(SystemEnum systemEnum) {

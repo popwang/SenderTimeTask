@@ -22,19 +22,20 @@ import com.vo.EquipmentProjectVo;
  * 将编号发给厂家，厂家找平台进行登记
  * SDYKAZ00000087
  * 发送自定义编号，后台添加
+ * 由于间隔调为80-100秒之间，即90秒，cron的定时设置无法完成，固使用schedule定时功能，放在main类中启动
  * @author pactera
- *
  */
 @Component
-public class XabqService implements ServerInterface {
+public class XabqService implements Runnable {
 
 	public static Log log = LogFactory.getLog(XabqService.class);
 	@Autowired
 	private CommonMapper mapper;
+	
 	@Override
-	public void handler() {
+	public void run() {
 		List<EquipmentProjectVo> list = mapper.selectEquipmentListBySystemId(SystemEnum.XA_BQ_SYSTEM.getId());
-		log.info("本轮待发送设备数为："+list.size());
+		log.info(SystemEnum.XA_BQ_SYSTEM.getName()+"本轮待发送设备数为："+list.size());
 		for(EquipmentProjectVo vo : list){
 			EquipmentData e = mapper.selectDataByName(vo.getV_equipment_name().substring(6));
 			if(e==null){
@@ -43,14 +44,10 @@ public class XabqService implements ServerInterface {
 			}
 			e.setV_equipment_name(vo.getV_equipment_name());
 			String info = XabqUtil.getAirString(e);
-//			log.info("发送内容:" + info);
-//			CommonUtil.sendDataToRemote(ConfigReader.getXaBaQiaoIP(),
-//					ConfigReader.getXaBaQiaoPORT(),info,log);
-			SocketUtil.init(SystemEnum.XA_BQ_SYSTEM.toString(), ConfigReader.getXaBaQiaoIP(),
-			ConfigReader.getXaBaQiaoPORT());
+			SocketUtil.init2(SystemEnum.XA_BQ_SYSTEM.toString());
 			SocketUtil.sendDataBySocket(SystemEnum.XA_BQ_SYSTEM.toString(), 1,info, log);
 		}
-		log.info("本轮待数据发送完成！");
+		log.info(SystemEnum.XA_BQ_SYSTEM.getName()+"本轮待数据发送完成！");
 	}
 		
 	public static void main(String[] args) {
@@ -62,8 +59,8 @@ public class XabqService implements ServerInterface {
 				e.setV_equipment_name("SDYKAZ00000087");
 				String info = XabqUtil.getAirString(e);
 				log.info("发送内容:" + info);
-				CommonUtil.sendDataToRemote(ConfigReader.getXaBaQiaoIP(),
-						ConfigReader.getXaBaQiaoPORT(),info,log);
+				CommonUtil.sendDataToRemote(ConfigReader.getHost(SystemEnum.XA_BQ_SYSTEM.toString()),
+						ConfigReader.getPort(SystemEnum.XA_BQ_SYSTEM.toString()),info,log);
 			}
 		}, 1000, 1*30*1000);
 	}

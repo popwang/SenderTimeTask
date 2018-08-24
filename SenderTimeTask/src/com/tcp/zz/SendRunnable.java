@@ -2,8 +2,7 @@ package com.tcp.zz;
 
 import org.apache.commons.logging.Log;
 
-import com.utils.ConfigReader;
-import com.utils.SocketUtil;
+import com.utils.CommonUtil;
 import com.utils.SystemEnum;
 import com.utils.TBJUtil;
 import com.vo.EquipmentData;
@@ -36,7 +35,8 @@ public class SendRunnable implements Runnable {
 	@Override
 	public void run() {
 		String info = TBJUtil.getDataString(v);
-		SocketUtil.init(SystemEnum.ZZ_TBJ_SYSTEM.toString(), ConfigReader.getZZtbjIP(), ConfigReader.getZZtbjPORT());
-		SocketUtil.sendDataBySocket(SystemEnum.ZZ_TBJ_SYSTEM.toString(), 1,info, log);
+		CommonUtil.sendDataToRemote2(SystemEnum.ZZ_TBJ_SYSTEM.toString(),info,log);
+//		SocketUtil.init(SystemEnum.ZZ_TBJ_SYSTEM.toString(), ConfigReader.getZZtbjIP(), ConfigReader.getZZtbjPORT());
+//		SocketUtil.sendDataBySocket(SystemEnum.ZZ_TBJ_SYSTEM.toString(), 1,info, log);
 	}
 }

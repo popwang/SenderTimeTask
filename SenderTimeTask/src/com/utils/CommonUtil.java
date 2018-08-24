@@ -230,11 +230,10 @@ public class CommonUtil {
 			socket.setSoTimeout(1000);
 			log.info("connect success");
 			OutputStream os = socket.getOutputStream();
+			log.info("·¢ËÍÄÚÈÝ£º"+ByteUtil.bytesToHexString(bytes));
 			InputStream is = new DataInputStream(socket.getInputStream());
 			os.write(bytes);
 			os.flush();
-			log.info("send over");
-
 //			 byte[] data = new byte[22];
 //			 int totalBytesRcvd = 0;
 //			 int bytesRcvd;

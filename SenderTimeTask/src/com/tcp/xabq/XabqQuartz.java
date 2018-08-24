@@ -16,7 +16,7 @@ public class XabqQuartz implements QuartzInterface {
 	@Override
 	public void startTimeTask() {
 		log.info("西安灞桥区数据发送开始...");
-		service.handler();
+//		service.run();
 		log.info("西安灞桥区本轮数据发送完成！");
 	}
 
