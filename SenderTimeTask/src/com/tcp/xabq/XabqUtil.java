@@ -1,5 +1,16 @@
 package com.tcp.xabq;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.tcp.anhx.Data;
+import com.tcp.anhx.HxVo;
+import com.tcp.xabq2.BQ2;
+import com.tcp.xabq2.BQ2Vo;
 import com.utils.CRC;
 import com.utils.CommonUtil;
 import com.vo.EquipmentData;
@@ -55,6 +66,44 @@ public class XabqUtil {
 		
 		String crc = sb.toString();
 		return CRC.pre+CRC.patternNumber(crc.length())+crc+CRC.GetCRC2(crc)+"\r\n";
+	}
+	
+	public static String toJsonObject(EquipmentData v) throws JSONException{
+		ObjectMapper objectMapper = new ObjectMapper();
+		BQ2Vo vo = new BQ2Vo();
+		vo.setId(v.getV_equipment_name());
+		vo.setAuth("AZ888888");
+		vo.setVer("100");
+		vo.setWarn(0);
+		vo.setData(switchEquipmentToData(v));
+		String json = "";
+		try{
+	        json = objectMapper.writeValueAsString(vo);
+	    }  
+	    catch (Exception e){  
+	        e.printStackTrace();  
+	    } 
+		return json;
+	}
+	
+	public static BQ2 switchEquipmentToData(EquipmentData v){
+		BQ2 data = new BQ2();
+		data.setP1(v.getP002());
+		data.setP2(v.getP003());
+		data.setNo(v.getP008());
+		data.setWs(v.getP004());
+		data.setWd(Double.parseDouble(CommonUtil.getWindString(v.getP005())));
+		data.setTp(v.getP006());
+		data.setHm(v.getP007());
+		return data;
+	}
+	
+	public static void main(String[] args) {
+		try {
+			System.out.println(toJsonObject(CommonUtil.getEquipmentDataInstance()));
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
 	}
 	
 }

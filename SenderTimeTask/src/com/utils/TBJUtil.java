@@ -50,7 +50,7 @@ public class TBJUtil {
 	
 	
 	/**
-	 * ÂåÑôÒÁ´¨×Ö·û´®
+	 * å±ÇÅÇø2×Ö·û´®
 	 * @param v
 	 * @return
 	 */

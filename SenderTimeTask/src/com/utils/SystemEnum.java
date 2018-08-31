@@ -45,6 +45,7 @@ public enum SystemEnum {
 	GD_SZ2_SYSTEM(39,"广东深圳2"),
 	XA_BQ2_SYSTEM(40,"陕西西安灞桥区子平台"),
 	ZZ_XC2_SYSTEM(41,"郑许线监控平台2"),
+	XA_INTER_SYSTEM(42,"西安国际港务区"),
 	INSERT_SYSTEM(98,"数据替换"),
 	WEATHER_SYSTEM(99,"天气预报");
 	

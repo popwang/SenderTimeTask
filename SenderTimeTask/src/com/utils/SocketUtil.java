@@ -9,10 +9,10 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.Socket;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.ConcurrentHashMap;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -28,11 +28,11 @@ import com.vo.EquipmentData;
 public class SocketUtil {
 	public static Log log = LogFactory.getLog(SocketUtil.class);
 	
-	private static Map<String, Socket> cacheMap = new HashMap<String, Socket>();
-	private static Map<String,PrintWriter> cacheWriter = new HashMap<String,PrintWriter>();
-	private static Map<String,BufferedReader> cacheReader = new HashMap<String,BufferedReader>();
-	private static Map<String,InputStream> cacheInput = new HashMap<String,InputStream>();
-	private static Map<String,OutputStream> cacheOutput = new HashMap<String,OutputStream>();
+	private static Map<String, Socket> cacheMap = new ConcurrentHashMap<String, Socket>();
+	private static Map<String,PrintWriter> cacheWriter = new ConcurrentHashMap<String,PrintWriter>();
+	private static Map<String,BufferedReader> cacheReader = new ConcurrentHashMap<String,BufferedReader>();
+	private static Map<String,InputStream> cacheInput = new ConcurrentHashMap<String,InputStream>();
+	private static Map<String,OutputStream> cacheOutput = new ConcurrentHashMap<String,OutputStream>();
 	
 	/**
 	 * 初始化连接

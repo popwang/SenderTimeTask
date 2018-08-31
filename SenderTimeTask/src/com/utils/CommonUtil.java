@@ -387,10 +387,10 @@ public class CommonUtil {
 	}
 	/**
 	 * 模拟http post请求
-	 * @param url
 	 * @param map json参数
 	 * @param log
-	 * @throws JSONException
+	 * @thparam url
+	 * @rows JSONException
 	 * @throws ClientProtocolException
 	 * @throws IOException
 	 */

@@ -1,11 +1,14 @@
 package com.main;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.business.insert.InsertService;
+import com.tcp.zz.ZztbjService;
 import com.utils.SystemEnum;
 /**
  * ºØ≥…≤‚ ‘¿‡ 
@@ -21,11 +24,16 @@ public class AppMainTest {
 	 * @throws
 	 */
 	public static void main(String[] args) throws Exception {
-		@SuppressWarnings("unused")
-		ApplicationContext factory = new ClassPathXmlApplicationContext("applicationContext1.xml");
-		InsertService zz = (InsertService)factory.getBean("insertService");
-		zz.handler(SystemEnum.INSERT_SYSTEM);
-		System.exit(0);
+		@SuppressWarnings("resource")
+		ApplicationContext factory = new ClassPathXmlApplicationContext("applicationContext2.xml");
+		ZztbjService zz = (ZztbjService)factory.getBean("zztbjService");
+		Timer timer = new Timer();
+		timer.scheduleAtFixedRate( new TimerTask(){
+			@Override
+			public void run() {
+				zz.handler(SystemEnum.ZZ_TBJ_SYSTEM);
+			}
+		}, 10, 1000*120);
 	}
 
 }

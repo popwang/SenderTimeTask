@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -18,7 +19,7 @@ import com.utils.TBJUtil;
 import com.vo.EquipmentData;
 import com.vo.EquipmentProjectVo;
 /**
- * 西安灞桥区，下属平台；协议需要自己提供，暂定使用灞桥区协议
+ * 西安灞桥区，下属平台；协议需要自己提供，暂定使用特必佳改良区协议
  * 电话微信：18161830955
  * 将编号发给厂家，厂家找平台进行登记，暂定仍然使用灞桥分配的设备规则
  * SDYKAZ00001000
@@ -42,17 +43,23 @@ public class Xabq2Service implements Runnable {
 				continue;
 			}
 			e.setV_equipment_name(vo.getV_equipment_name());
-			String info = XabqUtil.getAirString(e);
+//			String info = TBJUtil.getDataString2(e);
+			String info = "";
+			try {
+				info = XabqUtil.toJsonObject(e);
+			} catch (JSONException e1) {
+				e1.printStackTrace();
+			}
 			SocketUtil.init2(SystemEnum.XA_BQ2_SYSTEM.toString());
 			SocketUtil.sendDataBySocket(SystemEnum.XA_BQ2_SYSTEM.toString(), 1,info, log);
 		}
 		log.info(SystemEnum.XA_BQ2_SYSTEM.getName()+"本轮待数据发送完成！");
 	}
 		
-	public static void main(String[] args) {
+	public static void main(String[] args) throws JSONException {
 		EquipmentData e = CommonUtil.getEquipmentDataInstance();
 		e.setV_equipment_name("SDYKAZ00001000");
-		String info = TBJUtil.getDataString2(e);
+		String info = XabqUtil.toJsonObject(e);
 		log.info("发送内容:" + info);
 		CommonUtil.sendDataToRemote(ConfigReader.getHost(SystemEnum.XA_BQ2_SYSTEM.toString()),
 				ConfigReader.getPort(SystemEnum.XA_BQ2_SYSTEM.toString()),info,log);
