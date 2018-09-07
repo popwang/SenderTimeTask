@@ -4,7 +4,6 @@ import java.util.Random;
 
 import org.apache.commons.logging.Log;
 
-import com.utils.CommonUtil;
 import com.utils.ConfigReader;
 import com.utils.SocketUtil;
 import com.utils.SystemEnum;

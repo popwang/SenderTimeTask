@@ -192,7 +192,7 @@ public class SocketUtil {
 				byte[] buf = new byte[22];
 				try{
 					while(is.read(buf)!=-1){
-						log.info(ByteUtil.bytesToHexString(buf));
+						log.info("接收内容："+ByteUtil.bytesToHexString(buf));
 					}
 				}catch(Exception e){
 					log.info("返回内容接收完毕。");

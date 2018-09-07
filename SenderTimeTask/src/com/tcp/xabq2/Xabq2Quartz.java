@@ -7,7 +7,6 @@ import com.common.QuartzInterface;
 public class Xabq2Quartz implements QuartzInterface {
 	public static Log log = LogFactory.getLog(Xabq2Quartz.class);
 
-	private Xabq2Service service;
 	
 	@Override
 	public void startTimeTask() {

@@ -8,13 +8,13 @@ import com.vo.EquipmentData;
 
 public class SzUtil {
 	/**
-	 * 生成100-200之间的随机数字
+	 * 生成10-26之间的随机数字
 	 * @return
 	 */
 	public static int createRoundomNumber(){
 		Random r = new Random();
-		int i = r.nextInt(90);
-		return i+100;
+		int i = r.nextInt(16);
+		return i+10;
 	}
 	
 	/**
@@ -53,7 +53,7 @@ public class SzUtil {
 		sb.append(",a01008-Flag=N;");
 		
 		sb.append("a34001-Rtd=");
-		if(e.getP009()>300){
+		if(e.getP009()>26){
 			sb.append(createRoundomNumber());
 		}else{
 			sb.append(e.getP009());
@@ -61,7 +61,7 @@ public class SzUtil {
 		sb.append(",a34001-Flag=N;");
 		
 		sb.append("a34002-Rtd=");
-		if(e.getP003()>300){
+		if(e.getP003()>26){
 			sb.append(createRoundomNumber());
 		}else{
 			sb.append(e.getP003());
@@ -69,7 +69,7 @@ public class SzUtil {
 		sb.append(",a34002-Flag=N;");
 		
 		sb.append("a34004-Rtd=");
-		if(e.getP002()>300){
+		if(e.getP002()>26){
 			sb.append(createRoundomNumber());
 		}else{
 			sb.append(e.getP002());

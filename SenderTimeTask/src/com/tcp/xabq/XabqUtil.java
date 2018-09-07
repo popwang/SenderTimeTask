@@ -1,14 +1,9 @@
 package com.tcp.xabq;
 
-import java.util.ArrayList;
-import java.util.List;
 
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.tcp.anhx.Data;
-import com.tcp.anhx.HxVo;
 import com.tcp.xabq2.BQ2;
 import com.tcp.xabq2.BQ2Vo;
 import com.utils.CRC;

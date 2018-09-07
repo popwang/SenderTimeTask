@@ -9,7 +9,6 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.common.ServerInterface;
 import com.mapper.CommonMapper;
 import com.utils.CommonUtil;
 import com.utils.ConfigReader;
@@ -37,7 +36,7 @@ public class XabqService implements Runnable {
 		List<EquipmentProjectVo> list = mapper.selectEquipmentListBySystemId(SystemEnum.XA_BQ_SYSTEM.getId());
 		log.info(SystemEnum.XA_BQ_SYSTEM.getName()+"本轮待发送设备数为："+list.size());
 		for(EquipmentProjectVo vo : list){
-			EquipmentData e = mapper.selectDataByName(vo.getV_equipment_name().substring(6));
+			EquipmentData e = mapper.selectDataByName(vo.getV_real_equipment_name());
 			if(e==null){
 				log.info(vo.getV_equipment_name()+"当前无数据。");
 				continue;

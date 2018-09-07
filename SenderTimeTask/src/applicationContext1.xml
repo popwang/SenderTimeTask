@@ -95,6 +95,8 @@
 		<task:scheduled ref="ycQuartz" method="startTimeTask" cron="10 0/5 * * * ?"/>
 		<!-- 西安国际港务区定时器 -->
 		<task:scheduled ref="xaInterQuartz" method="startTimeTask" cron="25 0/2 * * * ?"/>
+		<!-- 西安碑林区定时器 -->
+		<task:scheduled ref="xablQuartz" method="startTimeTask" cron="25 0/2 * * * ?"/>
 	</task:scheduled-tasks>
 	
 </beans>

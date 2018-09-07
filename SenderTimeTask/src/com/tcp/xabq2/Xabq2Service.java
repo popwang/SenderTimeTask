@@ -9,13 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.mapper.CommonMapper;
-import com.tcp.xabq.XabqService;
 import com.tcp.xabq.XabqUtil;
 import com.utils.CommonUtil;
 import com.utils.ConfigReader;
 import com.utils.SocketUtil;
 import com.utils.SystemEnum;
-import com.utils.TBJUtil;
 import com.vo.EquipmentData;
 import com.vo.EquipmentProjectVo;
 /**
@@ -37,7 +35,7 @@ public class Xabq2Service implements Runnable {
 		List<EquipmentProjectVo> list = mapper.selectEquipmentListBySystemId(SystemEnum.XA_BQ2_SYSTEM.getId());
 		log.info(SystemEnum.XA_BQ2_SYSTEM.getName()+"本轮待发送设备数为："+list.size());
 		for(EquipmentProjectVo vo : list){
-			EquipmentData e = mapper.selectDataByName(vo.getV_equipment_name().substring(6));
+			EquipmentData e = mapper.selectDataByName(vo.getV_real_equipment_name());
 			if(e==null){
 				log.info(vo.getV_equipment_name()+"当前无数据。");
 				continue;
