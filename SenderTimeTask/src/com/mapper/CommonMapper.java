@@ -15,6 +15,8 @@ public interface CommonMapper {
 	 */
 	public EquipmentData selectDataByName(String v_equipment_name);
 	
+	public List<EquipmentData> selectDataListByName(String v_equipment_name);
+	
 	/**
 	 * 根据系统ID查询对应的设备列表
 	 * @param i_system_id

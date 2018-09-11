@@ -8,6 +8,7 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.tcp.xabq2.Xabq2Service;
 import com.tcp.zz.ZztbjService;
 import com.utils.SystemEnum;
 /**
@@ -25,15 +26,9 @@ public class AppMainTest {
 	 */
 	public static void main(String[] args) throws Exception {
 		@SuppressWarnings("resource")
-		ApplicationContext factory = new ClassPathXmlApplicationContext("applicationContext2.xml");
-		ZztbjService zz = (ZztbjService)factory.getBean("zztbjService");
-		Timer timer = new Timer();
-		timer.scheduleAtFixedRate( new TimerTask(){
-			@Override
-			public void run() {
-				zz.handler(SystemEnum.ZZ_TBJ_SYSTEM);
-			}
-		}, 10, 1000*120);
+		ApplicationContext factory = new ClassPathXmlApplicationContext("applicationContextTest.xml");
+		Xabq2Service bq = (Xabq2Service)factory.getBean("xabq2Service");
+		bq.handler("00001000");
 	}
 
 }

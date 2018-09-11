@@ -12,7 +12,6 @@ import com.mapper.CommonMapper;
 import com.tcp.xabq.XabqUtil;
 import com.utils.CommonUtil;
 import com.utils.ConfigReader;
-import com.utils.SocketUtil;
 import com.utils.SystemEnum;
 import com.vo.EquipmentData;
 import com.vo.EquipmentProjectVo;
@@ -41,25 +40,35 @@ public class Xabq2Service implements Runnable {
 				continue;
 			}
 			e.setV_equipment_name(vo.getV_equipment_name());
-//			String info = TBJUtil.getDataString2(e);
 			String info = "";
 			try {
 				info = XabqUtil.toJsonObject(e);
 			} catch (JSONException e1) {
 				e1.printStackTrace();
 			}
-			SocketUtil.init2(SystemEnum.XA_BQ2_SYSTEM.toString());
-			SocketUtil.sendDataBySocket(SystemEnum.XA_BQ2_SYSTEM.toString(), 1,info, log);
+			CommonUtil.sendDataToRemote2(SystemEnum.XA_BQ2_SYSTEM.toString(), info, log);
 		}
 		log.info(SystemEnum.XA_BQ2_SYSTEM.getName()+"本轮待数据发送完成！");
+	}
+	
+	public void handler(String name){
+		List<EquipmentData> list = mapper.selectDataListByName(name);
+		for(EquipmentData e : list){
+			String info = "";
+			try {
+				info = XabqUtil.toJsonObject(e);
+				System.out.println(info);
+			} catch (JSONException e1) {
+				e1.printStackTrace();
+			}
+		}
 	}
 		
 	public static void main(String[] args) throws JSONException {
 		EquipmentData e = CommonUtil.getEquipmentDataInstance();
-		e.setV_equipment_name("SDYKAZ00001000");
+		e.setV_equipment_name("4100371002900001000");
 		String info = XabqUtil.toJsonObject(e);
 		log.info("发送内容:" + info);
-		CommonUtil.sendDataToRemote(ConfigReader.getHost(SystemEnum.XA_BQ2_SYSTEM.toString()),
-				ConfigReader.getPort(SystemEnum.XA_BQ2_SYSTEM.toString()),info,log);
+		CommonUtil.sendDataToRemote2(SystemEnum.XA_BQ2_SYSTEM.toString(),info,log);
 	}
 }

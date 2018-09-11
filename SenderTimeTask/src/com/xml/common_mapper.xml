@@ -10,6 +10,10 @@
 		 select t.* from t_equipment_data2 t  where t.v_equipment_name=#{v_equipment_name} 
 		 order by t.dtm_create desc limit 0,1
 	</select>
+	<select id="selectDataListByName" resultType="com.vo.EquipmentData" parameterType="string">
+		 select t.* from t_equipment_data t  where t.v_equipment_name=#{v_equipment_name} 
+		 order by t.dtm_create desc limit 0,1000
+	</select>
 	
 	<!-- 查询各系统所需发送的设备列表 -->
 	<select id="selectEquipmentListBySystemId" resultType="com.vo.EquipmentProjectVo" parameterType="int">
