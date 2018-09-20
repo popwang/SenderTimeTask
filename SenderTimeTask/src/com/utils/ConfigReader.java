@@ -41,6 +41,14 @@ public class ConfigReader {
 	public static int getPort(String systemId){
 		return Integer.parseInt(p.getProperty(systemId+"_PORT").toString());
 	}
+	/**
+	 * 根据key，获取port列表
+	 * @param systemId
+	 * @return
+	 */
+	public static String getPorts(String systemId){
+		return p.getProperty(systemId+"_PORT");
+	}
 	
 	/**
 	 * 读取郑州特比佳服务ip

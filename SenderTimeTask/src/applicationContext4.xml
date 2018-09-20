@@ -53,44 +53,7 @@
 	</bean>
     <tx:annotation-driven transaction-manager="transactionManager"/>
     <task:scheduled-tasks>
-    	<!-- 安阳、三门峡定时器 -->
-		<task:scheduled ref="aysmQuartz" method="startAysmTimeTask" cron="0 0/10 * * * ?"/>
-    	<!-- 郑州特比佳定时器 
+    	<!-- 郑州特比佳定时器 -->
 		<task:scheduled ref="zztbjQuartz" method="startTimeTask" cron="25 0/9 * * * ?"/>
-		-->
-		<!-- 开封定时器 -->
-		<task:scheduled ref="kfQuartz" method="startTimeTask" cron="0 0/5 * * * ?"/>
-		<!-- 河北石家庄定时器 -->
-		<task:scheduled ref="hbQuartz" method="startTimeTask" cron="0 0/10 * * * ?"/>
-		<!-- 安阳滑县定时器 -->
-		<!-- <task:scheduled ref="ayhxQuartz" method="startAyhxTimeTask" cron="5 0/10 * * * ?"/> -->
-		<!-- 山东济宁定时器 -->
-		<task:scheduled ref="sdQuartz" method="startSdjnTimeTask" cron="15 0/10 * * * ?"/>
-		<!-- 郑州交委定时器 -->
-		<task:scheduled ref="trafficQuartz" method="startZztraTimeTask" cron="20 0/10 * * * ?"/>
-		<!-- 平顶山宝丰县定时器 -->
-		<task:scheduled ref="pdsQuartz" method="startPdsTimeTask" cron="10 0/10 * * * ?"/>
-		<!-- 天气预报定时器 -->
-		<task:scheduled ref="weatherQuartz2" method="startTimeTask" cron="0 10 7,9,11,13,15,17 * * ?"/>
-		<!-- 西安高新区定时器 -->
-		<task:scheduled ref="xanewQuartz" method="startTimeTask" cron="0 0/5 * * * ?"/>
-		<!-- 湖南长沙定时器 -->
-		<task:scheduled ref="hncsQuartz" method="startTimeTask" cron="0 0/5 * * * ?"/>
-		<!-- 洛阳伊川定时器 -->
-		<task:scheduled ref="lyycQuartz" method="startTimeTask" cron="0 0/5 * * * ?"/>
-		<!-- 开封2定时器 -->
-		<task:scheduled ref="kf2Quartz" method="startTimeTask" cron="0 0/5 * * * ?"/>
-		<!-- 安阳滑县2定时器 -->
-		<task:scheduled ref="ayhx2Quartz" method="startTimeTask" cron="0 0/5 * * * ?"/>
-		<!-- 周口项城定时器 -->
-		<task:scheduled ref="zkxcQuartz" method="startTimeTask" cron="0 0/5 * * * ?"/>
-		<!-- 郑许线监控定时器 -->
-		<task:scheduled ref="zxlineQuartz" method="startTimeTask" cron="0 0/8 * * * ?"/>
-		<!-- 郑许线监控2定时器 -->
-		<task:scheduled ref="zxline2Quartz" method="startTimeTask" cron="0 0/8 * * * ?"/>
-		<!-- 更新经纬度定时器 -->
-		<task:scheduled ref="updateGPSQuartz" method="startTimeTask" cron="0 0 7-19/8 * * ?"/>
-		<!-- 数据替换插入定时器 -->
-		<task:scheduled ref="insertQuartz" method="startTimeTask" cron="0 0/10 * * * ?"/>
 	</task:scheduled-tasks>
 </beans>
