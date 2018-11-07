@@ -48,6 +48,7 @@ public enum SystemEnum {
 	XA_INTER_SYSTEM(42,"西安国际港务区"),
 	XA_BL_SYSTEM(43,"西安碑林区"),
 	XA_QJ_SYSTEM(44,"西安曲江区"),
+	ZZ_ZB_SYSTEM(45,"郑州中邦平台"),
 	INSERT_SYSTEM(98,"数据替换"),
 	WEATHER_SYSTEM(99,"天气预报");
 	

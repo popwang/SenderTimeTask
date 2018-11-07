@@ -55,9 +55,6 @@
     <task:scheduled-tasks>
     	<!-- 安阳、三门峡定时器 -->
 		<task:scheduled ref="aysmQuartz" method="startAysmTimeTask" cron="0 0/10 * * * ?"/>
-    	<!-- 郑州特比佳定时器 
-		<task:scheduled ref="zztbjQuartz" method="startTimeTask" cron="25 0/9 * * * ?"/>
-		-->
 		<!-- 开封定时器 -->
 		<task:scheduled ref="kfQuartz" method="startTimeTask" cron="0 0/5 * * * ?"/>
 		<!-- 河北石家庄定时器 -->
@@ -87,7 +84,11 @@
 		<!-- 郑许线监控定时器 -->
 		<task:scheduled ref="zxlineQuartz" method="startTimeTask" cron="0 0/8 * * * ?"/>
 		<!-- 郑许线监控2定时器 -->
-		<task:scheduled ref="zxline2Quartz" method="startTimeTask" cron="0 0/8 * * * ?"/>
+		<task:scheduled ref="zz2Quartz" method="startTimeTask" cron="0 0/8 * * * ?"/>
+		
+		<!-- 郑州中邦定时器定时器 -->
+		<task:scheduled ref="zxline2Quartz" method="startTimeTask" cron="5 0/10 * * * ?"/>
+		
 		<!-- 更新经纬度定时器 -->
 		<task:scheduled ref="updateGPSQuartz" method="startTimeTask" cron="0 0 7-19/8 * * ?"/>
 		<!-- 数据替换插入定时器 -->

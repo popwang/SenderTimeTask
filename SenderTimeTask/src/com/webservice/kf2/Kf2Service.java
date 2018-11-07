@@ -46,6 +46,7 @@ public class Kf2Service implements ServerInterface {
 	    SaveYCJCServicePortType port = this.getPortTimeOut(WebserviceUtil.WEBSERVICE_TIMEOUT);
 	    if(port==null){
 	    	log.info("获取webservice服务超时，本次发送异常退出！");
+	    	return;
 	    }
 	    for (EquipmentProjectVo name : list){
 	      String e = name.getV_real_equipment_name();

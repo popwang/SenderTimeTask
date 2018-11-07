@@ -11,6 +11,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.tcp.xabq2.Xabq2Service;
 import com.tcp.zz.ZztbjService;
 import com.utils.SystemEnum;
+import com.webservice.ny.NyService;
 /**
  * ºØ≥…≤‚ ‘¿‡ 
  * @author pactera
@@ -27,8 +28,8 @@ public class AppMainTest {
 	public static void main(String[] args) throws Exception {
 		@SuppressWarnings("resource")
 		ApplicationContext factory = new ClassPathXmlApplicationContext("applicationContextTest.xml");
-		Xabq2Service bq = (Xabq2Service)factory.getBean("xabq2Service");
-		bq.handler("00001000");
+		NyService bq = (NyService)factory.getBean("nyService");
+		bq.handler(SystemEnum.HA_NY_SYSTEM);
 	}
 
 }

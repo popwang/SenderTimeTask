@@ -1,5 +1,8 @@
-/com/
-/applicationContextTest.xml
-/applicationContextTest3.xml
+/application.properties
+/applicationContext-bak.xml
+/applicationContext1.xml
+/applicationContext2.xml
 /applicationContext3.xml
 /applicationContext4.xml
+/applicationContextTest.xml
+/com/
