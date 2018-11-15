@@ -13,7 +13,7 @@ import com.vo.EquipmentData;
 public class XabqUtil {
 	
 	/**
-	 * 生成空气类数据
+	 * 使用标准212协议 生成空气类数据
 	 * @param e
 	 * @return
 	 */

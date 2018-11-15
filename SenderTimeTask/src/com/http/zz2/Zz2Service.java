@@ -7,7 +7,12 @@ import com.common.service.AbstractBaseService;
 import com.utils.CRC;
 import com.utils.CommonUtil;
 import com.vo.EquipmentData;
-
+/**
+ * 中邦介绍的平台，联系人微信：中邦郑州平台2联系人
+ * 有协议，但是错误百出，以最终程序代码为准。
+ * @author pactera
+ *
+ */
 @Component
 public class Zz2Service extends AbstractBaseService {
 

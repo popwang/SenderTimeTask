@@ -13,12 +13,21 @@ public class ThreadPoolUtil {
 	 */
 	private static int CORE_THREAD_COUNT = 30;
 	public static Log log = LogFactory.getLog(ThreadPoolUtil.class);
-	private static final ExecutorService service = Executors.newFixedThreadPool(CORE_THREAD_COUNT);
+	private static ExecutorService service = null;
 	/**
 	 * 获取全局的线程池
 	 * @return
 	 */
 	public static ExecutorService getExecutorService(){
+		if(service!=null){
+			ThreadPoolExecutor executor = (ThreadPoolExecutor)service;
+			if(!executor.isShutdown() && executor.getQueue().size()>300){
+				service.shutdownNow();
+				service = Executors.newFixedThreadPool(CORE_THREAD_COUNT);
+			}
+		}else{
+			service = Executors.newFixedThreadPool(CORE_THREAD_COUNT);
+		}
 		return service;
 	}
 	/**

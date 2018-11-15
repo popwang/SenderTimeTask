@@ -96,6 +96,10 @@
 		<!-- 西安碑林区定时器 
 		<task:scheduled ref="xablQuartz" method="startTimeTask" cron="25 0/2 * * * ?"/>
 		-->
+		<!-- 西安高新区定时器 -->
+		<task:scheduled ref="xanewQuartz" method="startTimeTask" cron="10 0/1 * * * ?"/>
+		<!-- 西安高新区定时器 -->
+		<task:scheduled ref="zjQuartz" method="startTimeTask" cron="0 0/1 * * * ?"/>
 	</task:scheduled-tasks>
 	
 </beans>

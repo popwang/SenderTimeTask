@@ -69,8 +69,6 @@
 		<task:scheduled ref="pdsQuartz" method="startPdsTimeTask" cron="10 0/10 * * * ?"/>
 		<!-- 天气预报定时器 -->
 		<task:scheduled ref="weatherQuartz2" method="startTimeTask" cron="0 10 7,9,11,13,15,17 * * ?"/>
-		<!-- 西安高新区定时器 -->
-		<task:scheduled ref="xanewQuartz" method="startTimeTask" cron="0 0/5 * * * ?"/>
 		<!-- 湖南长沙定时器 -->
 		<task:scheduled ref="hncsQuartz" method="startTimeTask" cron="0 0/5 * * * ?"/>
 		<!-- 洛阳伊川定时器 -->
