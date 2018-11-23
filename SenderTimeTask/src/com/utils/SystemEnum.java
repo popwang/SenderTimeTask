@@ -39,7 +39,7 @@ public enum SystemEnum {
 	XA_QD_SYSTEM(33,"咸阳秦都区"),
 	AY_NEW_SYSTEM(34,"安阳新平台"),
 	ZZ_XC_SYSTEM(35,"郑许线监控平台"),
-	SC_CQ_SYSTEM(36,"重庆建委平台"),
+	SC_CQ_SYSTEM(36,"重庆大渡口区平台"),
 	HA_DZ_SYSTEM(37,"河南邓州"),
 	NX_YC_SYSTEM(38,"宁夏银川"),
 	GD_SZ2_SYSTEM(39,"广东深圳2"),
@@ -50,6 +50,7 @@ public enum SystemEnum {
 	XA_QJ_SYSTEM(44,"西安曲江区"),
 	ZZ_ZB_SYSTEM(45,"郑州中邦平台"),
 	ZZ_ZJ_SYSTEM(46,"郑州中建四局"),
+	SC_CQ2_SYSTEM(47,"重庆两江区平台"),
 	INSERT_SYSTEM(98,"数据替换"),
 	WEATHER_SYSTEM(99,"天气预报");
 	

@@ -13,6 +13,7 @@ import com.vo.EquipmentProjectVo;
 /**
  * 安阳滑县2平台，使用tcp协议，原平台可能已经弃用
  * 218.28.94.157:60009
+ * 微信群添加设备
  * @author pactera
  */
 @Component

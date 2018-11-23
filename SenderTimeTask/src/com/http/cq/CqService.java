@@ -15,7 +15,7 @@ import com.utils.SystemEnum;
 import com.vo.EquipmentData;
 import com.vo.EquipmentProjectVo;
 /**
- * 重庆接口对接
+ * 重庆大渡口区接口对接
  * @author pactera
  *
  */

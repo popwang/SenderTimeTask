@@ -14,16 +14,16 @@ import com.utils.SystemEnum;
 public class Cq2Quartz extends AbstactBaseQuartz{
 
 	@Autowired
-	private Cq2Service cqService;
+	private Cq2Service cq2Service;
 	
 	@Override
 	public AbstractBaseService getAbstractBaseService() {
-		return cqService;
+		return cq2Service;
 	}
 
 	@Override
 	public SystemEnum getSystemEnum() {
-		return SystemEnum.SC_CQ_SYSTEM;
+		return SystemEnum.SC_CQ2_SYSTEM;
 	}
 
 }

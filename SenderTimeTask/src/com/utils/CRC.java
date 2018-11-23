@@ -163,7 +163,12 @@ public class CRC {
 		sb.append(",PM10-Flag=N;");
 		
 		sb.append("PM25-Avg=");
-		sb.append(e.getP002());
+		//573设备pm25+30处理
+		if(e.getV_equipment_name().equals("Y0394001600573")){
+			sb.append(e.getP002()+30);
+		}else{
+			sb.append(e.getP002());
+		}
 		sb.append(",PM25-Flag=N;");
 		
 		sb.append("T01-Rtd=");

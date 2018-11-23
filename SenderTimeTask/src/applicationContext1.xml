@@ -83,8 +83,10 @@
 		<task:scheduled ref="xaqdQuartz" method="startTimeTask" cron="5 0/1 * * * ?"/>
 		<!-- 陕西渭南定时器 -->
 		<task:scheduled ref="sxwnQuartz" method="startTimeTask" cron="30 0/1 * * * ?"/>
-		<!-- 重庆建委定时器 -->
+		<!-- 重庆大渡口区定时器 -->
 		<task:scheduled ref="cqQuartz" method="startTimeTask" cron="30 0/5 * * * ?"/>
+		<!-- 重庆两江区定时器 -->
+		<task:scheduled ref="cq2Quartz" method="startTimeTask" cron="25 0/3 * * * ?"/>
 		<!-- 银川定时器 -->
 		<task:scheduled ref="ycQuartz" method="startTimeTask" cron="10 0/5 * * * ?"/>
 		<!-- 西安国际港务区定时器 -->

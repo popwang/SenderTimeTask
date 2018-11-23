@@ -1,7 +1,5 @@
-package com.http.cq2;
+package com.test.cq;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -9,26 +7,32 @@ import java.util.Random;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.http.cq2.SignatureDTO;
+import com.http.cq2.SignatureDemo;
 import com.utils.CRC;
 import com.utils.CommonUtil;
 import com.vo.EquipmentData;
 
-public class Cq2Util {
-	public static String supplierKeyId = "1e15e202-087d-4c60-9556-084f7a8a833a";
-	public static String supplierSecretKey = "phtf9LZ661sAl0G1CdCJtzL6J5K5Ad5ID6Mv";
+public class Cq2Util2Test {
 	
-	public static String projectKeyId = "d44799b2-380b-4bc0-9d0d-426b41cd2318";
-	public static String projectSecretKey = "CRngCqLflNuCYgFOCEZaW191RNFZM6111U35";
+	public static String supplierKeyId = "b80348fa-3b8e-461d-a508-64ac4df2bf13";
+	public static String supplierSecretKey = "CWHXNtrootfW2ht11dgiGPJRI2CF0voSteRs";
 	
+	public static String projectKeyId = "ebd99521-93f1-4834-9c6c-ca8aa5432536";
+	public static String projectSecretKey = "O46C6Nv9JygA477mm69RzCTzqUzOoGYSGiyC";
+
 	public static Map<String,String> getHeaderMap(){
 		Map<String,String> header = new HashMap<>();
-		
 		SignatureDTO dto = SignatureDemo.createSignature(supplierKeyId + "_" + projectKeyId, supplierSecretKey, projectSecretKey);
+		
+		System.out.println("keyId:"+dto.getKeyId());
+		System.out.println("ts:"+dto.getTs());
+		System.out.println("rCode:"+dto.getrCode());
+		System.out.println("signature:"+dto.getSignature());
 		header.put("keyId", dto.getKeyId());
 		header.put("ts", dto.getTs()+"");
 		header.put("rCode", dto.getrCode());
 		header.put("signature", dto.getSignature());
-		
 		return header;
 	}
 	
@@ -48,22 +52,11 @@ public class Cq2Util {
 		return object;
 	}
 	
-	public static String sha1(String data) throws NoSuchAlgorithmException {
-		MessageDigest md = MessageDigest.getInstance("SHA1");
-		md.update(data.getBytes());
-		StringBuffer buf = new StringBuffer();
-		byte[] bits = md.digest();
-		for(int i=0;i<bits.length;i++){
-			int a = bits[i];
-			if(a<0) a+=256;
-			if(a<16) buf.append("0");
-			buf.append(Integer.toHexString(a));
-		}
-		return buf.toString();
-	}
-	
-	
-	//生成随机数字和字母
+	/**
+	 * 生成随机数字和字母,  
+	 * @param length
+	 * @return
+	 */
     public static String getStringRandom(int length) {  
         String val = "";  
         Random random = new Random();        
@@ -81,5 +74,5 @@ public class Cq2Util {
         }  
         return val;  
     }
-	
+
 }
