@@ -1,4 +1,4 @@
-package com.webservice.ayhx;
+package com.tcp.ly;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -7,18 +7,16 @@ import com.common.service.AbstactBaseQuartz;
 import com.common.service.AbstractBaseService;
 import com.utils.SystemEnum;
 
-@Component("ayhxQuartz")
-public class AyhxQuartz extends AbstactBaseQuartz{
+@Component
+public class LyQuartz extends AbstactBaseQuartz{
 	@Autowired
-	private AyhxService ayhxService;
+	private LyService service;
 	@Override
 	public AbstractBaseService getAbstractBaseService() {
-		return ayhxService;
+		return service;
 	}
-
 	@Override
 	public SystemEnum getSystemEnum() {
-		return SystemEnum.AY_HX_SYSTEM;
+		return SystemEnum.HA_LY_SYSTEM;
 	}
-	
 }

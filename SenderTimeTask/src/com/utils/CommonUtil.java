@@ -450,7 +450,7 @@ public class CommonUtil {
 		e.setP003(83);
 		e.setP004(0.5);
 		e.setP005(3);
-		e.setP006(22.0);
+		e.setP006(2.0);
 		e.setP007(45.3);
 		e.setP008(52.1);
 		e.setP009(90);

@@ -10,6 +10,12 @@ import com.utils.ConfigReader;
 import com.utils.SocketUtil;
 import com.utils.SystemEnum;
 import com.vo.EquipmentData;
+/**
+ * 洛阳伊川平台，协议与最初开封一样
+ * 不需要添加
+ * @author 27438
+ *
+ */
 @Component
 public class LyycService extends AbstractBaseService {
 	@Override

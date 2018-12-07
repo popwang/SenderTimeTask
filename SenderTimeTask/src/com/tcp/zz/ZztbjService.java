@@ -38,7 +38,7 @@ public class ZztbjService extends AbstractBaseService {
 	
 	public static void main(String[] args){
 		EquipmentData e = CommonUtil.getEquipmentDataInstance();
-		e.setV_equipment_name("AZ01005165");
+		e.setV_equipment_name("AZ00000219");
 		String info = TBJUtil.getDataString(e);
 		SocketUtil.init(SystemEnum.ZZ_TBJ_SYSTEM.toString(), "123.15.58.210", 9123);
 		SocketUtil.sendDataBySocket(SystemEnum.ZZ_TBJ_SYSTEM.toString(), 1,info, log);	

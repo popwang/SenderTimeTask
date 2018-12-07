@@ -52,4 +52,8 @@
 		<property name="dataSource" ref="dataSource" />
 	</bean>
     <tx:annotation-driven transaction-manager="transactionManager"/>
+    <task:scheduled-tasks>
+    	<!-- 洛阳定时器 -->
+		<task:scheduled ref="lyQuartz" method="startTimeTask" cron="0 0/5 * * * ?"/>
+	</task:scheduled-tasks>
 </beans>
