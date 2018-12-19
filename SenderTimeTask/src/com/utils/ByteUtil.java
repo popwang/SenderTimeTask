@@ -54,6 +54,9 @@ public class ByteUtil {
 		System.out.println(getEpcCode("0766"));
 		System.out.println(getEpcCode("1766"));
 //		System.out.println(getMacCode("1766"));
+		String tmp = "1440-0028-sclw-2153";
+		String epc = bytesToHexString(tmp.getBytes()).toUpperCase();
+		System.out.println(epc);
 	}
 	
 	/**
@@ -110,6 +113,20 @@ public class ByteUtil {
 	        (byte) ((a >> 16) & 0xFF),     
 	        (byte) ((a >> 8) & 0xFF),     
 	        (byte) (a & 0xFF)  
+	    };  
+	} 
+	
+	/**
+	 * int转byte数组，小端序
+	 * @param a
+	 * @return
+	 */
+	public static byte[] intToByteArray2(int a) {  
+	    return new byte[] { 
+	    		(byte) (a & 0xFF),
+	    		(byte) ((a >> 8) & 0xFF), 
+	    		(byte) ((a >> 16) & 0xFF), 
+	    		(byte) ((a >> 24) & 0xFF)  
 	    };  
 	} 
 	

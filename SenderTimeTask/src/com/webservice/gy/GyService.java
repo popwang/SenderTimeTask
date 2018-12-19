@@ -100,7 +100,7 @@ public class GyService extends AbstractBaseService {
 			log.info("获取webservice服务超时，本次发送异常退出！");
 		}
 		EquipmentData v = CommonUtil.getEquipmentDataInstance();
-		v.setV_equipment_name("621000792");
+		v.setV_equipment_name("621001031");
 		String dataStr = WebserviceUtil.getDataString(v);
 		log.info(dataStr);
 		try {
