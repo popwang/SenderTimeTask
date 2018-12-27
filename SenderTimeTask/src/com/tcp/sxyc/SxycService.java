@@ -35,7 +35,7 @@ public class SxycService extends AbstractBaseService {
 			@Override
 			public void run() {
 				EquipmentData e = CommonUtil.getEquipmentDataInstance();
-				e.setV_equipment_name("123456780359A012");
+				e.setV_equipment_name("0E5A424C00005138");
 				YcUtil yc = new YcUtil(e);
 				e.setP001(0);
 				e.setP002(68);

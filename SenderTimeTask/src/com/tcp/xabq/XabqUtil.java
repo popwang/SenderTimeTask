@@ -63,6 +63,12 @@ public class XabqUtil {
 		return CRC.pre+CRC.patternNumber(crc.length())+crc+CRC.GetCRC2(crc)+"\r\n";
 	}
 	
+	/**
+	 * 灞桥子平台数据生成方法
+	 * @param v
+	 * @return
+	 * @throws JSONException
+	 */
 	public static String toJsonObject(EquipmentData v) throws JSONException{
 		ObjectMapper objectMapper = new ObjectMapper();
 		BQ2Vo vo = new BQ2Vo();
