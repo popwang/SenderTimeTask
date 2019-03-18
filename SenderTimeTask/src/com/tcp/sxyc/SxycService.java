@@ -12,8 +12,7 @@ import com.utils.SocketUtil;
 import com.utils.SystemEnum;
 import com.vo.EquipmentData;
 /**
- * 山西运城数据对接服务，对接成功，尚未发送数据
- * 重写数据发送接口即可
+ * 山西运城数据对接服务，对接成功
  * @author pactera
  */
 @Component

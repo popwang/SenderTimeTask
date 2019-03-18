@@ -55,7 +55,7 @@ public class ZkServer implements ServerInterface {
 			@Override
 			public void run() {
 				EquipmentData e = new EquipmentData();
-				e.setV_equipment_name("Y0394001600069");
+				e.setV_equipment_name("Y0394001605282");
 				e.setP001(0);
 				e.setP002(68);
 				e.setP003(85);

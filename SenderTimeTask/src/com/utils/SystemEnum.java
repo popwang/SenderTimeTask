@@ -54,6 +54,10 @@ public enum SystemEnum {
 	HA_LY_SYSTEM(48,"洛阳市吉利区平台"),
 	HA_PY_SYSTEM(49,"濮阳市平台"),
 	HB_WH_SYSTEM(50,"湖北武汉平台"),
+	ZZ_SIX_SYSTEM(51,"郑州6号线平台"),
+	LY_MJ_SYSTEM(52,"洛阳孟津住建局平台"),
+	SX_YC2_SYSTEM(53,"山西运城2"),
+	ZZ_TBJ2_SYSTEM(54,"郑州特比佳2"),
 	INSERT_SYSTEM(98,"数据替换"),
 	WEATHER_SYSTEM(99,"天气预报");
 	

@@ -57,6 +57,9 @@ public class ByteUtil {
 		String tmp = "1440-0028-sclw-2153";
 		String epc = bytesToHexString(tmp.getBytes()).toUpperCase();
 		System.out.println(epc);
+		System.out.println(0b111);
+		System.out.println(0121);
+		System.out.println(0x121);
 	}
 	
 	/**

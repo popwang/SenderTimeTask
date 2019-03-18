@@ -102,6 +102,8 @@
 		<task:scheduled ref="xanewQuartz" method="startTimeTask" cron="10 0/1 * * * ?"/>
 		<!-- 西安高新区定时器 -->
 		<task:scheduled ref="zjQuartz" method="startTimeTask" cron="0 0/1 * * * ?"/>
+		<!-- 郑州特比佳定时器 -->
+		<task:scheduled ref="zztbj2Quartz" method="startTimeTask" cron="25 0/1 * * * ?"/>
 	</task:scheduled-tasks>
 	
 </beans>

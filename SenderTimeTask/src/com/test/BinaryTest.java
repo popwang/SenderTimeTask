@@ -1,5 +1,7 @@
 package com.test;
 
+import org.apache.commons.collections.set.SynchronizedSet;
+
 public class BinaryTest {
 
 	public static void main(String[] args) {
@@ -63,10 +65,23 @@ public class BinaryTest {
 //			System.out.print(s+",");
 //		}
 		
-		int i = 23938293;
-		System.out.println(i&0x1F);
-		System.out.println();
-		System.out.println(i%32);
+//		int i = 23938293;
+//		System.out.println(i&0x1F);
+//		System.out.println();
+//		System.out.println(i%32);
+		
+		System.out.println(0b1);
+		System.out.println(0b10);
+		System.out.println(0b100);
+		System.out.println(0b1000);
+		System.out.println(0b10000);
+		System.out.println(0b100000);
+		System.out.println(0b1000000);
+		System.out.println(0b10000000);
+		
+		System.out.println(012);
+
+		
 	}
 	
 	public static String byteToBinaryString(byte b){

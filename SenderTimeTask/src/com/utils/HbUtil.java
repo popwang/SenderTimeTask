@@ -321,4 +321,8 @@ public class HbUtil {
 	public static byte[] shortToByteArray(short a) {
 		return new byte[] { (byte) ((a >> 8) & 0xFF), (byte) (a & 0xFF) };
 	}
+	
+	public static void main(String[] args) {
+		System.out.println(ByteUtil.bytesToHexString(str2Bcd("1901291639")));
+	}
 }

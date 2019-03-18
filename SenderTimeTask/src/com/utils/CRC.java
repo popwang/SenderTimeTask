@@ -420,114 +420,6 @@ public class CRC {
 		return CRC.pre+CRC.patternNumber(crc.length())+crc+CRC.GetCRC2(crc)+"\r\n";
 	}
 	
-	public static void main(String[] args) {  
-//      int crc = CRC.GetCRC4(new byte[] { 0x01,0x00,0x01,0x00,(byte)0xC9,0x12,0x00,0x32,0x02,0x09,0x00,0x03,0x10,0x17,0x05,0x05,0x09,0x54,0x42,0x01,0x01,0x03,0x01,0x04,0x02,0x01,0x03,0x00,(byte)0xD2,0x03,0x01,0x03,0x27,0x1F,0x69,0x01,0x03,0x04,0x38,0x70,0x01,0x03,0x03,0x16,0x71,0x01,0x03,0x01,(byte)0xB3,(byte)0x82,0x01,0x03,0x00,0x00,(byte)0x83,0x01,0x03,0x00,(byte)0xA6,0x03});  
-//      System.out.println(ByteUtil.bytesToHexString(ByteUtil.intToByteArray(crc)));
-//      System.out.println(String.format("0x%04x", crc));  
-//		String s = "QN=20180424105612214;ST=22;CN=2011;PW=123456;MN=0E5A424C5759434A43363735;Flag=5;CP=&&DataTime=20180424105612;a34004-Rtd=103.0,a34004-Flag=N;a34002-Rtd=83.0,a34002-Flag=N;a34001-Rtd=0.0,a34001-Flag=N;LA-Rtd=52.1,LA-Flag=N;a01007-Rtd=0.5,a01007-Flag=N;a01008-Rtd=90,a01008-Flag=N;a01001-Rtd=32.0,a01001-Flag=N;a01002-Rtd=45.3,a01002-Flag=N&&";
-//		System.out.println(CRC.GetCRC2(s));
-		byte[] tmp = {0x01,
-				0x03,
-				0x60,
-				0x3F,
-				0x0C,
-				0x50,
-				0x00,
-				0x43,
-				0x61,
-				(byte)0xCC,
-				(byte)0xCD,
-				0x3A,
-				(byte)0xC1,
-				(byte)0xF0,
-				0x7C,
-				0x3A,
-				(byte)0xC1,
-				(byte)0xF0,
-				0x7C,
-				0x3A,
-				(byte)0xC1,
-				(byte)0xF0,
-				0x7C,
-				0x3A,
-				(byte)0xC1,
-				(byte)0xF0,
-				0x7C,
-				0x00,
-				0x00,
-				0x00,
-				0x00,
-				0x3F,
-				(byte)0x80,
-				0x00,
-				0x00,
-				0x43,
-				0x2E,
-				(byte)0x99,
-				(byte)0x9A,
-				0x00,
-				0x00,
-				0x00,
-				0x00,
-				0x00,
-				0x00,
-				0x00,
-				0x00,
-				0x41,
-				(byte)0xA0,
-				0x00,
-				0x00,
-				0x42,
-				0x24,
-				0x66,
-				0x66,
-				0x43,
-				(byte)0x89,
-				0x26,
-				0x66,
-				0x00,
-				0x00,
-				0x00,
-				0x00,
-				0x00,
-				0x00,
-				0x00,
-				0x00,
-				0x00,
-				0x00,
-				0x00,
-				0x00,
-				0x00,
-				0x00,
-				0x0F,
-				0x01,
-				0x0F,
-				0x10,
-				0x1A,
-				0x16,
-				0x31,
-				0x34,
-				0x34,
-				0x30,
-				0x2D,
-				0x30,
-				0x30,
-				0x32,
-				0x38,
-				0x2D,
-				0x73,
-				0x63,
-				0x6C,
-				0x77,
-				0x2D,
-				0x32,
-				0x31,
-				0x35,
-				0x33,
-				0x00 };
-		System.out.println(Integer.toHexString(getCRC(tmp)).toUpperCase());
-		System.out.println(Integer.toHexString(GetCRC4(tmp)).toUpperCase());
-  }
 	
 	/**
 	 * 将设备号转成4位16进制数
@@ -574,6 +466,7 @@ public class CRC {
 		}
 		return Integer.toHexString(CRC).toUpperCase();
 	}
+	
 	/**
 	 * 山东济南CRC校验算法
 	 * @param data212
@@ -670,5 +563,58 @@ public class CRC {
 			}
 		}
 		return CRC;
+	}
+	
+	public static int ZZ6CRC(byte[] bytes) {
+		short CRC = 0x0000;
+		short POLYNOMIAL = 0x1021;
+		int i, j;
+		for (i = 0; i < bytes.length; i++) {
+			for (j = 0; j < 8; j++) {
+				if ((CRC & 0x8000) != 0) {
+					CRC <<= 1;
+					CRC ^= POLYNOMIAL;
+				} else {
+					CRC <<= 1;
+				}
+				if((bytes[i]&i)!=0){
+					CRC ^= POLYNOMIAL;
+				}
+			}
+		}
+		return CRC;
+	}
+	public static void main(String[] args) {  
+		byte[] b = new byte[]{
+				 0x4C ,0x41, 0x30 ,0x30, 0x30, 0x30, 0x30, 0x38, 0x16, 0x08, 0x08 ,0x12 ,0x24, 0x56
+		};
+		System.out.println(ZZ6CRC(b));
+		System.out.println(ByteUtil.bytesToHexString(ByteUtil.shortToByteArray((short)ZZ6CRC(b))));
+		System.out.println(ByteUtil.bytesToHexString(ByteUtil.shortToByteArray2((short)toCrc(b))));
+		
+  }
+	/**
+	 * 郑州6号线
+	 * @param ptr
+	 * @return
+	 */
+	public static int toCrc(byte[] ptr){
+		int i = 0;
+		int u16Crc = 0;
+		int len = ptr.length;
+		for(int index=0;index<len;index++){
+			for(i=0x80;i!=0;i/=2){
+				if((u16Crc & 0x8000)!=0){
+					u16Crc <<= 1;
+	                u16Crc ^= 0x1021;
+				}else{
+					u16Crc <<= 1;
+				}
+				if((ptr[index]&i)!=0){
+					u16Crc ^= 0x1021;
+				}
+			}
+		}
+		return u16Crc;
 	}
 }
