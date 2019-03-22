@@ -58,6 +58,7 @@ public enum SystemEnum {
 	LY_MJ_SYSTEM(52,"洛阳孟津住建局平台"),
 	SX_YC2_SYSTEM(53,"山西运城2"),
 	ZZ_TBJ2_SYSTEM(54,"郑州特比佳2"),
+	SX_XX_SYSTEM(55,"陕西西咸新区"),
 	INSERT_SYSTEM(98,"数据替换"),
 	WEATHER_SYSTEM(99,"天气预报");
 	

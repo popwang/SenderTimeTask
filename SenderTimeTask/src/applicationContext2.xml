@@ -87,7 +87,8 @@
 		<task:scheduled ref="zxline2Quartz" method="startTimeTask" cron="5 0/10 * * * ?"/>
 		<!-- 洛阳孟津住建局定时器 -->
 		<task:scheduled ref="lymjQuartz" method="startTimeTask" cron="6 0/10 * * * ?"/>
-		
+		<!-- 陕西西咸新区定时器 -->
+		<task:scheduled ref="xxxqQuartz" method="startTimeTask" cron="10 0/7 * * * ?"/>
 		<!-- 更新经纬度定时器 -->
 		<task:scheduled ref="updateGPSQuartz" method="startTimeTask" cron="0 0 7-19/8 * * ?"/>
 		<!-- 数据替换插入定时器 -->
