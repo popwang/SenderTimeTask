@@ -59,6 +59,9 @@ public enum SystemEnum {
 	SX_YC2_SYSTEM(53,"山西运城2"),
 	ZZ_TBJ2_SYSTEM(54,"郑州特比佳2"),
 	SX_XX_SYSTEM(55,"陕西西咸新区"),
+	ZK_SQ_SYSTEM(56,"河南周口沈丘平台"),
+	SC_CD_SYSTEM(57,"四川成都水源检测平台"),
+	HB_XA_SYSTEM(58,"河北雄安平台"),
 	INSERT_SYSTEM(98,"数据替换"),
 	WEATHER_SYSTEM(99,"天气预报");
 	

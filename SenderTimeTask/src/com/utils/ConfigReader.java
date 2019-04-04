@@ -51,22 +51,6 @@ public class ConfigReader {
 	}
 	
 	/**
-	 * 读取郑州特比佳服务ip
-	 * @return
-	 */
-	public static String getZZtbjIP() {
-		return p.getProperty("ZZ_TBJ_HOST").toString();
-	}
-	
-	/**
-	 * 读取郑州特比佳服务port
-	 * @return
-	 */
-	public static int getZZtbjPORT() {
-		return Integer.parseInt(p.getProperty("ZZ_TBJ_PORT").toString());
-	}
-	
-	/**
 	 * 读取郑州交委服务ip
 	 * @return
 	 */

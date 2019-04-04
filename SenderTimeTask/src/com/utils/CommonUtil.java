@@ -283,10 +283,12 @@ public class CommonUtil {
 	 * @param log
 	 */
 	public static void sendByteDataToUDP(String ip, int port, byte[] data, Log log) {
+		DatagramSocket client = null;
+		DatagramPacket packet = null;
 		try {
 			InetAddress address = InetAddress.getByName(ip);
-			DatagramPacket packet = new DatagramPacket(data, data.length, address, port);
-			DatagramSocket client = new DatagramSocket();
+			packet = new DatagramPacket(data, data.length, address, port);
+			client = new DatagramSocket();
 			client.setSoTimeout(3000);
 			client.send(packet);
 			// 1.创建数据报，用于接受服务端响应的数据
@@ -297,13 +299,13 @@ public class CommonUtil {
 			// 3.读取数据
 			String reply = new String(bytes, 0, packet.getLength(), "gbk");
 			System.out.println("server say：" + reply);
-			client.close();
+			
 		} catch (UnknownHostException e) {
 			log.info("异常信息："+e.getMessage());
 		} catch (IOException e) {
 			log.info("异常信息："+e.getMessage());
 		} finally {
-
+			client.close();
 		}
 	}
 
@@ -450,7 +452,7 @@ public class CommonUtil {
 		e.setP003(83);
 		e.setP004(0.5);
 		e.setP005(3);
-		e.setP006(2.0);
+		e.setP006(18.0);
 		e.setP007(45.3);
 		e.setP008(52.1);
 		e.setP009(90);
