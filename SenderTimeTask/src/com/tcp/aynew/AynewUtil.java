@@ -119,6 +119,11 @@ public class AynewUtil {
 		return bytes;
 	}
 	
+	
+	public static void main(String[] args) {
+		System.out.println(ByteUtil.bytesToHexString(getMacCode("00000057")));
+	}
+	
 	/**
 	 * 传入4位设备号
 	 * @param equipmentcode
@@ -135,7 +140,7 @@ public class AynewUtil {
 			epc = epc.replaceFirst("30", "D1");
 		}
 		
-//		System.out.println(epc);
+		System.out.println(epc);
 		int len = epc.length();
 		String s0 = "";
 		for(int i=0;i<len/2;i++){
@@ -285,9 +290,6 @@ public class AynewUtil {
 		return info;
 	}
 	
-	public static void main(String[] args) {
-		System.out.println(ByteUtil.bytesToHexString(getMacCode("0588")));
-	}
 	
 	public static byte[] longToByte8(long sum) {
         byte[] arr = new byte[8];

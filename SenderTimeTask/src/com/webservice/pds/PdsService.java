@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
@@ -15,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.mapper.CommonMapper;
+import com.utils.CommonUtil;
 import com.utils.SystemEnum;
 import com.utils.ThreadPoolUtil;
 import com.utils.WebserviceUtil;
@@ -37,13 +37,18 @@ public class PdsService {
 	@Autowired
 	private CommonMapper mapper;
 	
-	public static void main(String[] args){
+	public static void main(String[] args) throws DataAccessException_Exception{
 		PdsService ps = new PdsService();
 		SaveYCJCServicePortType port = ps.getPortTimeOut(WebserviceUtil.WEBSERVICE_TIMEOUT);
 	    if(port==null){
 	    	log.info("获取webservice服务超时，本次发送异常退出！");
 	    }else{
 	    	log.info("获取成功！");
+	    	EquipmentData v = CommonUtil.getEquipmentDataInstance();
+	    	v.setV_equipment_name("101000370");
+	    	 String dataStr = WebserviceUtil.getDataString(v);
+	    	String result = port.saveYCJC(dataStr);
+			System.out.println(result);
 	    }
 	}
 	

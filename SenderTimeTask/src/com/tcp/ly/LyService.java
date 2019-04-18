@@ -24,7 +24,7 @@ public class LyService extends AbstractBaseService {
 	
 	public static void main(String[] args){
 		EquipmentData e = CommonUtil.getEquipmentDataInstance();
-		e.setV_equipment_name("4103060028102");
+		e.setV_equipment_name("4103060029102");
 		sendKfDataToRemote(ByteUtil.getSendDataBytes(LYUtil.getRegisterInfo(e), ByteUtil.CMD_R));
 		sendKfDataToRemote(ByteUtil.getSendDataBytes(LYUtil.getVoiceInfo(e),ByteUtil.CMD_V));
 		sendKfDataToRemote(ByteUtil.getSendDataBytes(LYUtil.getPmInfo(e), ByteUtil.CMD_P));

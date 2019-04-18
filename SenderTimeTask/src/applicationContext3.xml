@@ -59,5 +59,13 @@
 		<task:scheduled ref="hbwhQuartz" method="startTimeTask" cron="0 0/1 * * * ?"/>
 		<!-- 山西运城定时器 -->
 		<task:scheduled ref="sxycQuartz" method="startTimeTask" cron="0 0/5 * * * ?"/>
+		<!-- 成都定时器 -->
+		<task:scheduled ref="cdQuartz" method="startTimeTask" cron="0 0/5 * * * ?"/>
+		<!-- 河北雄安定时器 -->
+		<task:scheduled ref="hbxaQuartz" method="startTimeTask" cron="0 0/1 * * * ?"/>
+		<!-- 山西太原定时器 -->
+		<task:scheduled ref="sxtyQuartz" method="startTimeTask" cron="0 0/3 * * * ?"/>
+		<!-- 江苏南京和燕段定时器 -->
+		<task:scheduled ref="njQuartz" method="startTimeTask" cron="0 0/5 * * * ?"/>
 	</task:scheduled-tasks>
 </beans>

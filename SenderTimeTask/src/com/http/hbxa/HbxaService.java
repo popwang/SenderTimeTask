@@ -1,5 +1,9 @@
 package com.http.hbxa;
 
+import java.io.IOException;
+
+import org.apache.http.client.ClientProtocolException;
+import org.json.JSONException;
 import org.springframework.stereotype.Component;
 
 import com.common.service.AbstractBaseService;
@@ -17,14 +21,25 @@ public class HbxaService extends AbstractBaseService {
 
 	@Override
 	public void sendEquipmentData(EquipmentData v) {
-		String info = XabqUtil.getAirString(v);
-		CommonUtil.doHttpGet(v.getV_url()+"?info="+info,log);
+		String info;
+		try {
+			info = HbxaUtil.getJsonInfo(v);
+			CommonUtil.doHttpPost(v.getV_url(),info,log);
+		} catch (JSONException e) {
+			e.printStackTrace();
+		} catch (ClientProtocolException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ClientProtocolException, JSONException, IOException {
 		EquipmentData v = CommonUtil.getEquipmentDataInstance();
-		String info = XabqUtil.getAirString(v);
-		String url = "";
-		CommonUtil.doHttpGet(url+info,log);
+		String info = HbxaUtil.getJsonInfo(v);
+		log.info(info);
+		String url = "http://218.60.3.82:8080/api.do?uploadEnvInfo";
+		CommonUtil.doHttpPost(url,info,log);
 	}
 }

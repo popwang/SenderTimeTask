@@ -55,7 +55,7 @@ public class XabqService implements Runnable {
 			@Override
 			public void run() {
 				EquipmentData e = CommonUtil.getEquipmentDataInstance();
-				e.setV_equipment_name("SDYKAZ00000087");
+				e.setV_equipment_name("AZ00000087");
 				String info = XabqUtil.getAirString(e);
 				log.info("·¢ËÍÄÚÈÝ:" + info);
 				CommonUtil.sendDataToRemote(ConfigReader.getHost(SystemEnum.XA_BQ_SYSTEM.toString()),

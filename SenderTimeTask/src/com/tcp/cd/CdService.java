@@ -18,7 +18,11 @@ public class CdService extends AbstractBaseService {
 
 	@Override
 	public void sendEquipmentData(EquipmentData v) {
-		
+		DevUpMsg dev = CdUtil.getDevUpMsg(v);
+		byte[] info = CdUtil.getDataInfo(dev);
+		log.info(ByteUtil.bytesToHexString(info));
+		SocketUtil.init2(SystemEnum.SC_CD_SYSTEM.toString());
+		SocketUtil.sendByteDataBySocket(SystemEnum.SC_CD_SYSTEM.toString(), 1,info, log);
 	}
 	
 	public static void main(String[] args) {

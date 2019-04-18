@@ -1,6 +1,8 @@
 package com.tcp.cd;
 
 import com.utils.ByteUtil;
+import com.utils.CommonUtil;
+import com.vo.EquipmentData;
 
 import io.protostuff.LinkedBuffer;
 import io.protostuff.ProtobufIOUtil;
@@ -72,6 +74,25 @@ public class CdUtil {
 		dev.setTsp(45);
 		dev.setWinddir(270);
 		dev.setWindspeed(1.1f);
+		return dev;
+	}
+	
+	public static DevUpMsg getDevUpMsg(EquipmentData v) {
+		DevUpMsg dev = new DevUpMsg();
+		dev.setDevsn(v.getV_equipment_name());
+		dev.setAirpressure(0);
+		dev.setFactcode("AZ");
+		dev.setHumidity((float)v.getP007());
+		dev.setLatitude((float)v.getP015());
+		dev.setLongitude((float)v.getP014());
+		dev.setNoise((float)v.getP008());
+		dev.setPm10((float)v.getP003());
+		dev.setPm25((float)v.getP002());
+		dev.setStatus(true);
+		dev.setTemp((float)v.getP006());
+		dev.setTsp((float)v.getP009());
+		dev.setWinddir(Float.parseFloat(CommonUtil.getWindString(v.getP005())));
+		dev.setWindspeed((float)v.getP004());
 		return dev;
 	}
 

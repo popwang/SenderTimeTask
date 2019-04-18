@@ -28,7 +28,7 @@ public class AynewService extends AbstractBaseService {
 	public static void main(String[] args) {
 		AynewService ay = new AynewService();
 		EquipmentData v = CommonUtil.getEquipmentDataInstance();
-		v.setV_equipment_name("00000801");//313038d15a0e
+		v.setV_equipment_name("00000057");//313038d15a0e
 		ay.sendEquipmentData(v);
 	}
 }

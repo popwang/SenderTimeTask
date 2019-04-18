@@ -1,25 +1,21 @@
 package com.tcp.zztbj2;
 
-import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import org.springframework.stereotype.Component;
 
 import com.common.service.AbstractBaseService;
-import com.tcp.hncs.HnUtil;
 import com.utils.CommonUtil;
 import com.utils.SocketUtil;
 import com.utils.SystemEnum;
 import com.utils.TBJUtil;
-import com.utils.ThreadPoolUtil;
 import com.vo.EquipmentData;
 
 /**
- * 1.郑州特必佳公司接口；目前接入5台设备； 
- * 2.设备列表直接添加即可； 
- * 3.技术电话：宋-177 3718 3234
- * 4.20180808,修改数据查询方式，一次性关联查询全部数据；增加线程池并发发送数据；
+ * 1.同特必佳平台；
+ * 2.将部分用户关注度比较高的设备，放在这里，1分钟发送一次数据；
+ * 3.
  * @author Administrator
  */
 @Component
@@ -32,6 +28,7 @@ public class Zztbj2Service extends AbstractBaseService {
 			@Override
 			public void run() {
 				EquipmentData e = CommonUtil.getEquipmentDataInstance();
+				e.setV_equipment_name("AZ00005067");
 				zz.sendEquipmentData(e);
 			}
 		}, 1000, 2*60*1000);
