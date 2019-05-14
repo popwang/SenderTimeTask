@@ -59,6 +59,25 @@ public class EquipmentData {
 	
 	private String dtm_update;
 	private String dtm_setdate;
+	private int duration;
+	
+	public int getDuration() {
+		return duration;
+	}
+
+	public void setDuration(int duration) {
+		this.duration = duration;
+	}
+
+	private String dtm_create;
+	public String getDtm_create() {
+		return dtm_create;
+	}
+
+	public void setDtm_create(String dtm_create) {
+		this.dtm_create = dtm_create;
+	}
+
 	private String windSpeed;
 	
 	public String getWindSpeed() {

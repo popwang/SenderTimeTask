@@ -176,11 +176,14 @@ public class CommonUtil {
 	 * @param port
 	 */
 	public static void sendDataToRemote(String ip, int port, String info, Log log) {
+		Socket socket = null;
+		BufferedReader br = null;
+		PrintWriter pw = null;
 		try {
-			Socket socket = new Socket(ip, port);
+			socket = new Socket(ip, port);
 			socket.setSoTimeout(3000);
-			PrintWriter pw = new PrintWriter(new OutputStreamWriter(socket.getOutputStream(), "utf-8"), true);
-			BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+			pw = new PrintWriter(new OutputStreamWriter(socket.getOutputStream(), "utf-8"), true);
+			br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			log.info("发送数据：" + info);
 			pw.write(info);
 			pw.flush();
@@ -193,13 +196,31 @@ public class CommonUtil {
 			} catch (Exception e) {
 				log.info("返回内容接收完毕！");
 			}
-			br.close();
-			pw.close();
-			socket.close();
-		} catch (UnknownHostException e) {
-			log.info(e.getMessage());
 		} catch (IOException e) {
 			log.info(e.getMessage());
+		}finally {
+			if(br!=null) {
+				try {
+					br.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}finally {
+					br=null;
+				}
+			}
+			if(pw!=null) {
+				pw.close();
+			}
+			if(socket!=null) {
+				try {
+					socket.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}finally {
+					socket=null;
+				}
+			}
+			
 		}
 	}
 
@@ -225,30 +246,19 @@ public class CommonUtil {
 	 * @param log
 	 */
 	public static void sendByteDataToRemote(String ip, int port, byte[] bytes, Log log) {
+		Socket socket = null;
+		InputStream is = null;
+		OutputStream os = null;
 		try {
-			Socket socket = new Socket(ip, port);
+			socket = new Socket(ip, port);
 			socket.setSoTimeout(1000);
 			log.info("connect success");
-			OutputStream os = socket.getOutputStream();
+			os = socket.getOutputStream();
 			log.info("发送内容："+ByteUtil.bytesToHexString(bytes));
-			InputStream is = new DataInputStream(socket.getInputStream());
+			is = new DataInputStream(socket.getInputStream());
 			os.write(bytes);
 			os.flush();
-//			 byte[] data = new byte[22];
-//			 int totalBytesRcvd = 0;
-//			 int bytesRcvd;
-//			 while (totalBytesRcvd < data.length) {
-//			 bytesRcvd = is.read(data, totalBytesRcvd, data.length -
-//			 totalBytesRcvd);
-//			 totalBytesRcvd += bytesRcvd;
-//			 }
-//			 log.info(new String(data,"UTF-8"));
-//			 log.info("Received-hex:" + ByteUtil.bytesToHexString(data));
-//			 socket.shutdownOutput();
-//			 is.close();
-//			 os.close();
-//			 socket.close();
-
+			
 			DataInputStream dis = new DataInputStream(is);
 			String result = "无返回结果";
 			int resultLen = dis.readInt();
@@ -265,13 +275,38 @@ public class CommonUtil {
 				log.info("返回字符串： " + result);
 				bb.close();
 			}
-			is.close();
-			os.close();
-			socket.close();
+			
 		} catch (Exception e) {
 			log.info("异常返回");
 		}  finally {
-
+			if(is!=null) {
+				try {
+					is.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				} finally {
+					is = null;
+				}
+			}
+			if(os != null) {
+				try {
+					os.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				} finally {
+					os = null;
+				}
+			}
+			
+			if(socket!=null) {
+				try {
+					socket.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				} finally {
+					socket = null;
+				}
+			}
 		}
 	}
 

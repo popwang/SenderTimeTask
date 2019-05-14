@@ -13,5 +13,4 @@ public class HbxaUtil {
 		object.put("data", XabqUtil.getAirString(v));
 		return object.toString();
 	}
-	
 }

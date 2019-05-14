@@ -64,6 +64,11 @@ public enum SystemEnum {
 	HB_XA_SYSTEM(58,"河北雄安平台"),
 	SX_TY_SYSTEM(59,"山西太原平台"),
 	JS_NJ_SYSTEM(60,"江苏南京和燕段平台"),
+	HB_XA2_SYSTEM(61,"河北雄安联通平台"),
+	XA_WY_SYSTEM(62,"西安未央区"),
+	ZK_HY_SYSTEM(63,"周口淮阳平台"),
+	LY_MJ2_SYSTEM(64,"洛阳孟津住建局平台2"),
+	SM_LS_SYSTEM(65,"三门峡卢氏"),
 	INSERT_SYSTEM(98,"数据替换"),
 	WEATHER_SYSTEM(99,"天气预报");
 	

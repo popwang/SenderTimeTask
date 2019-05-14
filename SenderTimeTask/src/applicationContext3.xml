@@ -63,9 +63,19 @@
 		<task:scheduled ref="cdQuartz" method="startTimeTask" cron="0 0/5 * * * ?"/>
 		<!-- 河北雄安定时器 -->
 		<task:scheduled ref="hbxaQuartz" method="startTimeTask" cron="0 0/1 * * * ?"/>
+		<!-- 周口淮阳定时器 -->
+		<task:scheduled ref="zkhyQuartz" method="startTimeTask" cron="0 0/1 * * * ?"/>
 		<!-- 山西太原定时器 -->
 		<task:scheduled ref="sxtyQuartz" method="startTimeTask" cron="0 0/3 * * * ?"/>
 		<!-- 江苏南京和燕段定时器 -->
 		<task:scheduled ref="njQuartz" method="startTimeTask" cron="0 0/5 * * * ?"/>
+		<!-- 西安未央区定时器 -->
+		<task:scheduled ref="xawyQuartz" method="startTimeTask" cron="0 0/5 * * * ?"/>
+		<!-- 河北雄安2定时器 -->
+		<task:scheduled ref="hbxa2Quartz" method="startTimeTask" cron="0 0/2 * * * ?"/>
+		<!-- 洛阳孟津住建局2定时器 -->
+		<task:scheduled ref="lymj2Quartz" method="startTimeTask" cron="6 0/1 * * * ?"/>
+		<!-- 三门峡卢氏定时器 -->
+		<task:scheduled ref="smlsQuartz" method="startTimeTask" cron="12 0/2 * * * ?"/>
 	</task:scheduled-tasks>
 </beans>
