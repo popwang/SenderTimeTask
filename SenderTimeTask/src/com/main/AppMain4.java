@@ -1,15 +1,11 @@
 package com.main;
 
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.tcp.xabq2.Xabq2Service;
 /**
  * 对业务进行拆分，将灞桥区子平台放入applicationContext3.xml
  * 保证数据上传的及时性

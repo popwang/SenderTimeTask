@@ -5,7 +5,6 @@ import org.springframework.stereotype.Component;
 import com.common.service.AbstractBaseService;
 import com.tcp.gdsz.SzUtil;
 import com.utils.CommonUtil;
-import com.utils.SystemEnum;
 import com.vo.EquipmentData;
 /**
  * 广东深圳对接接口2,协议与1上面接口相同，地址不同
@@ -20,7 +19,7 @@ public class Gdsz2Service extends AbstractBaseService {
 		String info = SzUtil.getAirString2(v);
 //		SocketUtil.init2(SystemEnum.GD_SZ_SYSTEM.toString());
 //		SocketUtil.sendDataBySocket(SystemEnum.GD_SZ_SYSTEM.toString(), 1, info, log);
-		CommonUtil.sendDataToRemote2(SystemEnum.GD_SZ2_SYSTEM.toString(), info, log);
+		CommonUtil.sendDataToRemote2(this.systemEnum.toString(), info, log);
 	}
 	
 	public static void main(String[] args) {

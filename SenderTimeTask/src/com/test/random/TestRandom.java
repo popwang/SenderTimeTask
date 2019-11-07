@@ -5,7 +5,7 @@ import java.util.Random;
 public class TestRandom {
 	/**
 	 * 1）获得不重复的密码，把一个n个字符的密码序列循环n次，随机取其中一个字符进行序列内交换（打乱序列）
-	 * 然后截取x个字符作为不重复密码
+	 *         然后截取x个字符作为不重复密码
 	 * 2）如果对重复性没有要求，则可以每次从序列中随机取一个字符，构成x个字符的密码序列
 	 * @return
 	 */
@@ -25,7 +25,17 @@ public class TestRandom {
 		return result;
 	}
 	
-	//生成随机数字和字母,  
+	//生成随机数字和字母, 
+	/**
+	 * 如果要生成一个10位的字符串：
+	 * for 1...10
+	 * 使用随机函数随机决定第i位是字母还是数字
+	 * 如果是数字，随机取一个数字
+	 * 如果是字母，使用随机函数决定是大写字母还是小写字母
+	 * 在使用随机函数取一个字母
+	 * @param length
+	 * @return
+	 */
     public static String getStringRandom(int length) {  
 
         String val = "";  
@@ -45,7 +55,7 @@ public class TestRandom {
         return val;  
     }
     /**
-     * 获取一个包含大小写字母，数字和特殊符号的密码，并且每种元素至少有一个
+         * 获取一个包含大小写字母，数字和特殊符号的密码，并且每种元素至少有一个
      * @param len
      * @return
      */

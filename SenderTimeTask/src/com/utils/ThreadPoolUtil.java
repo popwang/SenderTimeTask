@@ -1,7 +1,7 @@
 package com.utils;
 
-import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ThreadPoolExecutor;
 
 import org.apache.commons.logging.Log;
@@ -13,20 +13,20 @@ public class ThreadPoolUtil {
 	 */
 	private static int CORE_THREAD_COUNT = 30;
 	public static Log log = LogFactory.getLog(ThreadPoolUtil.class);
-	private static ExecutorService service = null;
+	private static ScheduledExecutorService  service = null;
 	/**
 	 * 获取全局的线程池
 	 * @return
 	 */
-	public static ExecutorService getExecutorService(){
+	public static ScheduledExecutorService  getExecutorService(){
 		if(service!=null){
 			ThreadPoolExecutor executor = (ThreadPoolExecutor)service;
 			if(!executor.isShutdown() && executor.getQueue().size()>300){
 				service.shutdownNow();
-				service = Executors.newFixedThreadPool(CORE_THREAD_COUNT);
+				service = Executors.newScheduledThreadPool(CORE_THREAD_COUNT);
 			}
 		}else{
-			service = Executors.newFixedThreadPool(CORE_THREAD_COUNT);
+			service = Executors.newScheduledThreadPool(CORE_THREAD_COUNT);
 		}
 		return service;
 	}

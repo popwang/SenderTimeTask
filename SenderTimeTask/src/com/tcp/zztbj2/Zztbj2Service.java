@@ -28,7 +28,7 @@ public class Zztbj2Service extends AbstractBaseService {
 			@Override
 			public void run() {
 				EquipmentData e = CommonUtil.getEquipmentDataInstance();
-				e.setV_equipment_name("AZ00005067");
+				e.setV_equipment_name("AZ01000947");
 				zz.sendEquipmentData(e);
 			}
 		}, 1000, 2*60*1000);

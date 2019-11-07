@@ -79,7 +79,9 @@ public class BinaryTest {
 		System.out.println(0b1000000);
 		System.out.println(0b10000000);
 		
-		System.out.println(012);
+		System.out.println(0b10);//0b打头是二进制
+		System.out.println(0x10);//0x打头是16进制
+		System.out.println(0010);//0打头就是八进制
 
 		
 	}

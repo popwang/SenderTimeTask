@@ -104,7 +104,9 @@ public class RyService {
 	    if(port==null){
 	    	log.info("获取webservice服务超时，本次发送异常退出！");
 	    }
-	    String dataStr = WebserviceUtil.getDataString(CommonUtil.getEquipmentDataInstance());
+	    EquipmentData v = CommonUtil.getEquipmentDataInstance();
+	    v.setV_equipment_name("621185186");
+	    String dataStr = WebserviceUtil.getDataString(v);
 	    try {
 			String result = port.saveYCJC(dataStr);
 			System.out.println(result);

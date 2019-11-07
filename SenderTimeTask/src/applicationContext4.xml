@@ -54,6 +54,12 @@
     <tx:annotation-driven transaction-manager="transactionManager"/>
     <task:scheduled-tasks>
     	<!-- 郑州特比佳定时器 -->
-		<task:scheduled ref="zztbjQuartz" method="startTimeTask" cron="25 0/9 * * * ?"/>
+		<task:scheduled ref="zztbjQuartz" method="startTimeTask" cron="0 0/1 * * * ?"/>
+		<!-- 新乡长垣定时器 -->
+		<task:scheduled ref="xxcyQuartz" method="startTimeTask" cron="45 0/1 * * * ?"/>
+		<!-- 山西太原2定时器 -->
+		<task:scheduled ref="sxty2Quartz" method="startTimeTask" cron="50 0/2 * * * ?"/>
+		<!-- 信阳定时器 -->
+		<task:scheduled ref="hnxyQuartz" method="startTimeTask" cron="45 0/5 * * * ?"/>
 	</task:scheduled-tasks>
 </beans>

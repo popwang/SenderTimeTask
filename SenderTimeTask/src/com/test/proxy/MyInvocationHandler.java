@@ -27,7 +27,7 @@ public class MyInvocationHandler implements InvocationHandler {
 	 * @param target
 	 * @return
 	 */
-	public Object bind(Object target) {
+	public Object getProxy(Object target) {
 		return Proxy.newProxyInstance(target.getClass().getClassLoader(), target.getClass().getInterfaces(), this);
 	}
 

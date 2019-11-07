@@ -51,6 +51,8 @@ public class SocketUtil {
 	public static void init2(String key){
 		String ip = ConfigReader.getHost(key);
 		int port = ConfigReader.getPort(key);
+		System.out.println(ip);
+		System.out.println(port);
 		getSocket(key,ip,port);
 	}
 	

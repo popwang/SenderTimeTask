@@ -57,6 +57,8 @@
 		<task:scheduled ref="lyQuartz" method="startTimeTask" cron="0 0/5 * * * ?"/>
 		<!-- 湖北武汉定时器 -->
 		<task:scheduled ref="hbwhQuartz" method="startTimeTask" cron="0 0/1 * * * ?"/>
+		<!-- 湖北武汉定时器 -->
+		<task:scheduled ref="hbwh2Quartz" method="startTimeTask" cron="5 0/2 * * * ?"/>
 		<!-- 山西运城定时器 -->
 		<task:scheduled ref="sxycQuartz" method="startTimeTask" cron="0 0/5 * * * ?"/>
 		<!-- 成都定时器 -->

@@ -2,3 +2,15 @@
 wsdl2java.bat -d d:\\src -p com.webservice.yc -all http://42.63.25.70:9000/yczj/webservice/jkinfo.asmx?wsdl
 --宁夏测试地址
 wsdl2java.bat -d d:\\src -p com.webservice.yc.test -all http://www.zhxht.com:8095/ycgd_new/webservice/jkinfo.asmx?wsdl
+
+
+--平顶山地址
+wsdl2java.bat -d d:\\tmp\src -p com.webservice.pds.ws -all http://123.163.55.113:8686/pdssanitate/services/SaveYCJCService?wsdl
+
+
+
+--开封禹州
+wsdl2java.bat -d d:\\tmp\src -p com.webservice.kfyz.ws -all  http://47.100.108.91/SaveDB/YCSaveDB.asmx?wsdl
+
+--洛阳洛宁
+wsdl2java.bat -d d:\\tmp\src -p com.webservice.lyln.ws -all  http://39.97.230.214/dust/api/DustSurveillance.asmx?wsdl

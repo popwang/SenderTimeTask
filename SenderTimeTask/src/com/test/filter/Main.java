@@ -20,5 +20,12 @@ public class Main {
         System.out.println(request.getRequestStr());
         System.out.println(response.getResponseStr());
 	}
-
+	/**
+	 * 过滤器链的使用：
+	 * 1.先定义一个过滤器类的接口，包含一个doFilter(request,response,filterChain);
+	 * 2.定义一个filterChain类，实现filter接口，filterChain类内部维护一个filter的集合成员变量filterList；
+	 * filterChain的dofilter方法则是依次取出filterList中的filter，做dofilter调用；
+	 * 3.filter接口的实现类在实现doFilter方法时先使用参数中request做操作；在调用参数中的filterChain的dofilter方法；
+	 * 然后使用参数中的response做操作；
+	 */
 }

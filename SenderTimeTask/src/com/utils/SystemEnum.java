@@ -69,14 +69,16 @@ public enum SystemEnum {
 	ZK_HY_SYSTEM(63,"周口淮阳平台"),
 	LY_MJ2_SYSTEM(64,"洛阳孟津住建局平台2"),
 	SM_LS_SYSTEM(65,"三门峡卢氏"),
+	XX_CY_SYSTEM(66,"新乡长垣县"),
+	SX_TY2_SYSTEM(67,"山西太原平台2"),
+	LY_LN_SYSTEM(68,"洛阳洛宁平台"),
+	HB_WH2_SYSTEM(69,"湖北武汉2平台"),
+	HN_XY_SYSTEM(70,"河南信阳平台"),
 	INSERT_SYSTEM(98,"数据替换"),
 	WEATHER_SYSTEM(99,"天气预报");
 	
 	private int id;
-	private SystemEnum(int id,String name){
-		this.id = id;
-		this.name = name;
-	}
+	
 	private String name;
 	
 	public String getName() {
@@ -95,8 +97,14 @@ public enum SystemEnum {
 		this.id = id;
 	}
 	
+	private SystemEnum(int id,String name){
+		this.id = id;
+		this.name = name;
+	}
+	
 	public static void main(String[] args){
-		System.out.println(SystemEnum.AY_HX_SYSTEM);
+		System.out.println(SystemEnum.AY_HX_SYSTEM.getId());
+		System.out.println(SystemEnum.AY_HX_SYSTEM.getName());
 	}
 	
 }

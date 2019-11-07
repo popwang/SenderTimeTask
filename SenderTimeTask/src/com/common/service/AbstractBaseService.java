@@ -23,6 +23,7 @@ public abstract class AbstractBaseService implements ServerInterface2 {
 	
 	@Override
 	public void handler(SystemEnum systemEnum) {
+		this.setSystemEnum(systemEnum);
 		List<EquipmentProjectVo> list = mapper.selectEquipmentListBySystemId(systemEnum.getId());
 		log.info(systemEnum.getName()+"本轮待发送设备数为：" + list.size());
 		for (EquipmentProjectVo vo : list) {
@@ -47,5 +48,8 @@ public abstract class AbstractBaseService implements ServerInterface2 {
 	
 	public void setSystemEnum(SystemEnum systemEnum) {
 		this.systemEnum = systemEnum;
+	}
+	public SystemEnum getSystemEnum() {
+		return systemEnum;
 	}
 }

@@ -15,12 +15,12 @@ public class CharacterDemo {
         System.out.println(ctrlChar2);
         System.out.println(ctrlChar3);
         System.out.println('\u0005');
-        System.out.println(ctrlChar1 + ctrlChar5); // 6, 说明两个char相加, 本质是code值相加
+        System.out.println(ctrlChar1 + ctrlChar5); // 6, ???????char???, ??????code????
         System.out.println(ctrlChar1 + "" + ctrlChar5); // 
         System.out.println(tab+1); // 10
         System.out.println("ha"+tab+"ha"); // ha    ha
         System.out.println("ha"+"\t"+"ha");// ha    ha 
         System.out.println(ni + hao); //  43229
-        System.out.println(ctrlChar5 + "" + ni + hao); // 你好
+        System.out.println(ctrlChar5 + "" + ni + hao); // ???
     }
 }

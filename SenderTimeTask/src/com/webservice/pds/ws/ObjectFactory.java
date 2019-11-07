@@ -10,7 +10,7 @@ import javax.xml.namespace.QName;
 /**
  * This object contains factory methods for each 
  * Java content interface and Java element interface 
- * generated in the com.my.webservice package. 
+ * generated in the com.webservice.pds.ws package. 
  * <p>An ObjectFactory allows you to programatically 
  * construct new instances of the Java representation 
  * for XML content. The Java representation of XML 
@@ -32,7 +32,7 @@ public class ObjectFactory {
     private final static QName _DataAccessExceptionRealm_QNAME = new QName("http://exception.common.dekn.com.cn", "realm");
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.my.webservice
+     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.webservice.pds.ws
      * 
      */
     public ObjectFactory() {
@@ -71,8 +71,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DataAccessException }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link DataAccessException }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link DataAccessException }{@code >}
      */
     @XmlElementDecl(namespace = "http://service.tblycjc.webservice.client.dekn.com.cn", name = "DataAccessException")
     public JAXBElement<DataAccessException> createDataAccessException(DataAccessException value) {
@@ -80,8 +84,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Throwable }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link Throwable }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link Throwable }{@code >}
      */
     @XmlElementDecl(namespace = "http://exception.common.dekn.com.cn", name = "cause", scope = DataAccessException.class)
     public JAXBElement<Throwable> createDataAccessExceptionCause(Throwable value) {
@@ -89,8 +97,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link String }{@code >}
      */
     @XmlElementDecl(namespace = "http://exception.common.dekn.com.cn", name = "define", scope = DataAccessException.class)
     public JAXBElement<String> createDataAccessExceptionDefine(String value) {
@@ -98,8 +110,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link String }{@code >}
      */
     @XmlElementDecl(namespace = "http://exception.common.dekn.com.cn", name = "message", scope = DataAccessException.class)
     public JAXBElement<String> createDataAccessExceptionMessage(String value) {
@@ -107,8 +123,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link String }{@code >}
      */
     @XmlElementDecl(namespace = "http://exception.common.dekn.com.cn", name = "position", scope = DataAccessException.class)
     public JAXBElement<String> createDataAccessExceptionPosition(String value) {
@@ -116,8 +136,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link String }{@code >}
      */
     @XmlElementDecl(namespace = "http://exception.common.dekn.com.cn", name = "realm", scope = DataAccessException.class)
     public JAXBElement<String> createDataAccessExceptionRealm(String value) {
